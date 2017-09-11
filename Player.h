@@ -5,7 +5,8 @@
 #include <cstdlib>
 #include <ctime>
 #include "math.h"
-//#include "playerMovement.h"
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
 const double pi = M_PI;
 const int x=0;
@@ -16,27 +17,32 @@ using floatVector =std::vector <float> ;
 class Player
 {
 public:
-	Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, double sizeX, double sizeY);
+	//PlayerRefactored(sf::Texture* texture);
+	Player();
 	~Player();
-
-void Update(float deltaTime);
-void Draw(sf::RenderWindow& window);
+	void Update();
+	void Draw(sf::RenderWindow& window);
 
 private:
 
+sf::Texture _playerTexture;
 sf::RectangleShape _body;
-animation _playerAnimation;
 unsigned int _row;
-float _speed;
+const float _switchTime=0.3f;
+const float _speed = 0.9f;
 bool _faceRight;
-double _radiusTolerance;
 double _theta;
-double _x_center;
-double _y_center;
-double _radius;
+const double _x_center=1920.0f/2.0f;
+const double _y_center=1080.0f/2.0f;
+const double _radius =480.0f;
+const double _speedFactor=0.0025;
+const sf::Vector2u _imageCount;
+//animation _playerAnimation;
 //playerMovement _harryMovement;
 floatVector calculatePosition(const bool &direction, float factor);
 floatVector getPostition();
+void setTexture();
 };
 
-#endif // PLAYER_H
+
+#endif // PLAYERREFACTORED_H
