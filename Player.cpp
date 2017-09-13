@@ -2,12 +2,12 @@
 
 Player::Player():
 _row{0},
-_imageCount(4,4),
-_faceRight{true}
+_theta{90*pi/180},
+//_imageCount(4,4),
+//_faceRight{true},
+stationary{false}
 {
-		srand(time(0));
-		float randomAngle=rand()%360; // generate random number between 0 and 360 degrees
-		_theta=randomAngle*pi/180;
+	//	_theta= 90*pi/180;
 		_body.setSize(sf::Vector2f(50.0f,100.0f));
 		setTexture();
 		_body.setOrigin(25.0f,50.0f);
@@ -19,31 +19,46 @@ Player::~Player()
 {
 }
 
-void Player::Update()
+bool Player::MovementDirection(userInput event)
+{
+	switch (event)
+	{
+		case userInput::PressLeft:
+				stationary=false;
+				return false;
+		case userInput::PressRight:
+				stationary=false;
+				return true;
+		case userInput::NoButtonPress:
+				stationary=true;
+				return true;
+	}
+}
+	
+void Player::Update(bool direction, float timeElapsed)
 {
 
 	floatVector movement= getPostition();
-	float factor = _speed*_speedFactor;
+	float factor = _speed*timeElapsed;
 	_row=0;
-	bool direction = false;
 	
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (!direction && !stationary)
 	{
-	direction=false;
-	movement= calculatePosition(direction, factor);
+	bool antiClockwise=false;
+	movement= calculatePosition(antiClockwise, factor);
 	}
 	
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	if(direction && !stationary)
 	{
-	direction=true;
-	movement= calculatePosition(direction, factor);
+	bool clockwise=true;
+	movement= calculatePosition(clockwise, factor);
 	}
 	
 	_body.setPosition(movement[x], movement[y]);
 	_body.setRotation(_theta*(180.0f/pi)+90);
 }
 
-void Player::Draw(sf::RenderWindow& window)
+void Player::show(sf::RenderWindow& window)
 {
 	window.draw(_body);
 }
@@ -55,22 +70,25 @@ floatVector Player::calculatePosition(const bool &direction, float factor)
 	_theta+=factor;
 	else
 	_theta-=factor;
-	
-	movement.push_back(_radius*cos(_theta)+_x_center);
-	movement.push_back(_radius*sin(_theta) +_y_center);
+	movement = getPostition();
 	return movement;
 }
 
 floatVector Player::getPostition()
 {
 	floatVector currentPosition;
-	currentPosition.push_back(_radius*cos(_theta) + _x_center);
-	currentPosition.push_back(_radius*sin(_theta) + _y_center);
+	currentPosition.push_back(_radius*cosf(_theta) + _x_center);
+	currentPosition.push_back(_radius*sinf(_theta) + _y_center);
 	return currentPosition;
+}
+
+float Player::getAngle()
+{
+	return _theta;
 }
 
 void Player::setTexture()
 {
-	_playerTexture.loadFromFile("/Users/KJ/Documents/SoftwareProject/SFMLTest/HP.png", sf::IntRect(0, 0, 150, 150));
+	_playerTexture.loadFromFile("HP.png", sf::IntRect(0, 0, 150, 150));
 	_body.setTexture(&_playerTexture);
 }
