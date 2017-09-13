@@ -3,34 +3,33 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
-#include "math.h"
 #include <SFML/Graphics.hpp>
-#include "animation.h"
 
-using floatVector =std::vector <float> ;
 
 class Enemy
 {
 public:
-	Enemy(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, double sizeX, double sizeY);
+	Enemy();
 	~Enemy();
 	
-	void Update(float deltaTime, sf::RenderWindow& window);
-	void Draw(sf::RenderWindow& window);
+	void show(sf::RenderWindow& window);
 	
-	private:
-
-sf::RectangleShape _body;
-animation _enemyAnimation;
-unsigned int _row;
-float _speed;
-bool _faceRight;
-double _theta;
-double _x_center;
-double _y_center;
-double _radius;
-floatVector calculatePosition(float factor, sf::RenderWindow& window);
-floatVector getPostition();
+	void movement(const float incrementRate);
+	
+	float shoot(float bulletSpeed, float shootPositionX, float shootPositionY, float bulletAngle);
+	
+	
+private:
+	sf::RectangleShape _body;
+	const float _bullet_size = 5.0f;
+	sf::CircleShape _bullet;
+	const float _width = 60.0f;
+	const float _height = 30.0f;
+	float _theta;
+	float _radius;
+	const float _MAX_RADIUS = 480.0f;
+	float _xPosition = 1920.0f/2.0f;
+	float _yPosition = 1080.0f/2.0f;
 };
 
 #endif // ENEMY_H

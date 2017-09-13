@@ -1,76 +1,51 @@
 #include "Enemy.h"
 
-Enemy::Enemy(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, double sizeX, double sizeY):
-_enemyAnimation{texture, imageCount, switchTime},
-	_row{0},
-	_speed{speed},
-	_faceRight{true},
-	_x_center{sizeX/2},
-	_y_center{sizeY/2},
-	_radius{0.0f}
+Enemy::Enemy():
+	_radius{0}
 {
-	//srand(time(0));
-	float randomAngle=rand()%360; // generate random number between 0 and 360 degrees
-	_theta=randomAngle*M_PI/180;
-	_body.setSize(sf::Vector2f(50.0f,100.0f));
-	
-	floatVector initialPosition=getPostition();
-	_body.setPosition(initialPosition[0], initialPosition[1]);
-	_body.setOrigin(128.0f/4.0f , 192.0f/4.0f);
-	_body.setTexture(texture);
-	
+	float randomAngle = rand()%360;
+	_theta = randomAngle*M_PI/180;
+	_body.setSize(sf::Vector2f(_width,_height));
+	_body.setOrigin(_width/2,_height/2);
+	_body.setFillColor(sf::Color::Blue);
+	_body.setRotation(randomAngle);
+	_bullet.setFillColor(sf::Color::Green);
+	_bullet.setRadius(_bullet_size);
+	_bullet.setOrigin(_bullet_size,_bullet_size);
 }
 
 Enemy::~Enemy()
 {
+	
 }
 
-void Enemy::Update(float deltaTime, sf::RenderWindow& window)
-{
-
-	float factor = _speed * deltaTime;
-	_row=0;
-	bool direction = false;
-	
-	floatVector movement = calculatePosition(factor, window);
-	
-	_enemyAnimation.Update(_row, deltaTime,_faceRight);
-	_body.setTextureRect(_enemyAnimation.textureRect);
-	_body.setPosition(movement[0], movement[1]);
-	_body.setRotation(_theta*(180.0f/M_PI)+90);
-}
-
-void Enemy::Draw(sf::RenderWindow& window)
+void Enemy::show(sf::RenderWindow& window)
 {
 	window.draw(_body);
+	window.draw(_bullet);
 }
 
-floatVector Enemy::calculatePosition(float factor, sf::RenderWindow& window)
+void Enemy::movement(const float incrementRate)
 {
-	floatVector movement;
-	_radius+=factor;
-	movement.push_back(_radius*cos(_theta)+_x_center);
-	movement.push_back(_radius*sin(_theta) +_y_center);
 	
-	//if (movement[0] >= window.getSize().x || movement[1]>=window.getSize().y)
-	if (sqrt(movement[0]*movement[0]+movement[1]*movement[1])>= 1400)
+	if(_radius < _MAX_RADIUS)
 	{
-		float randomAngle2=rand()%360; // generate random number between 0 and 360 degrees
-		_theta=randomAngle2*M_PI/180;
-		_radius=0;
-		movement[0]=(_radius*cos(_theta)+_x_center);
-		movement[1]=(_radius*sin(_theta) +_y_center);
+		_body.setPosition(_xPosition + _radius*cosf(_theta),_yPosition + _radius*sinf(_theta));
+		_radius = _radius + incrementRate;
 	}
-	
-	return movement;
-	
+	else
+	{
+	float randomAngle = rand()%360;
+	_theta = randomAngle*M_PI/180;
+	_body.setRotation(randomAngle);
+	_radius = 0;
+	}
+	//~Enemy();
 }
 
-floatVector Enemy::getPostition()
+float Enemy::shoot(float bulletSpeed, float shootPositionX, float shootPositionY, float bulletAngle)
 {
-	floatVector currentPosition;
-	currentPosition.push_back(_radius*cos(_theta) + _x_center);
-	currentPosition.push_back(_radius*sin(_theta) + _y_center);
-	return currentPosition;
+	bulletSpeed = 2.0f*bulletSpeed;
 	
+	return bulletSpeed;
 }
