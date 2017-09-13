@@ -20,6 +20,9 @@ public:
 	
 	float shoot(float bulletSpeed, float shootPositionX, float shootPositionY, float bulletAngle);
 	
+	sf::Vector2f getPosition();
+	
+	float getRadius();
 	
 private:
 	sf::RectangleShape _body;

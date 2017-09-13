@@ -47,6 +47,18 @@ float Enemy::getAngle()
 	return _theta;
 }
 
+sf::Vector2f Enemy::getPosition()
+{
+	sf::Vector2f xyPosition=_body.getPosition();
+	
+	return xyPosition;
+}
+
+float Enemy::getRadius()
+{
+	return _radius;
+}
+
 float Enemy::shoot(float bulletSpeed, float shootPositionX, float shootPositionY, float bulletAngle)
 {
 	bulletSpeed = 2.0f*bulletSpeed;
