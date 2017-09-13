@@ -25,13 +25,13 @@ void Enemy::show(sf::RenderWindow& window)
 	window.draw(_bullet);
 }
 
-void Enemy::movement(const float incrementRate)
+void Enemy::movement(float timeElapsed)
 {
 	
 	if(_radius < _MAX_RADIUS)
 	{
 		_body.setPosition(_xPosition + _radius*cosf(_theta),_yPosition + _radius*sinf(_theta));
-		_radius = _radius + incrementRate;
+		_radius = _radius + timeElapsed*_speed;
 	}
 	else
 	{
@@ -40,7 +40,11 @@ void Enemy::movement(const float incrementRate)
 	_body.setRotation(randomAngle);
 	_radius = 0;
 	}
-	//~Enemy();
+}
+
+float Enemy::getAngle()
+{
+	return _theta;
 }
 
 float Enemy::shoot(float bulletSpeed, float shootPositionX, float shootPositionY, float bulletAngle)
