@@ -34,13 +34,12 @@ void Game::Update()
 		PlayerBullet bullet(harryPotter.getAngle());
 		bulletList.push_back(bullet);
 	}
-		for (auto i=begin(bulletList); i!=end(bulletList); i++)
+
+		for (int j=0; j<bulletList.size();j++)
 		{
-			i->Update(GetTime());
-//			if (i->getPosition()[0] > 4000)
-//			{
-//				i=bulletList.erase(i);
-//			}
+			bulletList[j].Update(GetTime());
+			if (bulletList[j].getPosition()[0] > 4000)
+				bulletList.erase(bulletList.begin()+j);
 		}
 }
 

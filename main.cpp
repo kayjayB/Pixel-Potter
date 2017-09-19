@@ -10,8 +10,7 @@
 int main()
 {
 
-Game game; // Creating our game object.
-
+Game game; 
 while(!game.GetWindow()->IsDone())
 {
 		game.Update();
