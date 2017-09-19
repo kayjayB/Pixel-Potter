@@ -5,6 +5,7 @@
 #include "userInput.h"
 #include <vector>
 #include "Enemy.h"
+#include "movingEntity.h"
 
 class Window{
 
@@ -26,6 +27,7 @@ public:
 	userInput keyBoard;
 	//std::vector <userInput> keyBoard;
 	bool isShooting();
+	void show(movingEntity &entity);
 
 private:
 	sf::Texture _splashTexture;

@@ -108,3 +108,8 @@ bool Window::isShooting()
 {
 	return _isShooting;
 }
+
+void Window::show(movingEntity &entity)
+{
+	_window.draw(entity.getBody());
+}

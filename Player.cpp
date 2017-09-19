@@ -1,19 +1,14 @@
 #include "Player.h"
 
 Player::Player():
+movingEntity(50.0, 100.0, "HP.png"),
 //_row{0},
 _theta{90*pi/180},
 //_imageCount(4,4),
 //_faceRight{true},
 stationary{false}
 {
-	//	_theta= 90*pi/180;
-		_body.setSize(sf::Vector2f(50.0f,100.0f));
-		setTexture();
-		_body.setOrigin(25.0f,50.0f);
-		floatVector initialPosition=getPostition();
-		//floatVector initialPosition;
-		//getPostition(initialPosition);
+		floatVector initialPosition=getPosition();
 		_body.setPosition(initialPosition[x], initialPosition[y]);
 }
 
@@ -40,13 +35,10 @@ bool Player::MovementDirection(userInput event)
 	}
 }
 	
-//void Player::Update(bool direction, float timeElapsed, bool shooting)
 void Player::Update(bool direction, float timeElapsed)
 {
 
-	//floatVector movement;
-//	getPostition(movement);
-	floatVector movement= getPostition();
+	floatVector movement= getPosition();
 	float factor = _speed*timeElapsed;
 	_row=0;
 	
@@ -66,11 +58,6 @@ void Player::Update(bool direction, float timeElapsed)
 	_body.setRotation(_theta*(180.0f/pi)+90);
 }
 
-void Player::show(sf::RenderWindow& window)
-{
-	window.draw(_body);
-}
-
 floatVector Player::calculatePosition(const bool &direction, float factor)
 {
 	floatVector movement;
@@ -79,11 +66,11 @@ floatVector Player::calculatePosition(const bool &direction, float factor)
 	else
 	_theta-=factor;
 	//getPostition(movement);
-	movement = getPostition();
+	movement = getPosition();
 	return movement;
 }
 
-floatVector Player::getPostition()
+floatVector Player::getPosition()
 {
 	floatVector currentPosition;
 	currentPosition.push_back(_radius*cosf(_theta) + _x_center);
@@ -96,11 +83,11 @@ float Player::getAngle()
 	return _theta;
 }
 
-void Player::setTexture()
-{
-	_playerTexture.loadFromFile("HP.png", sf::IntRect(0, 0, 150, 150));
-	_body.setTexture(&_playerTexture);
-}
+//void Player::setTexture()
+//{
+//	_playerTexture.loadFromFile("HP.png", sf::IntRect(0, 0, 150, 150));
+//	_body.setTexture(&_playerTexture);
+//}
 
 float Player::getRadius()
 {

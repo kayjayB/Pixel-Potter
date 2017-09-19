@@ -4,38 +4,37 @@
 #include <cstdlib>
 #include <ctime>
 #include <SFML/Graphics.hpp>
+#include "movingEntity.h"
 
+using floatVector =std::vector <float>;
 
-class Enemy
+// The enemy class inherits from the movingEntity class
+class Enemy: public movingEntity
 {
 public:
 	Enemy();
 	~Enemy();
 	
-	void show(sf::RenderWindow& window);
+	//float shoot(float bulletSpeed, float shootPositionX, float shootPositionY, float bulletAngle);
+	virtual floatVector getPosition() override;
+	virtual float getAngle() override;
+	virtual float getRadius() override;
+	virtual void Update(bool direction, float timeElapsed) override;	
+	virtual floatVector calculatePosition(const bool& direction, float factor) override;
 	
-	void movement(float timeElapsed);
-	
-	float getAngle();
-	
-	float shoot(float bulletSpeed, float shootPositionX, float shootPositionY, float bulletAngle);
-	
-	sf::Vector2f getPosition();
-	
-	float getRadius();
 	
 private:
-	sf::RectangleShape _body;
-	const float _bullet_size = 5.0f;
+	//const float _bullet_size = 5.0f;
 	sf::CircleShape _bullet;
-	const float _width = 60.0f;
-	const float _height = 30.0f;
+	//const float _width = 60.0f;
+	//const float _height = 30.0f;
 	float _theta;
 	float _radius;
 	const float _MAX_RADIUS = 480.0f;
-	float _xPosition = 1920.0f/2.0f;
-	float _yPosition = 1080.0f/2.0f;
+	float _x_center = 1920.0f/2.0f;
+	float _y_center = 1080.0f/2.0f;
 	const float _speed = 100.9f;
+	float _randomAngle;
 };
 
 #endif // ENEMY_H

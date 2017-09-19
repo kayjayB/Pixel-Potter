@@ -8,7 +8,7 @@ PlayerBullet::PlayerBullet(float currentPlayerAngle)
 	_body.setSize(sf::Vector2f(10.0f,20.0f));
 	_body.setOrigin(5.0f,10.0f);
 	_body.setFillColor(sf::Color::Red);
-	floatVector initialPosition= getPostition();
+	floatVector initialPosition= getPosition();
 }
 
 PlayerBullet::~PlayerBullet()
@@ -24,7 +24,7 @@ void PlayerBullet::Update(float timeElapsed)
 	_body.setRotation(_angle*(180.0f/pi)+90);
 }
 
-floatVector PlayerBullet::getPostition()
+floatVector PlayerBullet::getPosition()
 {
 	floatVector currentPosition;
 	currentPosition.push_back(_bulletRadius*cosf(_angle) + _x_center);
@@ -49,7 +49,7 @@ floatVector PlayerBullet::calculatePosition(float factor)
 		movement.push_back(4000);
 		return movement;
 	}
-	movement = getPostition();
+	movement = getPosition();
 	return movement;
 }
 

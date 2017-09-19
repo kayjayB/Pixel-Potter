@@ -15,7 +15,7 @@ public:
 //	bool MovementDirection(userInput event);
 	//void Update(bool isShooting, float timeElapsed);
 	void Update(float timeElapsed);
-	floatVector getPostition();
+	floatVector getPosition();
 	void setPos(floatVector position);
 	//auto bullet_ptr;
 	//shared_ptr<Bullet> bullet_prt{new Bullet{}};
