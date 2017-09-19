@@ -29,18 +29,18 @@ void Game::Update()
 		element.Update(true, GetTime());
 	}
 	
-	if (Keyevent== userInput::PressSpace)
-	{
-		PlayerBullet bullet(harryPotter.getAngle());
-		bulletList.push_back(bullet);
-	}
-
-		for (int j=0; j<bulletList.size();j++)
-		{
-			bulletList[j].Update(GetTime());
-			if (bulletList[j].getPosition()[0] > 4000)
-				bulletList.erase(bulletList.begin()+j);
-		}
+//	if (Keyevent== userInput::PressSpace)
+//	{
+//		PlayerBullet bullet(harryPotter.getAngle());
+//		bulletList.push_back(bullet);
+//	}
+//
+//		for (int j=0; j<bulletList.size();j++)
+//		{
+//			bulletList[j].Update(true, GetTime());
+//			if (bulletList[j].getPosition()[0] > 4000)
+//				bulletList.erase(bulletList.begin()+j);
+//		}
 }
 
 void Game::Render()
@@ -48,11 +48,11 @@ void Game::Render()
 	
 	window.BeginDraw();
 	window.show(harryPotter);
-	
-	for (auto &bullets:bulletList)
-	{
-		bullets.show(window._window);
-	}
+	gameBullets=harryPotter.getBullets();
+for (auto &bullets:gameBullets)
+{
+	window.show(bullets);
+}
 	
 	for (auto &element:deathEaters)
 	{

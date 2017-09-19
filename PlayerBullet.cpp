@@ -1,27 +1,28 @@
 #include "PlayerBullet.h"
 
-PlayerBullet::PlayerBullet(float currentPlayerAngle)
+PlayerBullet::PlayerBullet(float currentPlayerAngle):
+movingEntity(10.0,20.0,""),
+_minimumRadius{0.0},
+_bulletRadius{480.0f},
+_angle{currentPlayerAngle}
 {
-	_minimumRadius=0.0;
-	_bulletRadius=480.0f;
-	_angle=currentPlayerAngle;
-	_body.setSize(sf::Vector2f(10.0f,20.0f));
-	_body.setOrigin(5.0f,10.0f);
 	_body.setFillColor(sf::Color::Red);
 	floatVector initialPosition= getPosition();
+	//_body.setPosition(initialPosition[0], initialPosition[1]);
+	setPosition(initialPosition);
 }
 
 PlayerBullet::~PlayerBullet()
 {
 }
 
-void PlayerBullet::Update(float timeElapsed)
+//void PlayerBullet::Update(bool direction, float timeElapsed)
+void PlayerBullet::Update(int direction, float timeElapsed)
 {
-	float factor = 100*timeElapsed;
-	floatVector movement= calculatePosition(factor);
-	//_body.setPosition(movement[x], movement[y]);
-	setPos(movement);
-	_body.setRotation(_angle*(180.0f/pi)+90);
+	float factor = _speed*timeElapsed;
+	floatVector movement= calculatePosition(true, factor);
+	setPosition(movement);
+	_body.setRotation(_angle*(180.0f/M_PI)+90);
 }
 
 floatVector PlayerBullet::getPosition()
@@ -32,13 +33,7 @@ floatVector PlayerBullet::getPosition()
 	return currentPosition;
 }
 
-void PlayerBullet::setPos(floatVector position)
-{
-	_body.setPosition(position[0], position[1]);
-}
-
-
-floatVector PlayerBullet::calculatePosition(float factor)
+floatVector PlayerBullet::calculatePosition(const bool &direction, float factor)
 {
 	floatVector movement;
 	_bulletRadius-=factor;
@@ -53,7 +48,12 @@ floatVector PlayerBullet::calculatePosition(float factor)
 	return movement;
 }
 
-void PlayerBullet::show(sf::RenderWindow& window)
+float PlayerBullet::getAngle()
 {
-	window.draw(_body);
+	return _angle;
+}
+
+float PlayerBullet::getRadius()
+{
+	return _bulletRadius;
 }

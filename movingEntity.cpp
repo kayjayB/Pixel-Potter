@@ -3,7 +3,9 @@
 movingEntity::movingEntity(float entityWidth, float entityHeight, string texture)
 {
 		_body.setSize(sf::Vector2f(entityWidth,entityHeight));
+		if (texture.size()!=0)
 		setTexture(texture);
+		
 		_body.setOrigin(entityWidth/2,entityHeight/2);
 }
 
@@ -25,4 +27,9 @@ void movingEntity::setTexture(string texture)
 sf::RectangleShape movingEntity::getBody() const
 {
 	return _body;
+}
+
+void movingEntity::setPosition(floatVector position)
+{
+		_body.setPosition(position[0], position[1]);
 }

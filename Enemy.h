@@ -19,7 +19,8 @@ public:
 	virtual floatVector getPosition() override;
 	virtual float getAngle() override;
 	virtual float getRadius() override;
-	virtual void Update(bool direction, float timeElapsed) override;	
+	//virtual void Update(bool direction, float timeElapsed) override;	
+	virtual void Update(int direction, float timeElapsed) override;	
 	virtual floatVector calculatePosition(const bool& direction, float factor) override;
 	
 	

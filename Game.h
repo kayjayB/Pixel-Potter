@@ -32,7 +32,7 @@ private:
     sf::Clock _clock;
     float _elapsedTime;
     bool _bulletExists;
-    std::vector<PlayerBullet> bulletList;
+    std::vector<PlayerBullet> gameBullets;
 };
 
 #endif // GAME_H

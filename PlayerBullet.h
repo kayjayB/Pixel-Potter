@@ -1,34 +1,31 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include "Player.h"
-using std::shared_ptr;
-using std::make_shared;
+#include "movingEntity.h"
+#include <cmath>
 
-// The bullet class is inherited from the player class
-class PlayerBullet //: public Player
+// The bullet class is inherited from the movingEntity class
+class PlayerBullet: public movingEntity
 {
 public:
-//	Bullet();
+
 	PlayerBullet(float currentPlayerAngle);
 	~PlayerBullet();
-//	bool MovementDirection(userInput event);
-	//void Update(bool isShooting, float timeElapsed);
-	void Update(float timeElapsed);
-	floatVector getPosition();
-	void setPos(floatVector position);
-	//auto bullet_ptr;
-	//shared_ptr<Bullet> bullet_prt{new Bullet{}};
-	 void show(sf::RenderWindow& window);
+	
+	virtual floatVector getPosition() override;
+	virtual float getAngle() override;
+	virtual float getRadius() override;
+//	virtual void Update(bool direction, float timeElapsed) override;	
+virtual void Update(int direction, float timeElapsed) override;	
 
 private:
 float _minimumRadius;
-floatVector calculatePosition(float factor);
 float _bulletRadius;
 float _angle;
+float _speed=100;
 double _x_center = 1920.0f / 2.0f;
 double _y_center = 1080.0f / 2.0f;
-sf::RectangleShape _body;
+virtual floatVector calculatePosition(const bool& direction, float factor) override;
 };
 
 #endif // BULLET_H

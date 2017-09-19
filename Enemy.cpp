@@ -2,7 +2,7 @@
 
 Enemy::Enemy():
 //movingEntity(30.0, 60.0, "HP.png"),
-movingEntity(30.0, 60.0, "madeye.png"),
+movingEntity(50.0, 100.0, "voldy.png"),
 _radius{0}
 {
 	_randomAngle = rand()%360;
@@ -10,7 +10,8 @@ _radius{0}
 	_body.setFillColor(sf::Color::Blue);
 	_body.setRotation(_randomAngle);
 	floatVector initialPosition=getPosition();
-	_body.setPosition(initialPosition[0], initialPosition[1]);
+//	_body.setPosition(initialPosition[0], initialPosition[1]);
+	setPosition(initialPosition);
 }
 
 Enemy::~Enemy()
@@ -25,7 +26,8 @@ floatVector Enemy::calculatePosition(const bool &direction, float factor)
 	return movement;
 }
 
-void Enemy::Update(bool direction, float timeElapsed)
+//void Enemy::Update(bool direction, float timeElapsed)
+void Enemy::Update(int direction, float timeElapsed)
 {
 	//floatVector movement= getPosition();
 	floatVector movement;
@@ -50,8 +52,10 @@ void Enemy::Update(bool direction, float timeElapsed)
 		_radius = 0;
 	}
 	
-	movement=calculatePosition(direction, factor);
-	_body.setPosition(movement[0], movement[1]);
+	//movement=calculatePosition(direction, factor);
+	movement=calculatePosition(1, factor);
+	//_body.setPosition(movement[0], movement[1]);
+	setPosition(movement);
 	_body.setRotation(_theta*(180.0f/M_PI)+90);
 }
 

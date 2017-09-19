@@ -1,7 +1,8 @@
 #include "Player.h"
 
 Player::Player():
-movingEntity(50.0, 100.0, "HP.png"),
+//movingEntity(50.0, 100.0, "HP.png"),
+MovingShootingEntity(50.0, 100.0, "HP.png"),
 //_row{0},
 _theta{90*pi/180},
 //_imageCount(4,4),
@@ -9,52 +10,57 @@ _theta{90*pi/180},
 stationary{false}
 {
 		floatVector initialPosition=getPosition();
-		_body.setPosition(initialPosition[x], initialPosition[y]);
+		//_body.setPosition(initialPosition[x], initialPosition[y]);
+		setPosition(initialPosition);
 }
 
 Player::~Player()
 {
 }
 
-bool Player::MovementDirection(userInput event)
+int Player::MovementDirection(userInput event)
 {
 	switch (event)
 	{
-		case userInput::PressLeft:
-				stationary=false;
-				return false;
-		case userInput::PressRight:
-				stationary=false;
-				return true;
-		case userInput::NoButtonPress:
-				stationary=true;
-				return true;
 		case userInput::PressSpace:
-				stationary=true;
-				return true;
+				return 0;
+		case userInput::PressLeft:
+				return 1;
+		case userInput::PressRight:
+				return 2;
+		case userInput::NoButtonPress:
+				return 3;
+		break;
 	}
 }
 	
-void Player::Update(bool direction, float timeElapsed)
+void Player::Update(int direction, float timeElapsed)
 {
 
 	floatVector movement= getPosition();
 	float factor = _speed*timeElapsed;
 	_row=0;
+	bool clockwise;
 	
-	if (!direction && !stationary)
+	switch (direction)
 	{
-	bool antiClockwise=false;
-	movement= calculatePosition(antiClockwise, factor);
+		case 0:
+		createBullets();
+		break;
+		case 1:
+		clockwise=false;
+		movement= calculatePosition(clockwise, factor);
+		break;
+		case 2:
+		clockwise=true;
+		movement= calculatePosition(clockwise, factor);
+		break;
+		case 3:
+		break;
 	}
 	
-	if(direction && !stationary)
-	{
-	bool clockwise=true;
-	movement= calculatePosition(clockwise, factor);
-	}
-	
-	_body.setPosition(movement[x], movement[y]);
+	updateBullets(timeElapsed);
+	setPosition(movement);
 	_body.setRotation(_theta*(180.0f/pi)+90);
 }
 
@@ -65,7 +71,6 @@ floatVector Player::calculatePosition(const bool &direction, float factor)
 	_theta+=factor;
 	else
 	_theta-=factor;
-	//getPostition(movement);
 	movement = getPosition();
 	return movement;
 }
@@ -83,13 +88,29 @@ float Player::getAngle()
 	return _theta;
 }
 
-//void Player::setTexture()
-//{
-//	_playerTexture.loadFromFile("HP.png", sf::IntRect(0, 0, 150, 150));
-//	_body.setTexture(&_playerTexture);
-//}
 
 float Player::getRadius()
 {
 	return _radius;
 }
+
+void Player::createBullets()
+{
+		PlayerBullet bullet(_theta);
+		bulletList.push_back(bullet);
+}
+
+void Player::updateBullets(float timeElapsed)
+{
+			for (int j=0; j<bulletList.size();j++)
+		{
+			bulletList[j].Update(true, timeElapsed);
+			if (bulletList[j].getPosition()[0] > 4000)
+				bulletList.erase(bulletList.begin()+j);
+		}
+}
+
+std::vector<PlayerBullet> Player::getBullets()
+{
+	return bulletList;
+} 

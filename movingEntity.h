@@ -18,11 +18,14 @@ virtual floatVector getPosition();
 
 virtual float getRadius()=0;
 
-virtual void Update(bool direction, float timeElapsed)=0;
+//virtual void Update(bool direction, float timeElapsed)=0;
+virtual void Update(int direction, float timeElapsed) =0;	
 
 void setTexture(string texture);
 
 sf::RectangleShape getBody() const;
+
+void setPosition(floatVector position);
 
 protected:
 
