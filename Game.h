@@ -19,17 +19,14 @@ public:
     ~Game();
     void Update();
     void Render();
-    // shared_ptr<Bullet> Update();
     Window* GetWindow();
     float GetTime();
     void RestartClock();
 
 private:
 	Window window;
-   Player harryPotter;
-    // Bullet harryBullet;
-    std::vector<Enemy> deathEaters;
-    // sf::Event direction;
+    Player harryPotter;
+	std::vector<Enemy> deathEaters;
     int numberOfEnemies;
     // float deltaTime;
     sf::Clock _clock;

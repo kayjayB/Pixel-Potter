@@ -7,7 +7,6 @@ movingEntity::movingEntity(float entityWidth, float entityHeight, string texture
 		_body.setOrigin(entityWidth/2,entityHeight/2);
 }
 
-
 floatVector movingEntity::getPosition()
 {
 	floatVector position;
