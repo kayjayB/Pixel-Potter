@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player():
-_row{0},
+//_row{0},
 _theta{90*pi/180},
 //_imageCount(4,4),
 //_faceRight{true},
@@ -12,6 +12,8 @@ stationary{false}
 		setTexture();
 		_body.setOrigin(25.0f,50.0f);
 		floatVector initialPosition=getPostition();
+		//floatVector initialPosition;
+		//getPostition(initialPosition);
 		_body.setPosition(initialPosition[x], initialPosition[y]);
 }
 
@@ -32,12 +34,18 @@ bool Player::MovementDirection(userInput event)
 		case userInput::NoButtonPress:
 				stationary=true;
 				return true;
+		case userInput::PressSpace:
+				stationary=true;
+				return true;
 	}
 }
 	
+//void Player::Update(bool direction, float timeElapsed, bool shooting)
 void Player::Update(bool direction, float timeElapsed)
 {
 
+	//floatVector movement;
+//	getPostition(movement);
 	floatVector movement= getPostition();
 	float factor = _speed*timeElapsed;
 	_row=0;
@@ -70,6 +78,7 @@ floatVector Player::calculatePosition(const bool &direction, float factor)
 	_theta+=factor;
 	else
 	_theta-=factor;
+	//getPostition(movement);
 	movement = getPostition();
 	return movement;
 }
@@ -91,4 +100,9 @@ void Player::setTexture()
 {
 	_playerTexture.loadFromFile("HP.png", sf::IntRect(0, 0, 150, 150));
 	_body.setTexture(&_playerTexture);
+}
+
+float Player::getRadius()
+{
+	return _radius;
 }

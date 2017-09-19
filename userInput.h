@@ -6,6 +6,7 @@ enum class userInput
 	PressLeft,
 	PressRight,
 	NoButtonPress,
+	PressSpace,
 };
 
 #endif

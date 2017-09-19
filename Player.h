@@ -1,6 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "animation.h"
+//#include "animation.h"
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
@@ -25,6 +25,7 @@ class Player
 		void show(sf::RenderWindow& window);
 		floatVector getPostition();
 		float getAngle();
+		float getRadius();
 		bool MovementDirection(userInput event);
 		void Update(bool direction, float timeElapsed);	
 		
@@ -33,9 +34,9 @@ class Player
         sf::RectangleShape _body;
         unsigned int _row;
       //  const float _switchTime = 0.3f;
-        const float _speed = 0.9f;
+		float _speed = 0.9f;
 //        bool _faceRight;
-        double _theta;
+		double _theta;
         bool stationary;
         const double _x_center = 1920.0f / 2.0f;
         const double _y_center = 1080.0f / 2.0f;
