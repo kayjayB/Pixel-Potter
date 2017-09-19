@@ -22,6 +22,8 @@ public:
 	//virtual void Update(bool direction, float timeElapsed) override;	
 	virtual void Update(int direction, float timeElapsed) override;	
 	virtual floatVector calculatePosition(const bool& direction, float factor) override;
+	static floatVector angles;
+	static bool angleCompare();
 	
 	
 private:
@@ -36,6 +38,7 @@ private:
 	float _y_center = 1080.0f/2.0f;
 	const float _speed = 100.9f;
 	float _randomAngle;
+
 };
 
 #endif // ENEMY_H

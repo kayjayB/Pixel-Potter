@@ -2,20 +2,40 @@
 
 Enemy::Enemy():
 //movingEntity(30.0, 60.0, "HP.png"),
-movingEntity(50.0, 100.0, "voldy.png"),
-_radius{0}
+movingEntity(30.0, 60.0, "voldy.png"),
+_radius{0.5}
 {
 	_randomAngle = rand()%360;
 	_theta = _randomAngle*M_PI/180;
+	Enemy::angles.push_back(_theta);
+	while (angleCompare())
+	{
+		_randomAngle = rand()%360;
+		_theta = _randomAngle*M_PI/180;
+	}
 	_body.setFillColor(sf::Color::Blue);
 	_body.setRotation(_randomAngle);
 	floatVector initialPosition=getPosition();
-//	_body.setPosition(initialPosition[0], initialPosition[1]);
 	setPosition(initialPosition);
 }
 
 Enemy::~Enemy()
 {	
+}
+
+floatVector Enemy::angles;
+
+bool Enemy::angleCompare()
+{
+	//for (auto i=begin(Enemy::angles);i!=(end(Enemy::angles)-1); i++)
+	for (int i=0; i!=angles.size()-1; i++)
+	{
+		if ( std::fabs(angles[i]-angles[i+1])<=(20*M_PI/180))
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 floatVector Enemy::calculatePosition(const bool &direction, float factor)
@@ -26,24 +46,10 @@ floatVector Enemy::calculatePosition(const bool &direction, float factor)
 	return movement;
 }
 
-//void Enemy::Update(bool direction, float timeElapsed)
 void Enemy::Update(int direction, float timeElapsed)
 {
-	//floatVector movement= getPosition();
 	floatVector movement;
 	float factor = _speed*timeElapsed;
-	
-//		if(_radius < _MAX_RADIUS)
-//	{
-//		movement=calculatePosition(direction, factor);
-//	}
-//	else
-//	{
-//		_randomAngle = rand()%360;
-//		_theta = _randomAngle*M_PI/180;
-//		_radius = 0;
-//		movement=calculatePosition(direction, factor);
-//	}
 
 	if (_radius>= _MAX_RADIUS)
 	{
@@ -52,9 +58,7 @@ void Enemy::Update(int direction, float timeElapsed)
 		_radius = 0;
 	}
 	
-	//movement=calculatePosition(direction, factor);
-	movement=calculatePosition(1, factor);
-	//_body.setPosition(movement[0], movement[1]);
+	movement=calculatePosition(true, factor);
 	setPosition(movement);
 	_body.setRotation(_theta*(180.0f/M_PI)+90);
 }
