@@ -8,7 +8,7 @@
 TEST_CASE("Player is not initilised in the center of the screen")
 {
 	Player testPlayer;
-	std::vector<float> position =testPlayer.getPostition();
+	std::vector<float> position =testPlayer.getPosition();
 	std::vector <float> origin(1920/2, 1080/2);
 	CHECK_FALSE( position== origin);
 }
@@ -25,12 +25,12 @@ TEST_CASE("Player is initialised at cartesian 270 degrees")
 TEST_CASE("Player moves anticlockwise when the left arrow is pressed")
 {
 	Player testPlayer;
-	std::vector<float> initialPosition= testPlayer.getPostition();
+	std::vector<float> initialPosition= testPlayer.getPosition();
 	userInput left = userInput::PressLeft;
-	bool direction = testPlayer.MovementDirection(left);
+	int direction = testPlayer.MovementDirection(left);
 	float time = 0.1f;
 	testPlayer.Update(direction, time);
-	std::vector<float> finalPosition= testPlayer.getPostition();
+	std::vector<float> finalPosition= testPlayer.getPosition();
 	double factor = 0.9 * time;
 	auto expectedAngle= 90*pi/180-factor;
 	double x_center = 1920.0f / 2.0f;
@@ -46,12 +46,12 @@ TEST_CASE("Player moves anticlockwise when the left arrow is pressed")
 TEST_CASE("Player moves clockwise when the left arrow is pressed")
 {
 	Player testPlayer;
-	std::vector<float> initialPosition= testPlayer.getPostition();
+	std::vector<float> initialPosition= testPlayer.getPosition();
 	userInput right = userInput::PressRight;
-	bool direction = testPlayer.MovementDirection(right);
+	int direction = testPlayer.MovementDirection(right);
 	float time = 0.1f;
 	testPlayer.Update(direction, time);
-	std::vector<float> finalPosition= testPlayer.getPostition();
+	std::vector<float> finalPosition= testPlayer.getPosition();
 	double factor = 0.9 * time;
 	auto expectedAngle= 90*pi/180+factor;
 	double x_center = 1920.0f / 2.0f;
@@ -67,12 +67,12 @@ TEST_CASE("Player moves clockwise when the left arrow is pressed")
 TEST_CASE("Player does not move when there is no user input")
 {
 	Player testPlayer;
-	std::vector<float> initialPosition= testPlayer.getPostition();
+	std::vector<float> initialPosition= testPlayer.getPosition();
 	userInput noInput = userInput::NoButtonPress;
-	bool direction = testPlayer.MovementDirection(noInput);
+	int direction = testPlayer.MovementDirection(noInput);
 	float time = 0.1f;
 	testPlayer.Update(direction, time);
-	std::vector<float> finalPosition= testPlayer.getPostition();
+	std::vector<float> finalPosition= testPlayer.getPosition();
 	CHECK(initialPosition==finalPosition);
 
 }

@@ -15,15 +15,21 @@ public:
 	Enemy();
 	~Enemy();
 	
-	//float shoot(float bulletSpeed, float shootPositionX, float shootPositionY, float bulletAngle);
 	virtual floatVector getPosition() override;
+	
 	virtual float getAngle() override;
+	
 	virtual float getRadius() override;
-	//virtual void Update(bool direction, float timeElapsed) override;	
+	
 	virtual void Update(int direction, float timeElapsed) override;	
+	
 	virtual floatVector calculatePosition(const bool& direction, float factor) override;
+	
 	static floatVector angles;
+	
 	static bool angleCompare();
+	
+	virtual EntityList getEntityType() override;
 	
 	
 private:
@@ -38,6 +44,7 @@ private:
 	float _y_center = 1080.0f/2.0f;
 	const float _speed = 100.9f;
 	float _randomAngle;
+	EntityList _entityType;
 
 };
 

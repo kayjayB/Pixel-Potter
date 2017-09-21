@@ -1,15 +1,17 @@
 #include "PlayerBullet.h"
 
 PlayerBullet::PlayerBullet(float currentPlayerAngle):
-movingEntity(10.0,20.0,""),
+movingEntity(10.0,20.0,"", 1),
 _minimumRadius{0.0},
 _bulletRadius{480.0f},
-_angle{currentPlayerAngle}
+_angle{currentPlayerAngle},
+_entityType{EntityList::PlayerBulletEntity}
 {
 	_body.setFillColor(sf::Color::Red);
 	floatVector initialPosition= getPosition();
 	//_body.setPosition(initialPosition[0], initialPosition[1]);
 	setPosition(initialPosition);
+//	movingEntity::entityList.push_back(this);
 }
 
 PlayerBullet::~PlayerBullet()
@@ -56,4 +58,9 @@ float PlayerBullet::getAngle()
 float PlayerBullet::getRadius()
 {
 	return _bulletRadius;
+}
+
+EntityList PlayerBullet::getEntityType()
+{
+	return _entityType;
 }

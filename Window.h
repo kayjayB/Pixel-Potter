@@ -13,6 +13,7 @@ public:
 
 	Window();
 	~Window();
+	void closeWindow();
 	void BeginDraw();
 	void EndDraw();
 	userInput Update();
@@ -24,10 +25,15 @@ public:
 	void SplashScreen();
 	//bool SplashScreen();
 	bool EndSplashScreen(const sf::Sprite &background);
+	
+	void Lose();
+	//bool SplashScreen();
+	bool EndLose(const sf::Sprite &background);
 	userInput keyBoard;
 	//std::vector <userInput> keyBoard;
 	bool isShooting();
 	void show(movingEntity &entity);
+	void showPointer(std::shared_ptr<movingEntity> entity);
 
 private:
 	sf::Texture _splashTexture;

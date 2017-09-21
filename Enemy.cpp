@@ -2,18 +2,19 @@
 
 Enemy::Enemy():
 //movingEntity(30.0, 60.0, "HP.png"),
-movingEntity(30.0, 60.0, "voldy.png"),
-_radius{0.5}
+movingEntity(40.0, 80.0, "voldy.png", 1),
+_radius{0.5},
+_entityType{EntityList::EnemyEntity}
 {
 	_randomAngle = rand()%360;
 	_theta = _randomAngle*M_PI/180;
-	Enemy::angles.push_back(_theta);
-	while (angleCompare())
-	{
-		_randomAngle = rand()%360;
-		_theta = _randomAngle*M_PI/180;
-	}
-	_body.setFillColor(sf::Color::Blue);
+//	Enemy::angles.push_back(_theta);
+//	while (angleCompare())
+//	{
+//		_randomAngle = rand()%360;
+//		_theta = _randomAngle*M_PI/180;
+//	}
+//	_body.setFillColor(sf::Color::Blue);
 	_body.setRotation(_randomAngle);
 	floatVector initialPosition=getPosition();
 	setPosition(initialPosition);
@@ -25,18 +26,18 @@ Enemy::~Enemy()
 
 floatVector Enemy::angles;
 
-bool Enemy::angleCompare()
-{
-	//for (auto i=begin(Enemy::angles);i!=(end(Enemy::angles)-1); i++)
-	for (int i=0; i!=angles.size()-1; i++)
-	{
-		if ( std::fabs(angles[i]-angles[i+1])<=(20*M_PI/180))
-		{
-			return true;
-		}
-	}
-	return false;
-}
+//bool Enemy::angleCompare()
+//{
+//	//for (auto i=begin(Enemy::angles);i!=(end(Enemy::angles)-1); i++)
+//	for (int i=0; i!=angles.size()-1; i++)
+//	{
+//		if ( std::fabs(angles[i]-angles[i+1])<=(20*M_PI/180))
+//		{
+//			return true;
+//		}
+//	}
+//	return false;
+//}
 
 floatVector Enemy::calculatePosition(const bool &direction, float factor)
 {
@@ -88,3 +89,8 @@ float Enemy::getRadius()
 //	
 //	return bulletSpeed;
 //}
+
+EntityList Enemy::getEntityType()
+{
+	return _entityType;
+}

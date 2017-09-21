@@ -2,16 +2,18 @@
 
 Player::Player():
 //movingEntity(50.0, 100.0, "HP.png"),
-MovingShootingEntity(50.0, 100.0, "HP.png"),
+MovingShootingEntity(50.0, 100.0, "HP.png", 1),
 //_row{0},
 _theta{90*pi/180},
 //_imageCount(4,4),
 //_faceRight{true},
-stationary{false}
+stationary{false},
+_entityType{EntityList::PlayerEntity}
 {
 		floatVector initialPosition=getPosition();
 		//_body.setPosition(initialPosition[x], initialPosition[y]);
 		setPosition(initialPosition);
+		
 }
 
 Player::~Player()
@@ -96,21 +98,34 @@ float Player::getRadius()
 
 void Player::createBullets()
 {
-		PlayerBullet bullet(_theta);
-		bulletList.push_back(bullet);
+		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
+		bulletList.push_back(bulletPtr);
+//		PlayerBullet bullet();
+	//	bulletList.push_back(bullet);
+	//	movingEntity::entities.push_back(EntityList::PlayerBulletEntity);
+		movingEntity::entityList.push_back(bulletPtr);
 }
 
 void Player::updateBullets(float timeElapsed)
 {
 			for (int j=0; j<bulletList.size();j++)
 		{
-			bulletList[j].Update(true, timeElapsed);
-			if (bulletList[j].getPosition()[0] > 4000)
+			bulletList[j]->Update(true, timeElapsed);
+			if (bulletList[j]->getPosition()[0] > 4000)
 				bulletList.erase(bulletList.begin()+j);
 		}
 }
 
-std::vector<PlayerBullet> Player::getBullets()
+//std::vector<PlayerBullet> Player::getBullets()
+//{
+//	return bulletList;
+//} 
+std::vector<std::shared_ptr<PlayerBullet>> Player::getBullets()
 {
 	return bulletList;
-} 
+}
+
+EntityList Player::getEntityType()
+{
+	return _entityType;
+}

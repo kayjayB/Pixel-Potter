@@ -1,13 +1,17 @@
 #include "movingEntity.h"
 
-movingEntity::movingEntity(float entityWidth, float entityHeight, string texture)
+movingEntity::movingEntity(float entityWidth, float entityHeight, string texture, int lives):
+_entityWidth{entityWidth},
+_entityHeight{entityHeight},
+_lives{lives}
 {
-		_body.setSize(sf::Vector2f(entityWidth,entityHeight));
+		_body.setSize(sf::Vector2f(_entityWidth,_entityHeight));
 		if (texture.size()!=0)
 		setTexture(texture);
-		
-		_body.setOrigin(entityWidth/2,entityHeight/2);
+		_body.setOrigin(_entityHeight/2,_entityHeight/2);
 }
+
+std::vector<std::shared_ptr<movingEntity>> movingEntity::entityList;
 
 floatVector movingEntity::getPosition()
 {
@@ -20,8 +24,12 @@ floatVector movingEntity::getPosition()
 
 void movingEntity::setTexture(string texture)
 {
+	if (texture.size()!=0)
+	{
 	_Texture.loadFromFile(texture, sf::IntRect(0, 0, 150, 150));
 	_body.setTexture(&_Texture);
+	}
+	
 }
 
 sf::RectangleShape movingEntity::getBody() const
@@ -32,4 +40,38 @@ sf::RectangleShape movingEntity::getBody() const
 void movingEntity::setPosition(floatVector position)
 {
 		_body.setPosition(position[0], position[1]);
+}
+
+floatVector movingEntity::getBodySize()
+{
+	floatVector bodySize;
+	bodySize.push_back(_entityWidth);
+	bodySize.push_back(_entityHeight);
+	
+	return bodySize;
+}
+
+//void movingEntity::entityCleanUp()
+//{
+//	for (auto i=begin(entityList); i!=end(entityList); i++)
+//	{
+//		if (_lives == 0)
+//		{
+//			std::cout << "Deleting";
+//			i= entityList.erase(i);
+//		}
+//	}
+//	
+//}
+
+int movingEntity::getLives()
+{
+	return _lives;
+	
+}
+
+void movingEntity::setLives(int life)
+{
+	_lives=life;
+	
 }

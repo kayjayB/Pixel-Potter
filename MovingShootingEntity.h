@@ -14,7 +14,7 @@
 class MovingShootingEntity: public movingEntity
 {
 public:
-	MovingShootingEntity(float entityWidth, float entityHeight, string texture);
+	MovingShootingEntity(float entityWidth, float entityHeight, string texture,  int lives);
 	~MovingShootingEntity();
 
 virtual float getAngle() override =0;

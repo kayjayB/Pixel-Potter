@@ -13,6 +13,11 @@ Window::~Window()
     _window.close();
 }
 
+void Window::closeWindow()
+{
+	_window.close();
+}
+
 void Window::BeginDraw()
 {
     _window.clear(sf::Color::White);
@@ -104,6 +109,40 @@ bool Window::EndSplashScreen(const sf::Sprite& background)
     }
 }
 
+void Window::Lose()
+{
+
+	_splashTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080));
+    sf::Sprite background(_splashTexture);
+   BeginDraw();
+    while(_window.isOpen()) {
+
+	if(EndLose(background))
+	    return;
+    }
+}
+
+bool Window::EndLose(const sf::Sprite& background)
+{
+    sf::Event endSplash;
+
+    while(_window.pollEvent(endSplash)) {
+	//if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+	    _isDone = false;
+	    return true;
+	}
+	if(endSplash.type == sf::Event::Closed) {
+	    _isDone = true;
+	    _window.close();
+	    return false;
+	}
+
+	_window.draw(background);
+	_window.display();
+    }
+}
+
 bool Window::isShooting()
 {
 	return _isShooting;
@@ -113,3 +152,9 @@ void Window::show(movingEntity &entity)
 {
 	_window.draw(entity.getBody());
 }
+
+void Window::showPointer(std::shared_ptr<movingEntity> entity)
+{
+	_window.draw(entity->getBody());
+}
+
