@@ -28,7 +28,7 @@ class Player: public MovingShootingEntity
 {
 	public:
 		Player();
-		~Player();
+	//	~Player();
 		
 		virtual floatVector getPosition() override;
 		
@@ -41,13 +41,16 @@ class Player: public MovingShootingEntity
 		virtual void Update(int direction, float timeElapsed) override;	
 		
 		//std::vector<PlayerBullet> getBullets();
-		std::vector<std::shared_ptr<PlayerBullet>> getBullets();
+	//	std::vector<std::shared_ptr<PlayerBullet>> getBullets();
+	std::vector<std::weak_ptr<PlayerBullet>> getBullets();
 		
 		virtual void createBullets() override;
 		
-		virtual void updateBullets(float timeElapsed) override;
+	//	virtual void updateBullets(float timeElapsed) override;
 		
 		virtual EntityList getEntityType() override;
+		
+		void resetPosition();
 		
    private:
         unsigned int _row;
@@ -61,9 +64,11 @@ class Player: public MovingShootingEntity
         const double _radius = 480.0f;
         const sf::Vector2u _imageCount;
 		//std::vector<PlayerBullet> bulletList;
-		std::vector<std::shared_ptr<PlayerBullet>> bulletList;
+		//std::vector<std::shared_ptr<PlayerBullet>> bulletList;
+	//	std::vector<std::weak_ptr<PlayerBullet> >bulletList;
        virtual floatVector calculatePosition(const bool& direction, float factor) override;
 	   EntityList _entityType;
+	   int _checkShoot;
 	  
 };
 

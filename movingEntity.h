@@ -51,6 +51,8 @@ sf::RectangleShape _body;
 
 virtual floatVector calculatePosition(const bool& direction, float factor)=0;
 
+//~movingEntity();
+
 private:
 
 sf::Texture _Texture;

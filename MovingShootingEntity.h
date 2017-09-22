@@ -15,7 +15,6 @@ class MovingShootingEntity: public movingEntity
 {
 public:
 	MovingShootingEntity(float entityWidth, float entityHeight, string texture,  int lives);
-	~MovingShootingEntity();
 
 virtual float getAngle() override =0;
 
@@ -27,7 +26,7 @@ virtual float getRadius() override =0;
 virtual void Update(int direction, float timeElapsed) override =0;
 
 virtual void createBullets()=0;
-virtual void updateBullets(float timeElapsed)=0;
+//virtual void updateBullets(float timeElapsed)=0;
 //virtual std::vector<movingEntity> shoot(float timeElapsed)=0;
 //virtual shared_ptr<movingEntity> shoot(float timeElapsed)=0;
 //virtual shared_ptr<std::vector<movingEntity>> shoot(float timeElapsed) =0;
@@ -36,6 +35,8 @@ virtual void updateBullets(float timeElapsed)=0;
 
 protected:
 virtual floatVector calculatePosition(const bool& direction, float factor) override=0;
+
+//~MovingShootingEntity();
 
 };
 

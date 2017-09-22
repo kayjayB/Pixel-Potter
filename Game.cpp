@@ -3,11 +3,11 @@
 Game::Game()
 {
 	window.SplashScreen();
-	_elapsedTime=0.0f;
+	_elapsedTime=0.0;
 	_bulletExists=false;
 	srand(time(0));
 	movingEntity::entityList.push_back(playerPtr);
-	createEnemies();
+	_totalTime=0.0;
 }
 
 Game::~Game()
@@ -16,56 +16,49 @@ Game::~Game()
 
 void Game::createEnemies()
 {
-	numberOfEnemies=10;
-	for (auto i=0; i!=numberOfEnemies; i++)
+	if (_elapsedTime > 0.01 && Enemy::getNumberofEnemies()<5)
 	{
+		std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
+	//	std::weak_ptr <Enemy> weakEnemy(enemyPtr);
+	//	deathEaters.push_back(weakEnemy);
 
-	std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
-	deathEaters.push_back(enemyPtr);
-
-	movingEntity::entityList.push_back(enemyPtr);
+		movingEntity::entityList.push_back(enemyPtr);
+		_clockTotal.restart();
+		
 	}
 }
 
 void Game::Update()
 {
-	
+	if (window.reset==true)
+	{
+		playerPtr->resetPosition();
+		movingEntity::entityList.push_back(playerPtr);
+	}
+	createEnemies();
+
 	userInput Keyevent =window.Update();
 	playerPtr->Update(playerPtr->MovementDirection(Keyevent), GetTime());
-	
-	for (auto & element: deathEaters)
-	{
-		element->Update(1, GetTime());
-	}
 
-checkCollision();
+for (auto i =(begin(movingEntity::entityList )+1); i!=end(movingEntity::entityList); ++i)
+{
+	(*i)->Update(1, GetTime());
+}
 
-entityCleanUp();
-	
+	checkCollision();
+
+	entityCleanUp();
 }
 
 void Game::Render()
 {
 	
 	window.BeginDraw();
-//	window.showPointer(playerPtr);
-//	gameBullets=playerPtr->getBullets();
-//
-//for (auto &bullets:gameBullets)
-//{
-//	window.showPointer(bullets);
-//}
-//	
-//	for (auto &element:deathEaters)
-//	{
-//		window.showPointer(element);
-//	}
 
-
-	for (auto element: movingEntity::entityList)
-	{
-		window.showPointer(element);
-	}	
+for (auto i= begin(movingEntity::entityList); i!=end(movingEntity::entityList);i++)
+{
+	window.showPointer((*i));
+}
 	
 	window.EndDraw(); 
 }
@@ -83,6 +76,7 @@ float Game::GetTime()
 void Game::RestartClock()
 { 
 	_elapsedTime = _clock.restart().asSeconds();
+	_totalTime=_clockTotal.getElapsedTime().asSeconds();
 }
 
 void Game::checkCollision()
@@ -95,27 +89,22 @@ for (int i=0; i<movingEntity::entityList.size();i++)
 	{
 		if (i!=j)
 		{
-			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity && movingEntity::entityList[j]->getEntityType()== EntityList::EnemyEntity)
-			{
-				if (Collision(i,j)) 
-				{
-				// movingEntity::entityList[i]->setLives(movingEntity::entityList[i]->getLives()-1);
-				// std:: cout << movingEntity::entityList[i]->getLives();
-				// movingEntity::entityList[j]->setLives(movingEntity::entityList[j]->getLives()-1);
-					//movingEntity::entityList.erase(movingEntity::entityList.begin()+i);
-					//movingEntity::entityList.erase(movingEntity::entityList.begin()+j);
-					movingEntity::entityList[i]->setLives(0);
-					movingEntity::entityList[j]->setLives(0);
-				}
-		}
 		if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity && movingEntity::entityList[j]->getEntityType()== EntityList::EnemyEntity)
 		{
 		
 			if (Collision(i,j))
 			{
+				
 				window.Lose();
-				//return;
 			}
+		}
+			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity && movingEntity::entityList[j]->getEntityType()== EntityList::EnemyEntity)
+			{
+				if (Collision(i,j)) 
+				{
+					movingEntity::entityList[i]->setLives(0);
+					movingEntity::entityList[j]->setLives(0);
+				}
 		}
 		
 		}
@@ -140,18 +129,27 @@ bool Game::Collision(int i, int j)
 		{
 			return true;
 		}
+		
 		return false;
 }
 
 void Game::entityCleanUp()
 {
-	for (auto i=begin(movingEntity::entityList); i!=end(movingEntity::entityList); i++)
+	for (auto i=begin(movingEntity::entityList); i!=end(movingEntity::entityList);)
 	{
 		if ((*i)->getLives() == 0)
 		{
-		//	std::cout << "Deleting";
-			i= movingEntity::entityList.erase(i);
+			movingEntity::entityList.erase(i);
+		}
+		else 
+		{
+			i++;
 		}
 	}
-	
+}
+
+void Game::Reset()
+{
+	movingEntity::entityList.clear();
+	movingEntity::entityList.push_back(playerPtr);
 }

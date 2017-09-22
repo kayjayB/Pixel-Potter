@@ -5,7 +5,4 @@ movingEntity(entityWidth, entityHeight, texture, lives)
 {
 }
 
-MovingShootingEntity::~MovingShootingEntity()
-{
-}
-
+//MovingShootingEntity::~MovingShootingEntity() {}

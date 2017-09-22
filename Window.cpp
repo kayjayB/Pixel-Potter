@@ -5,6 +5,8 @@ Window::Window()
 {
     _isDone = false;
 	_isShooting=false;
+	reset=false;
+	_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080));
 
 }
 
@@ -36,6 +38,7 @@ bool Window::IsDone()
 //std::vector<userInput> Window::Update()
 userInput Window::Update()
 {
+	reset=false;
     sf::Event event;
     // sf::Event keyPress;
     while(_window.pollEvent(event)) 
@@ -112,13 +115,17 @@ bool Window::EndSplashScreen(const sf::Sprite& background)
 void Window::Lose()
 {
 
-	_splashTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080));
-    sf::Sprite background(_splashTexture);
+//	_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080));
+   sf::Sprite backgroundLose(_loseTexture);
    BeginDraw();
+   movingEntity::entityList.clear();
     while(_window.isOpen()) {
 
-	if(EndLose(background))
+	if(EndLose(backgroundLose))
+	{
+		reset=true;
 	    return;
+	}
     }
 }
 
@@ -139,6 +146,7 @@ bool Window::EndLose(const sf::Sprite& background)
 	}
 
 	_window.draw(background);
+	
 	_window.display();
     }
 }

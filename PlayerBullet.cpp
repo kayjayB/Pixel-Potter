@@ -14,16 +14,21 @@ _entityType{EntityList::PlayerBulletEntity}
 //	movingEntity::entityList.push_back(this);
 }
 
-PlayerBullet::~PlayerBullet()
-{
-}
+//PlayerBullet::~PlayerBullet()
+//{
+//}
 
 //void PlayerBullet::Update(bool direction, float timeElapsed)
 void PlayerBullet::Update(int direction, float timeElapsed)
 {
 	float factor = _speed*timeElapsed;
 	floatVector movement= calculatePosition(true, factor);
-	setPosition(movement);
+	
+		if (getPosition()[0] > 4000)
+		{
+		setLives(0);
+		}
+		setPosition(movement);
 	_body.setRotation(_angle*(180.0f/M_PI)+90);
 }
 

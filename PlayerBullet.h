@@ -10,7 +10,7 @@ class PlayerBullet: public movingEntity
 public:
 
 	PlayerBullet(float currentPlayerAngle);
-	~PlayerBullet();
+//	~PlayerBullet();
 	
 	virtual floatVector getPosition() override;
 	virtual float getAngle() override;
@@ -18,7 +18,7 @@ public:
 //	virtual void Update(bool direction, float timeElapsed) override;	
 virtual void Update(int direction, float timeElapsed) override;	
 
-	virtual EntityList getEntityType() override;
+virtual EntityList getEntityType() override;
 
 private:
 float _minimumRadius;

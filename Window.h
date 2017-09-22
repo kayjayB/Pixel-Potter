@@ -29,14 +29,19 @@ public:
 	void Lose();
 	//bool SplashScreen();
 	bool EndLose(const sf::Sprite &background);
+	//bool EndLose();
 	userInput keyBoard;
 	//std::vector <userInput> keyBoard;
 	bool isShooting();
 	void show(movingEntity &entity);
 	void showPointer(std::shared_ptr<movingEntity> entity);
+	
+	bool reset;
 
 private:
+//	sf::Sprite backgroundLose;
 	sf::Texture _splashTexture;
+	sf::Texture _loseTexture;
 	void Destroy();
 	bool _isDone; 
 	bool _isShooting;

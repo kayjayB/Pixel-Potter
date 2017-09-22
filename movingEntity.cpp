@@ -11,6 +11,8 @@ _lives{lives}
 		_body.setOrigin(_entityHeight/2,_entityHeight/2);
 }
 
+//movingEntity::~movingEntity() {}
+
 std::vector<std::shared_ptr<movingEntity>> movingEntity::entityList;
 
 floatVector movingEntity::getPosition()

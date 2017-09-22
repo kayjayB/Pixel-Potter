@@ -8,7 +8,8 @@ _theta{90*pi/180},
 //_imageCount(4,4),
 //_faceRight{true},
 stationary{false},
-_entityType{EntityList::PlayerEntity}
+_entityType{EntityList::PlayerEntity},
+_checkShoot{0}
 {
 		floatVector initialPosition=getPosition();
 		//_body.setPosition(initialPosition[x], initialPosition[y]);
@@ -16,9 +17,17 @@ _entityType{EntityList::PlayerEntity}
 		
 }
 
-Player::~Player()
+void Player::resetPosition()
 {
+	_theta=90*pi/180;
+	floatVector initialPosition=getPosition();
+	setPosition(initialPosition);
+	_body.setRotation(_theta*(180.0f/pi)+90);
 }
+
+//Player::~Player()
+//{
+//}
 
 int Player::MovementDirection(userInput event)
 {
@@ -36,6 +45,7 @@ int Player::MovementDirection(userInput event)
 	}
 }
 	
+	
 void Player::Update(int direction, float timeElapsed)
 {
 
@@ -47,6 +57,7 @@ void Player::Update(int direction, float timeElapsed)
 	switch (direction)
 	{
 		case 0:
+		_checkShoot+=1;
 		createBullets();
 		break;
 		case 1:
@@ -61,7 +72,7 @@ void Player::Update(int direction, float timeElapsed)
 		break;
 	}
 	
-	updateBullets(timeElapsed);
+//	updateBullets(timeElapsed);
 	setPosition(movement);
 	_body.setRotation(_theta*(180.0f/pi)+90);
 }
@@ -98,31 +109,14 @@ float Player::getRadius()
 
 void Player::createBullets()
 {
+	if (_checkShoot==30)
+	{
 		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
-		bulletList.push_back(bulletPtr);
-//		PlayerBullet bullet();
-	//	bulletList.push_back(bullet);
-	//	movingEntity::entities.push_back(EntityList::PlayerBulletEntity);
 		movingEntity::entityList.push_back(bulletPtr);
-}
-
-void Player::updateBullets(float timeElapsed)
-{
-			for (int j=0; j<bulletList.size();j++)
-		{
-			bulletList[j]->Update(true, timeElapsed);
-			if (bulletList[j]->getPosition()[0] > 4000)
-				bulletList.erase(bulletList.begin()+j);
-		}
-}
-
-//std::vector<PlayerBullet> Player::getBullets()
-//{
-//	return bulletList;
-//} 
-std::vector<std::shared_ptr<PlayerBullet>> Player::getBullets()
-{
-	return bulletList;
+		_checkShoot=0;
+	}
+	else
+		return;
 }
 
 EntityList Player::getEntityType()

@@ -1,5 +1,7 @@
 #include "Enemy.h"
 
+int Enemy::_NumberEnemies=0;
+
 Enemy::Enemy():
 //movingEntity(30.0, 60.0, "HP.png"),
 movingEntity(40.0, 80.0, "voldy.png", 1),
@@ -18,10 +20,12 @@ _entityType{EntityList::EnemyEntity}
 	_body.setRotation(_randomAngle);
 	floatVector initialPosition=getPosition();
 	setPosition(initialPosition);
+	_NumberEnemies++;
 }
 
 Enemy::~Enemy()
 {	
+	_NumberEnemies--;
 }
 
 floatVector Enemy::angles;
@@ -93,4 +97,9 @@ float Enemy::getRadius()
 EntityList Enemy::getEntityType()
 {
 	return _entityType;
+}
+
+int Enemy::getNumberofEnemies()
+{
+	return _NumberEnemies;
 }
