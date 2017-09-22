@@ -1,6 +1,7 @@
 #include "Enemy.h"
 
-int Enemy::_NumberEnemies=0;
+int Enemy::_NumberEnemiesAlive=0;
+int Enemy::_TotalNumberOfEnemies=0;
 
 Enemy::Enemy():
 //movingEntity(30.0, 60.0, "HP.png"),
@@ -10,38 +11,20 @@ _entityType{EntityList::EnemyEntity}
 {
 	_randomAngle = rand()%360;
 	_theta = _randomAngle*M_PI/180;
-//	Enemy::angles.push_back(_theta);
-//	while (angleCompare())
-//	{
-//		_randomAngle = rand()%360;
-//		_theta = _randomAngle*M_PI/180;
-//	}
-//	_body.setFillColor(sf::Color::Blue);
 	_body.setRotation(_randomAngle);
 	floatVector initialPosition=getPosition();
 	setPosition(initialPosition);
-	_NumberEnemies++;
+	_NumberEnemiesAlive++;
+	_TotalNumberOfEnemies++;
 }
 
 Enemy::~Enemy()
 {	
-	_NumberEnemies--;
+	_NumberEnemiesAlive--;
 }
 
 floatVector Enemy::angles;
 
-//bool Enemy::angleCompare()
-//{
-//	//for (auto i=begin(Enemy::angles);i!=(end(Enemy::angles)-1); i++)
-//	for (int i=0; i!=angles.size()-1; i++)
-//	{
-//		if ( std::fabs(angles[i]-angles[i+1])<=(20*M_PI/180))
-//		{
-//			return true;
-//		}
-//	}
-//	return false;
-//}
 
 floatVector Enemy::calculatePosition(const bool &direction, float factor)
 {
@@ -86,20 +69,23 @@ float Enemy::getRadius()
 {
 	return _radius;
 }
-//
-//float Enemy::shoot(float bulletSpeed, float shootPositionX, float shootPositionY, float bulletAngle)
-//{
-//	bulletSpeed = 2.0f*bulletSpeed;
-//	
-//	return bulletSpeed;
-//}
 
 EntityList Enemy::getEntityType()
 {
 	return _entityType;
 }
 
-int Enemy::getNumberofEnemies()
+int Enemy::getNumberofEnemiesAlive()
 {
-	return _NumberEnemies;
+		return _NumberEnemiesAlive;
+}
+
+int Enemy::getTotalNumberofEnemies()
+{
+		return _TotalNumberOfEnemies;
+}
+
+void Enemy::ResetEnemies()
+{
+		_TotalNumberOfEnemies=0;
 }

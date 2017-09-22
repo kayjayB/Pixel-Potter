@@ -6,7 +6,9 @@ Window::Window()
     _isDone = false;
 	_isShooting=false;
 	reset=false;
+		_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080));
 	_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080));
+	_winTexture.loadFromFile("win.png", sf::IntRect(0, 0, 1920, 1080));
 
 }
 
@@ -81,8 +83,6 @@ userInput Window::Update()
 
 void Window::SplashScreen()
 {
-
-	_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080));
     sf::Sprite background(_splashTexture);
     while(_window.isOpen()) {
 
@@ -101,6 +101,7 @@ bool Window::EndSplashScreen(const sf::Sprite& background)
 	    _isDone = false;
 	    return true;
 	}
+	
 	if(endSplash.type == sf::Event::Closed) {
 	    _isDone = true;
 	    _window.close();
@@ -114,8 +115,6 @@ bool Window::EndSplashScreen(const sf::Sprite& background)
 
 void Window::Lose()
 {
-
-//	_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080));
    sf::Sprite backgroundLose(_loseTexture);
    BeginDraw();
    movingEntity::entityList.clear();
@@ -123,13 +122,13 @@ void Window::Lose()
 
 	if(EndLose(backgroundLose))
 	{
-		reset=true;
+	//	reset=true;
 	    return;
 	}
     }
 }
 
-bool Window::EndLose(const sf::Sprite& background)
+bool Window::EndLose(const sf::Sprite& backgroundLose)
 {
     sf::Event endSplash;
 
@@ -145,7 +144,45 @@ bool Window::EndLose(const sf::Sprite& background)
 	    return false;
 	}
 
-	_window.draw(background);
+	_window.draw(backgroundLose);
+	
+	_window.display();
+    }
+}
+
+void Window::Win()
+{
+
+   sf::Sprite backgroundWin(_winTexture);
+   BeginDraw();
+   movingEntity::entityList.clear();
+    while(_window.isOpen()) {
+
+	if(EndWin(backgroundWin))
+	{
+		//reset=true;
+	    return;
+	}
+    }
+}
+
+bool Window::EndWin(const sf::Sprite& backgroundWin)
+{
+    sf::Event endSplash;
+
+    while(_window.pollEvent(endSplash)) {
+	//if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+	    _isDone = false;
+	    return true;
+	}
+	if(endSplash.type == sf::Event::Closed) {
+	    _isDone = true;
+	    _window.close();
+	    return false;
+	}
+
+	_window.draw(backgroundWin);
 	
 	_window.display();
     }
@@ -166,3 +203,27 @@ void Window::showPointer(std::shared_ptr<movingEntity> entity)
 	_window.draw(entity->getBody());
 }
 
+void Window::getGameState()
+{
+		switch (_state)
+		{
+		case gameState::lose:
+		reset=true;
+		Enemy::ResetEnemies();
+		Lose();
+		break;
+		case gameState::win:
+		reset=true;
+		Enemy::ResetEnemies();
+		Win();
+		break;
+		case gameState::playing:
+		reset=false;
+		break;
+		}
+}
+
+void Window::setGameState(gameState state)
+{
+	_state=state;
+}

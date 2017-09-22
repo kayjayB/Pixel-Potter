@@ -8,6 +8,7 @@ Game::Game()
 	srand(time(0));
 	movingEntity::entityList.push_back(playerPtr);
 	_totalTime=0.0;
+	window.setGameState(gameState::playing);
 }
 
 Game::~Game()
@@ -16,12 +17,9 @@ Game::~Game()
 
 void Game::createEnemies()
 {
-	if (_elapsedTime > 0.01 && Enemy::getNumberofEnemies()<5)
+	if (_elapsedTime > 0.01 && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
 	{
 		std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
-	//	std::weak_ptr <Enemy> weakEnemy(enemyPtr);
-	//	deathEaters.push_back(weakEnemy);
-
 		movingEntity::entityList.push_back(enemyPtr);
 		_clockTotal.restart();
 		
@@ -30,14 +28,25 @@ void Game::createEnemies()
 
 void Game::Update()
 {
+
+	if ((Enemy::getTotalNumberofEnemies()%MAXENEMIES) == 0 && Enemy::getNumberofEnemiesAlive()==0 && Enemy::getTotalNumberofEnemies()!=0)
+	{
+		window.setGameState(gameState::win);
+
+	}
+	
+	window.getGameState();
+
+	
 	if (window.reset==true)
 	{
-		playerPtr->resetPosition();
-		movingEntity::entityList.push_back(playerPtr);
+		Reset();
 	}
+	
+	userInput Keyevent =window.Update();
+	
 	createEnemies();
 
-	userInput Keyevent =window.Update();
 	playerPtr->Update(playerPtr->MovementDirection(Keyevent), GetTime());
 
 for (auto i =(begin(movingEntity::entityList )+1); i!=end(movingEntity::entityList); ++i)
@@ -48,6 +57,21 @@ for (auto i =(begin(movingEntity::entityList )+1); i!=end(movingEntity::entityLi
 	checkCollision();
 
 	entityCleanUp();
+	
+//		if ((Enemy::getTotalNumberofEnemies()%MAXENEMIES) == 0 && Enemy::getNumberofEnemiesAlive()==0 && Enemy::getTotalNumberofEnemies()!=0)
+//	{
+//		window.setGameState(gameState::win);
+//
+//	}
+//	
+//	window.getGameState();
+//
+//	
+//	if (window.reset==true)
+//	{
+//		Reset();
+//	}
+	
 }
 
 void Game::Render()
@@ -95,7 +119,9 @@ for (int i=0; i<movingEntity::entityList.size();i++)
 			if (Collision(i,j))
 			{
 				
-				window.Lose();
+				//window.Lose();
+				window.setGameState(gameState::lose);
+				return;
 			}
 		}
 			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity && movingEntity::entityList[j]->getEntityType()== EntityList::EnemyEntity)
@@ -119,11 +145,19 @@ bool Game::Collision(int i, int j)
 		floatVector position2= movingEntity::entityList[j]->getPosition();
 		floatVector halfSize1=movingEntity::entityList[i]->getBodySize();
 		floatVector halfSize2=movingEntity::entityList[j]->getBodySize();
-			
+//			
 		float deltaX= position1[0]-position2[0];
 		float deltaY= position1[1]-position2[1];
-		float intersectX= fabs(deltaX)- (halfSize1[0]+halfSize2[0]);
-		float intersectY= fabs(deltaY)- (halfSize1[1]+halfSize2[1]);
+		float intersectX= fabs(deltaX)- (halfSize1[0]/2+halfSize2[0]/2);
+		float intersectY= fabs(deltaY)- (halfSize1[1]/2+halfSize2[1]/2);
+
+//float distance = sqrt((position1[0]-position2[0])*(position1[0]-position2[0]) 
+//+ (position1[1]-position2[1])*(position1[1]-position2[1]));
+//
+//if (distance < (halfSize1[0]/2+halfSize2[0]/2))
+//{
+//    return true;
+//}
 		
 		if (intersectX < 0.0 && intersectY < 0.0)
 		{
@@ -150,6 +184,9 @@ void Game::entityCleanUp()
 
 void Game::Reset()
 {
-	movingEntity::entityList.clear();
-	movingEntity::entityList.push_back(playerPtr);
+
+		movingEntity::entityList.clear();
+		playerPtr->resetPosition();
+		movingEntity::entityList.push_back(playerPtr);
+		window.setGameState(gameState::playing);
 }

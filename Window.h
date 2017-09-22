@@ -6,6 +6,8 @@
 #include <vector>
 #include "Enemy.h"
 #include "movingEntity.h"
+#include "gameState.h"
+
 
 class Window{
 
@@ -23,28 +25,31 @@ public:
 	sf::RenderWindow _window;
 	bool IsDone();
 	void SplashScreen();
-	//bool SplashScreen();
 	bool EndSplashScreen(const sf::Sprite &background);
 	
 	void Lose();
-	//bool SplashScreen();
-	bool EndLose(const sf::Sprite &background);
-	//bool EndLose();
+	bool EndLose(const sf::Sprite &backgroundLose);
+	
+	void Win();
+	bool EndWin(const sf::Sprite &backgroundWin);
 	userInput keyBoard;
 	//std::vector <userInput> keyBoard;
 	bool isShooting();
 	void show(movingEntity &entity);
 	void showPointer(std::shared_ptr<movingEntity> entity);
-	
+	void setGameState(gameState state);
+	void getGameState();
 	bool reset;
 
 private:
 //	sf::Sprite backgroundLose;
 	sf::Texture _splashTexture;
 	sf::Texture _loseTexture;
+	sf::Texture _winTexture;
 	void Destroy();
 	bool _isDone; 
 	bool _isShooting;
+	gameState _state;
 	
 
 };

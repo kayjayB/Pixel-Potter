@@ -31,8 +31,11 @@ public:
 	
 	virtual EntityList getEntityType() override;
 	
-	static int getNumberofEnemies();
+	static int getNumberofEnemiesAlive();
 	
+	static int getTotalNumberofEnemies();
+	
+	static void ResetEnemies();
 	
 private:
 	//const float _bullet_size = 5.0f;
@@ -47,7 +50,8 @@ private:
 	const float _speed = 100.9f;
 	float _randomAngle;
 	EntityList _entityType;
-	static int _NumberEnemies;
+	static int _NumberEnemiesAlive;
+	static int _TotalNumberOfEnemies;
 
 };
 
