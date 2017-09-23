@@ -7,6 +7,7 @@ enum class EntityList
 	PlayerBulletEntity,
 	EnemyEntity,
 	EnemyBulletEntity,
+	AsteroidEntity,
 //	Player =0,
 //	PlayerBullet,
 //	Enemy,

@@ -53,19 +53,6 @@ floatVector movingEntity::getBodySize()
 	return bodySize;
 }
 
-//void movingEntity::entityCleanUp()
-//{
-//	for (auto i=begin(entityList); i!=end(entityList); i++)
-//	{
-//		if (_lives == 0)
-//		{
-//			std::cout << "Deleting";
-//			i= entityList.erase(i);
-//		}
-//	}
-//	
-//}
-
 int movingEntity::getLives()
 {
 	return _lives;

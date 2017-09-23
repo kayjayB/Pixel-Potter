@@ -39,8 +39,6 @@ virtual EntityList getEntityType()=0;
 
 floatVector getBodySize();
 
-void entityCleanUp();
-
 int getLives();
 
 void setLives(int life);

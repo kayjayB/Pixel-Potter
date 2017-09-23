@@ -9,6 +9,7 @@ Game::Game()
 	movingEntity::entityList.push_back(playerPtr);
 	_totalTime=0.0;
 	window.setGameState(gameState::playing);
+	generateAsteroid= rand()%5+1;
 }
 
 Game::~Game()
@@ -21,8 +22,18 @@ void Game::createEnemies()
 	{
 		std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
 		movingEntity::entityList.push_back(enemyPtr);
-		_clockTotal.restart();
+
+	}
+}
+
+void Game::CreateAsteroid()
+{
+	if (_totalTime > (generateAsteroid - 1) && _totalTime < (generateAsteroid+1))
+	{
 		
+		std::shared_ptr <Asteroid> asteroidPtr{ new Asteroid{}};
+		movingEntity::entityList.push_back(asteroidPtr);
+		generateAsteroid=fmod(rand(),_totalTime)+5;
 	}
 }
 
@@ -46,6 +57,8 @@ void Game::Update()
 	userInput Keyevent =window.Update();
 	
 	createEnemies();
+	
+	CreateAsteroid();
 
 	playerPtr->Update(playerPtr->MovementDirection(Keyevent), GetTime());
 
@@ -124,6 +137,15 @@ for (int i=0; i<movingEntity::entityList.size();i++)
 				return;
 			}
 		}
+			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity && movingEntity::entityList[j]->getEntityType()== EntityList::AsteroidEntity)
+			{
+				if (Collision(i,j)) 
+				{
+					window.setGameState(gameState::lose);
+					return;
+				}
+			}
+			
 			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity && movingEntity::entityList[j]->getEntityType()== EntityList::EnemyEntity)
 			{
 				if (Collision(i,j)) 
@@ -131,7 +153,7 @@ for (int i=0; i<movingEntity::entityList.size();i++)
 					movingEntity::entityList[i]->setLives(0);
 					movingEntity::entityList[j]->setLives(0);
 				}
-		}
+			}
 		
 		}
 	}
@@ -186,7 +208,9 @@ void Game::Reset()
 {
 
 		movingEntity::entityList.clear();
+		Enemy::ResetEnemies();
 		playerPtr->resetPosition();
 		movingEntity::entityList.push_back(playerPtr);
 		window.setGameState(gameState::playing);
+		_clockTotal.restart();
 }

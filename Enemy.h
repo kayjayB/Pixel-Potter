@@ -38,10 +38,6 @@ public:
 	static void ResetEnemies();
 	
 private:
-	//const float _bullet_size = 5.0f;
-	sf::CircleShape _bullet;
-	//const float _width = 60.0f;
-	//const float _height = 30.0f;
 	float _theta;
 	float _radius;
 	const float _MAX_RADIUS = 480.0f;

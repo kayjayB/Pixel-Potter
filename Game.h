@@ -7,6 +7,7 @@
 #include "vector"
 #include "PlayerBullet.h"
 #include "EntityList.h"
+#include "Asteroid.h"
 #include <memory> // required for smart pointers
 
 class Game
@@ -37,8 +38,10 @@ private:
 	void entityCleanUp();
 	float GetTotalTime();
 	void RestartTotalTime();
+	void CreateAsteroid();
+	int generateAsteroid;
 	
-	const int MAXENEMIES=5;
+	const int MAXENEMIES=10;
 	
 };
 
