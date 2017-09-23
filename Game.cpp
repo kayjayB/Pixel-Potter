@@ -11,6 +11,7 @@ Game::Game()
 	window.setGameState(gameState::playing);
 	generateAsteroid= fmod(rand(),5.0)+1;
 	generateEnemy= 1;
+	
 }
 
 Game::~Game()
@@ -19,8 +20,8 @@ Game::~Game()
 
 void Game::createEnemies()
 {
-	//if (_elapsedTime > 0.005 && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
-	if (_totalTime > (generateEnemy - 1) && _totalTime < (generateEnemy+1) && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
+	if (_elapsedTime > 0.005 && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
+	//if (_totalTime > (generateEnemy - 1) && _totalTime < (generateEnemy+1) && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
 	{
 		std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
 		movingEntity::entityList.push_back(enemyPtr);
