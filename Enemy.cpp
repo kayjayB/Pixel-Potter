@@ -44,6 +44,7 @@ void Enemy::Update(int direction, float timeElapsed)
 		_randomAngle = rand()%360;
 		_theta = _randomAngle*M_PI/180;
 		_radius = 0;
+		break;
 	}
 	
 	movement=calculatePosition(true, factor);
