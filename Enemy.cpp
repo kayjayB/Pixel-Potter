@@ -2,6 +2,7 @@
 
 int Enemy::_NumberEnemiesAlive=0;
 int Enemy::_TotalNumberOfEnemies=0;
+int Enemy::_NumberEnemiesKilled=0;
 
 Enemy::Enemy():
 //movingEntity(30.0, 60.0, "HP.png"),
@@ -24,6 +25,7 @@ _time{0.0}
 Enemy::~Enemy()
 {	
 	_NumberEnemiesAlive--;
+	_NumberEnemiesKilled++;
 }
 
 floatVector Enemy::calculatePosition(const bool &direction, float factor)
@@ -92,9 +94,16 @@ int Enemy::getTotalNumberofEnemies()
 		return _TotalNumberOfEnemies;
 }
 
+int Enemy::getNumberofEnemiesKilled()
+{
+	return _NumberEnemiesKilled;
+}
+
 void Enemy::ResetEnemies()
 {
 		_TotalNumberOfEnemies=0;
+		_NumberEnemiesKilled=0;
+		_NumberEnemiesAlive=0;
 }
 
 void Enemy::createBullets()

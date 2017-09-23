@@ -46,6 +46,7 @@ private:
 	sf::Texture _splashTexture;
 	sf::Texture _loseTexture;
 	sf::Texture _winTexture;
+	sf::Texture _backgroundTexture;
 	void Destroy();
 	bool _isDone; 
 	bool _isShooting;

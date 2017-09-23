@@ -32,6 +32,8 @@ public:
 	
 	static int getTotalNumberofEnemies();
 	
+	static int getNumberofEnemiesKilled();
+	
 	static void ResetEnemies();
 	
 	virtual void createBullets() override;
@@ -47,6 +49,7 @@ private:
 	EntityList _entityType;
 	static int _NumberEnemiesAlive;
 	static int _TotalNumberOfEnemies;
+	static int 	_NumberEnemiesKilled;
 	float _time;
 	float _spawnBullet;
 

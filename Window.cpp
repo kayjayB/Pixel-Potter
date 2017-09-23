@@ -6,9 +6,10 @@ Window::Window()
     _isDone = false;
 	_isShooting=false;
 	reset=false;
-		_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080));
+	_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080));
 	_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080));
 	_winTexture.loadFromFile("win.png", sf::IntRect(0, 0, 1920, 1080));
+	_backgroundTexture.loadFromFile("vortex.png", sf::IntRect(0, 0, 1920, 1080));
 
 }
 
@@ -25,6 +26,10 @@ void Window::closeWindow()
 void Window::BeginDraw()
 {
     _window.clear(sf::Color::White);
+//	sf::Sprite background(_backgroundTexture);
+//	_window.draw(background);
+//	_window.display();
+	
 }
 
 void Window::EndDraw()

@@ -7,7 +7,8 @@ Game::Game()
 	_bulletExists=false;
 	srand(time(0));
 	movingEntity::entityList.push_back(playerPtr);
-	_totalTime=0.0;
+	_timeAsteroid=0.0;
+	_timeEnemy=0.0;
 	window.setGameState(gameState::playing);
 	generateAsteroid= fmod(rand(),5.0)+1;
 	generateEnemy= 1;
@@ -20,23 +21,26 @@ Game::~Game()
 
 void Game::createEnemies()
 {
-	if (_elapsedTime > 0.005 && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
-	//if (_totalTime > (generateEnemy - 1) && _totalTime < (generateEnemy+1) && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
+//	if (_elapsedTime > 0.015 && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
+//	if (_totalTime > (generateEnemy - 1) && _totalTime < (generateEnemy+1) && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
+	if (_timeEnemy > (generateEnemy - 1) && _timeEnemy < (generateEnemy+1) && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
 	{
 		std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
 		movingEntity::entityList.push_back(enemyPtr);
-		generateEnemy=fmod(rand(),_totalTime)+4.0;
+		generateEnemy=fmod(rand(),4)+1;
+		_clockEnemy.restart();
 	}
 }
 
 void Game::CreateAsteroid()
 {
-	if (_totalTime > (generateAsteroid - 1) && _totalTime < (generateAsteroid+1))
+	if (_timeAsteroid > (generateAsteroid - 1) && _timeAsteroid < (generateAsteroid+1))
 	{
 		
 		std::shared_ptr <Asteroid> asteroidPtr{ new Asteroid{playerPtr->getAngle()}};
 		movingEntity::entityList.push_back(asteroidPtr);
-		generateAsteroid=fmod(rand(),_totalTime)+5.0;
+		generateAsteroid=fmod(rand(),5.0)+1;
+		_clockAsteroid.restart();
 	}
 }
 
@@ -109,6 +113,14 @@ void Game::Render()
 {
 	
 	window.BeginDraw();
+	sf::Font font;
+	font.loadFromFile("HARRYP__.TTF");
+	sf::Text text("Enemies remaining:" + std::to_string(MAXENEMIES- Enemy::getNumberofEnemiesKilled()), font);
+	text.setCharacterSize(30);
+	text.setStyle(sf::Text::Bold);
+	text.setColor(sf::Color::Red);
+	text.setStyle(sf::Text::Bold);
+	window._window.draw(text);
 
 for (auto i= begin(movingEntity::entityList); i!=end(movingEntity::entityList);i++)
 {
@@ -131,7 +143,8 @@ float Game::GetTime()
 void Game::RestartClock()
 { 
 	_elapsedTime = _clock.restart().asSeconds();
-	_totalTime=_clockTotal.getElapsedTime().asSeconds();
+	_timeAsteroid=_clockAsteroid.getElapsedTime().asSeconds();
+	_timeEnemy=_clockEnemy.getElapsedTime().asSeconds();
 }
 
 void Game::checkCollision()
@@ -256,7 +269,8 @@ void Game::Reset()
 		playerPtr->resetPosition();
 		movingEntity::entityList.push_back(playerPtr);
 		window.setGameState(gameState::playing);
-		_clockTotal.restart();
+		_clockAsteroid.restart();
+		_clockEnemy.restart();
 		generateAsteroid= fmod(rand(),5.0)+1;
 		generateEnemy= 1;
 }

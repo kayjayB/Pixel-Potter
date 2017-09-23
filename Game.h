@@ -28,9 +28,11 @@ private:
 	std::shared_ptr <Player> playerPtr{ new Player{}};
     int numberOfEnemies;
     sf::Clock _clock;
-	sf::Clock _clockTotal;
+	sf::Clock _clockEnemy;
+	sf::Clock _clockAsteroid;
     float _elapsedTime;
-	float _totalTime;
+	float _timeEnemy;
+	float _timeAsteroid;
     bool _bulletExists;
 	void createEnemies();
 	void checkCollision();
