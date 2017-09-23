@@ -19,7 +19,7 @@ class Asteroid: public movingEntity
 {
 public:
 
-Asteroid();
+Asteroid(float angle);
 
 virtual float getAngle() override;
 

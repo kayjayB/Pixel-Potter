@@ -39,7 +39,8 @@ private:
 	float GetTotalTime();
 	void RestartTotalTime();
 	void CreateAsteroid();
-	int generateAsteroid;
+	float generateAsteroid;
+	float generateEnemy;
 	
 	const int MAXENEMIES=10;
 	
