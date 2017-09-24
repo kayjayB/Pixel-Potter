@@ -150,7 +150,7 @@ void Game::Render()
 //	sf::Text text("Enemies alive:" + std::to_string(Enemy::getNumberofEnemiesAlive()), font);
 	text.setCharacterSize(30);
 	text.setStyle(sf::Text::Bold);
-	text.setColor(sf::Color::Color(255,1,1,255));
+	text.setColor(sf::Color(255,1,1,255));
 	text.setStyle(sf::Text::Bold);
 	window._window.draw(text);
 
