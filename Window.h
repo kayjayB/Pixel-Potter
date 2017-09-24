@@ -50,6 +50,7 @@ private:
 	void Destroy();
 	bool _isDone; 
 	bool _isShooting;
+	bool disableShooting;
 	gameState _state;
 	
 

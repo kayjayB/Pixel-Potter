@@ -71,8 +71,7 @@ void Player::Update(int direction, float timeElapsed)
 		case 3:
 		break;
 	}
-	
-//	updateBullets(timeElapsed);
+	//std::cout << movement[0] << " " << movement[1] << "end";
 	setPosition(movement);
 	_body.setRotation(_theta*(180.0f/pi)+90);
 }
@@ -109,7 +108,7 @@ float Player::getRadius()
 
 void Player::createBullets()
 {
-	if (_checkShoot==30)
+	if (_checkShoot==10)
 	{
 		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
 		movingEntity::entityList.push_back(bulletPtr);

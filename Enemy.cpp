@@ -5,7 +5,6 @@ int Enemy::_TotalNumberOfEnemies=0;
 int Enemy::_NumberEnemiesKilled=0;
 
 Enemy::Enemy():
-//movingEntity(30.0, 60.0, "HP.png"),
 MovingShootingEntity(40.0, 80.0, "voldy.png", 1),
 _radius{0.0},
 _entityType{EntityList::EnemyEntity},
@@ -25,7 +24,13 @@ _time{0.0}
 Enemy::~Enemy()
 {	
 	_NumberEnemiesAlive--;
+//	std::cout << "killing enemy " << _NumberEnemiesAlive << "enemies alive ";
+//	_NumberEnemiesKilled++;
 	_NumberEnemiesKilled++;
+	if (_NumberEnemiesAlive<0)
+	{
+		_NumberEnemiesAlive=0;
+	}
 }
 
 floatVector Enemy::calculatePosition(const bool &direction, float factor)
@@ -46,7 +51,6 @@ void Enemy::Update(int direction, float timeElapsed)
 		_randomAngle = rand()%360;
 		_theta = _randomAngle*M_PI/180;
 		_radius = 0.0;
-		return;
 	}
 	
 	if (_time > (_spawnBullet-1) && _time < (_spawnBullet+1) )
@@ -58,6 +62,7 @@ void Enemy::Update(int direction, float timeElapsed)
 	movement=calculatePosition(true, factor);
 	setPosition(movement);
 	_body.setRotation(_theta*(180.0f/M_PI)+90);
+	
 }
 
 
@@ -108,7 +113,7 @@ void Enemy::ResetEnemies()
 
 void Enemy::createBullets()
 {
-		std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(_theta, _radius)};
+		std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(_theta, _radius, _x_center, _y_center, 1, 255, 1)};
 		movingEntity::entityList.push_back(bulletPtr);
 		return;
 }

@@ -9,7 +9,7 @@
 
 int main()
 {
-
+srand( time( 0 ) );
 Game game; 
 while(!game.GetWindow()->IsDone())
 {

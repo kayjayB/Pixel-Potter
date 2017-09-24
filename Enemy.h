@@ -44,7 +44,7 @@ private:
 	const float _MAX_RADIUS = 480.0;
 	float _x_center = 1920.0/2.0;
 	float _y_center = 1080.0/2.0;
-	const float _speed = 100.9;
+	const float _speed = 90.0;
 	float _randomAngle;
 	EntityList _entityType;
 	static int _NumberEnemiesAlive;

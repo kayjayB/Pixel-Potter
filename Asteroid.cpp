@@ -2,12 +2,10 @@
 
 Asteroid::Asteroid(float angle):
 movingEntity(50.0, 50.0, "quaffle.png", 1),
-_radius{0.5},
 _theta{angle},
+_radius{0.0},
 _entityType{EntityList::AsteroidEntity}
 {
-//	_randomAngle = rand()%360;
-//	_theta = _randomAngle*M_PI/180;
 	//_body.setRotation(_randomAngle);
 	floatVector initialPosition=getPosition();
 	setPosition(initialPosition);

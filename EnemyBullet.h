@@ -8,7 +8,7 @@
 class EnemyBullet: public movingEntity
 {
 public:
-EnemyBullet(float currentEnemyAngle, float currentEnemyRadius);
+EnemyBullet(float currentEnemyAngle, float currentEnemyRadius, float x_center, float y_center, int red, int green, int blue);
 	
 	virtual floatVector getPosition() override;
 	virtual float getAngle() override;
@@ -22,8 +22,8 @@ EnemyBullet(float currentEnemyAngle, float currentEnemyRadius);
 	float _bulletRadius;
 	float _angle;
 	float _speed=200;
-	double _x_center = 1920.0 / 2.0;
-	double _y_center = 1080.0/ 2.0;
+	double _x_center;
+	double _y_center;
 	virtual floatVector calculatePosition(const bool& direction, float factor) override;
 	EntityList _entityType;
 

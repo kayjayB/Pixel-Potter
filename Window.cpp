@@ -5,6 +5,7 @@ Window::Window()
 {
     _isDone = false;
 	_isShooting=false;
+	disableShooting=false;
 	reset=false;
 	_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080));
 	_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080));
@@ -54,7 +55,8 @@ userInput Window::Update()
 		{
 			_isDone = true;
 		}
-		
+//		if (event.type==sf::Event::KeyPressed)
+//		{
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) 
 		{
 			//keyBoard.push_back(userInput::PressLeft);
@@ -76,13 +78,25 @@ userInput Window::Update()
 			_isShooting=false;
 		}
 		
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) )
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) // && !disableShooting)
 		{
 			keyBoard=userInput::PressSpace;
 			_isShooting=true;
 		//	keyBoard.push_back(userInput::PressSpace);
 		}
-	}
+	//	disableShooting=!disableShooting;
+		}
+//		else if (event.type==sf::Event::KeyReleased)
+//		{
+//			disableShooting=false;	
+//		if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
+//		&&!sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) 
+//		{
+//			//keyBoard.push_back(userInput::NoButtonPress);
+//			keyBoard=userInput::NoButtonPress;
+//			_isShooting=false;
+//		}
+//		}
 	return keyBoard;
 }
 

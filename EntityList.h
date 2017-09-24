@@ -8,9 +8,7 @@ enum class EntityList
 	EnemyEntity,
 	EnemyBulletEntity,
 	AsteroidEntity,
-//	Player =0,
-//	PlayerBullet,
-//	Enemy,
+	SatelliteEntity,
 };
 
 #endif

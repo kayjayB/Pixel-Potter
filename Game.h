@@ -8,6 +8,9 @@
 #include "PlayerBullet.h"
 #include "EntityList.h"
 #include "Asteroid.h"
+#include "Satellite.h"
+#include <cstdlib>
+#include <ctime>
 #include <memory> // required for smart pointers
 
 class Game
@@ -18,9 +21,7 @@ public:
     void Update();
     void Render();
     Window* GetWindow();
-    float GetTime();
     void RestartClock();
-	void Reset();
 	
 
 private:
@@ -30,9 +31,11 @@ private:
     sf::Clock _clock;
 	sf::Clock _clockEnemy;
 	sf::Clock _clockAsteroid;
+	sf::Clock _clockSatellite;
     float _elapsedTime;
 	float _timeEnemy;
 	float _timeAsteroid;
+	float _timeSatellite;
     bool _bulletExists;
 	void createEnemies();
 	void checkCollision();
@@ -41,8 +44,11 @@ private:
 	float GetTotalTime();
 	void RestartTotalTime();
 	void CreateAsteroid();
+	void CreateSatellite();
 	float generateAsteroid;
 	float generateEnemy;
+	void Reset();
+	float GetTime();
 	
 	const int MAXENEMIES=10;
 	
