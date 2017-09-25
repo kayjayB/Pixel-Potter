@@ -62,5 +62,6 @@ int movingEntity::getLives()
 void movingEntity::setLives(int life)
 {
 	_lives=life;
+//	_body.setFillColor(sf::Color(255,0,0,255));
 	
 }

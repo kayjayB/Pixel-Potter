@@ -104,13 +104,19 @@ void Window::SplashScreen()
 {
     sf::Sprite background(_splashTexture);
     while(_window.isOpen()) {
-
-	if(EndSplashScreen(background))
+		
+	BeginDraw();
+	
+	_window.draw(background);
+	
+	_window.display();
+	
+	if(EndSplashScreen())
 	    return ;
     }
 }
 
-bool Window::EndSplashScreen(const sf::Sprite& background)
+bool Window::EndSplashScreen()
 {
     sf::Event endSplash;
 
@@ -126,46 +132,43 @@ bool Window::EndSplashScreen(const sf::Sprite& background)
 	    _window.close();
 	    return false;
 	}
-
-	_window.draw(background);
-	_window.display();
     }
 }
 
 void Window::Lose()
 {
    sf::Sprite backgroundLose(_loseTexture);
-   BeginDraw();
    movingEntity::entityList.clear();
     while(_window.isOpen()) {
+		
+	BeginDraw();
+	
+	_window.draw(backgroundLose);
+	
+	_window.display();
 
-	if(EndLose(backgroundLose))
+	if(EndLose())
 	{
-	//	reset=true;
 	    return;
 	}
     }
 }
 
-bool Window::EndLose(const sf::Sprite& backgroundLose)
+bool Window::EndLose()
 {
     sf::Event endSplash;
 
     while(_window.pollEvent(endSplash)) {
-	//if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+	
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
 	    _isDone = false;
 	    return true;
-	}
+		}
 	if(endSplash.type == sf::Event::Closed) {
 	    _isDone = true;
 	    _window.close();
 	    return false;
 	}
-
-	_window.draw(backgroundLose);
-	
-	_window.display();
     }
 }
 
@@ -177,20 +180,23 @@ void Window::Win()
    movingEntity::entityList.clear();
     while(_window.isOpen()) {
 
-	if(EndWin(backgroundWin))
+	BeginDraw();
+	_window.draw(backgroundWin);
+	
+	_window.display();
+	if(EndWin())
 	{
-		//reset=true;
 	    return;
 	}
     }
 }
 
-bool Window::EndWin(const sf::Sprite& backgroundWin)
+bool Window::EndWin()
 {
     sf::Event endSplash;
 
     while(_window.pollEvent(endSplash)) {
-	//if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+	
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
 	    _isDone = false;
 	    return true;
@@ -200,10 +206,7 @@ bool Window::EndWin(const sf::Sprite& backgroundWin)
 	    _window.close();
 	    return false;
 	}
-
-	_window.draw(backgroundWin);
 	
-	_window.display();
     }
 }
 

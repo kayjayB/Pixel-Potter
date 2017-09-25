@@ -14,6 +14,12 @@ _entityType{EntityList::EnemyBulletEntity}
 	floatVector initialPosition= getPosition();
 	setPosition(initialPosition);
 }
+//
+// EnemyBullet::EnemyBullet(const EnemyBullet& bullet):
+// movingEntity(20.0,40.0,"", 1),
+// {
+//	 
+// }
 
 void EnemyBullet::Update(int direction, float timeElapsed)
 {

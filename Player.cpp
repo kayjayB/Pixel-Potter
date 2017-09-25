@@ -2,7 +2,7 @@
 
 Player::Player():
 //movingEntity(50.0, 100.0, "HP.png"),
-MovingShootingEntity(50.0, 100.0, "HP.png", 1),
+MovingShootingEntity(50.0, 100.0, "HP.png", 5),
 //_row{0},
 _theta{90*pi/180},
 //_imageCount(4,4),
@@ -17,12 +17,13 @@ _checkShoot{0}
 		
 }
 
-void Player::resetPosition()
+void Player::reset()
 {
 	_theta=90*pi/180;
 	floatVector initialPosition=getPosition();
 	setPosition(initialPosition);
 	_body.setRotation(_theta*(180.0f/pi)+90);
+	setLives(_numberLives);
 }
 
 //Player::~Player()
@@ -108,14 +109,14 @@ float Player::getRadius()
 
 void Player::createBullets()
 {
-	if (_checkShoot==10)
-	{
+//	if (_checkShoot==10)
+//	{
 		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
 		movingEntity::entityList.push_back(bulletPtr);
-		_checkShoot=0;
-	}
-	else
-		return;
+//		_checkShoot=0;
+//	}
+//	else
+//		return;
 }
 
 EntityList Player::getEntityType()

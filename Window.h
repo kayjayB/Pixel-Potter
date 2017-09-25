@@ -25,13 +25,13 @@ public:
 	sf::RenderWindow _window;
 	bool IsDone();
 	void SplashScreen();
-	bool EndSplashScreen(const sf::Sprite &background);
+	bool EndSplashScreen();
 	
 	void Lose();
-	bool EndLose(const sf::Sprite &backgroundLose);
+	bool EndLose();
 	
 	void Win();
-	bool EndWin(const sf::Sprite &backgroundWin);
+	bool EndWin();
 	userInput keyBoard;
 	//std::vector <userInput> keyBoard;
 	bool isShooting();

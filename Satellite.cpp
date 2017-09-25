@@ -183,7 +183,7 @@ void Satellite::ResetSatellites()
 
 void Satellite::createBullets()
 {
-		std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(_playerAngle, _radius, _x_center, _y_center, 1, 1, 255)};
+		std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(_theta, _radius, _x_center, _y_center, 1, 1, 255)};
 		movingEntity::entityList.push_back(bulletPtr);
 		return;
 }

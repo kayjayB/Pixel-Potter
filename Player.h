@@ -50,10 +50,11 @@ class Player: public MovingShootingEntity
 		
 		virtual EntityList getEntityType() override;
 		
-		void resetPosition();
+		void reset();
 		
    private:
         unsigned int _row;
+		const int _numberLives=5;
       //  const float _switchTime = 0.3f;
 		float _speed = 0.9f;
 //        bool _faceRight;

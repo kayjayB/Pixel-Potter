@@ -148,12 +148,21 @@ void Game::Render()
 	font.loadFromFile("HARRYP__.TTF");
 	sf::Text text("Enemies remaining:" + std::to_string(MAXENEMIES- Enemy::getNumberofEnemiesKilled()), font);
 //	sf::Text text("Enemies alive:" + std::to_string(Enemy::getNumberofEnemiesAlive()), font);
-	text.setCharacterSize(30);
+	text.setCharacterSize(50);
 	text.setStyle(sf::Text::Bold);
 	text.setColor(sf::Color(255,1,1,255));
+	text.setPosition(1600, 1);
 	text.setStyle(sf::Text::Bold);
 	window._window.draw(text);
 
+
+	sf::Text lives("Lives remaining:" + std::to_string(playerPtr->getLives()), font);
+//	sf::Text text("Enemies alive:" + std::to_string(Enemy::getNumberofEnemiesAlive()), font);
+	lives.setCharacterSize(50);
+	lives.setStyle(sf::Text::Bold);
+	lives.setColor(sf::Color(255,1,1,255));
+	lives.setStyle(sf::Text::Bold);
+	window._window.draw(lives);
 for (auto i= begin(movingEntity::entityList); i!=end(movingEntity::entityList);i++)
 {
 	window.showPointer((*i));
@@ -195,18 +204,20 @@ for (int i=0; i<movingEntity::entityList.size();i++)
 		
 			if (Collision(i,j))
 			{
-				
-				//window.Lose();
-				window.setGameState(gameState::lose);
-				return;
+				movingEntity::entityList[i]->setLives(playerPtr->getLives() -1);
+				movingEntity::entityList[j]->setLives(0);
+				//window.setGameState(gameState::lose);
+				//return;
 			}
 		}
 			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity && movingEntity::entityList[j]->getEntityType()== EntityList::AsteroidEntity)
 			{
 				if (Collision(i,j)) 
 				{
-					window.setGameState(gameState::lose);
-					return;
+					//window.setGameState(gameState::lose);
+					movingEntity::entityList[i]->setLives(playerPtr->getLives() -1);
+					movingEntity::entityList[j]->setLives(0);
+					//return;
 				}
 			}
 			
@@ -214,8 +225,10 @@ for (int i=0; i<movingEntity::entityList.size();i++)
 			{
 				if (Collision(i,j)) 
 				{
-					window.setGameState(gameState::lose);
-					return;
+				//	window.setGameState(gameState::lose);
+				//	return;
+					movingEntity::entityList[i]->setLives(playerPtr->getLives() -1);
+					movingEntity::entityList[j]->setLives(0);
 				}
 			}
 			
@@ -290,6 +303,11 @@ bool Game::Collision(int i, int j)
 
 void Game::entityCleanUp()
 {
+	if (playerPtr->getLives() <=0)
+	{
+		window.setGameState(gameState::lose);
+		return;
+	}
 	for (auto i=begin(movingEntity::entityList); i!=end(movingEntity::entityList);)
 	{
 		if ((*i)->getLives() == 0)
@@ -308,7 +326,7 @@ void Game::Reset()
 
 		movingEntity::entityList.clear();
 		Enemy::ResetEnemies();
-		playerPtr->resetPosition();
+		playerPtr->reset();
 		movingEntity::entityList.push_back(playerPtr);
 		window.setGameState(gameState::playing);
 		_clockAsteroid.restart();
