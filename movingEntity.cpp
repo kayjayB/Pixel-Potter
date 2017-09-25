@@ -62,6 +62,40 @@ int movingEntity::getLives()
 void movingEntity::setLives(int life)
 {
 	_lives=life;
-//	_body.setFillColor(sf::Color(255,0,0,255));
-	
+	int red=0;
+	int green=0;
+	int blue=0;
+	switch (_lives)
+	{
+		case 0: 
+		red=255;
+		green=0;
+		blue=0;
+		break;
+		case 1:
+		red = 255;
+		green=0;
+		blue=0;
+		break;
+		case 2:
+		red = 255;
+		green=120;
+		blue=114;
+		break;
+		case 3:
+		red = 255;
+		green=154;
+		blue=144; 
+		break;
+		case 4:
+		red=255;
+		green=182;
+		blue=193;
+		break;
+		case 5:
+		red=255;
+		green=255;
+		blue=255;
+	}
+	_body.setFillColor(sf::Color(red,green,blue,255));
 }
