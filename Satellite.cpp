@@ -9,9 +9,12 @@ Satellite::Satellite(floatVector position, float playerAngle):
 MovingShootingEntity(40.0, 40.0, "dementor.png", 1),
 _theta{0},
 _radius{80},
- _entityType{EntityList::SatelliteEntity},
- _time{0.0},
- _playerAngle{playerAngle}
+_entityType{EntityList::SatelliteEntity},
+_time{0.0},
+_playerAngle{playerAngle},
+positionX{0},
+positionY{0},
+thetaBullet{0}
 {
 
 if (position[0] < _x_centerPlayer && position[1] < _y_centerPlayer)
@@ -55,7 +58,7 @@ else if (position[1]== _y_centerPlayer && position[0] < _x_centerPlayer)
 	_y_center=position[1];
 }
 	
-	_body.setRotation(_randomAngle);
+	_playerPos=position;
 	floatVector initialPosition=getPosition();
 	setPosition(initialPosition);
 	_NumberSatellitesAlive++;
@@ -76,7 +79,6 @@ MovingShootingEntity(40.0, 40.0, "dementor.png", 1)
 	_radius = satellite._radius;
 	
 	_copies=!_copies;
-//	std::cout <<_copies << " ";
 	
 	if (_copies)
 	{
@@ -112,13 +114,6 @@ void Satellite::Update(int direction, float timeElapsed)
 	floatVector movement;
 	float factor = _speed*timeElapsed;
 	_time+=timeElapsed;
-//	if (_radius>= _MAX_RADIUS)
-//	{
-//		_randomAngle = rand()%360;
-//		_theta = _randomAngle*M_PI/180;
-//		_radius = 0.0;
-//		return;
-//	}
 	
 	if (_time > (_spawnBullet-1) && _time < (_spawnBullet+1) )
 	{
@@ -129,7 +124,6 @@ void Satellite::Update(int direction, float timeElapsed)
 	
 	movement=calculatePosition(true, factor);
 	setPosition(movement);
-//	_body.setRotation(_theta*(180.0f/M_PI)+90);
 }
 
 
@@ -181,7 +175,37 @@ void Satellite::ResetSatellites()
 
 void Satellite::createBullets()
 {
-		std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(-1*_playerAngle, _radius, _x_center, _y_center, 1, 1, 255)};
-		movingEntity::entityList.push_back(bulletPtr);
-		return;
+satellitePosition=getPosition();
+	
+if (satellitePosition[0] < _x_centerPlayer && satellitePosition[1] < _y_centerPlayer)
+{
+	//positionX=satellitePosition[0]-_x_centerPlayer;
+	//positionY= satellitePosition[1]-_y_centerPlayer;
+	//thetaBullet= fabs(atan(positionY/positionX))-M_PI;
+	thetaBullet=M_PI;
+}
+if (satellitePosition[0] <= _x_centerPlayer && satellitePosition[1] >= _y_centerPlayer)
+{
+	//positionX=satellitePosition[0]-_x_centerPlayer;
+	//positionY= satellitePosition[1]-_y_centerPlayer;
+	//thetaBullet= fabs(atan(positionY/positionX))-M_PI;
+	thetaBullet=M_PI/2;
+}
+if (satellitePosition[0] > _x_centerPlayer && satellitePosition[1] <= _y_centerPlayer)
+{
+	//positionX=satellitePosition[0]-_x_centerPlayer;
+	//positionY= satellitePosition[1]-_y_centerPlayer;
+	//thetaBullet= fabs(atan(positionY/positionX));
+	thetaBullet=3*M_PI/2;
+}
+if (satellitePosition[0] >= _x_centerPlayer && satellitePosition[1] > _y_centerPlayer)
+{
+	//positionX=satellitePosition[0]-_x_centerPlayer;
+	//positionY= satellitePosition[1]-_y_centerPlayer;
+	//thetaBullet= fabs(atan(positionY/positionX))-M_PI;
+	thetaBullet=0;
+}
+	std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(thetaBullet, _radius, _x_center, _y_center, 1, 1, 255)};
+	movingEntity::entityList.push_back(bulletPtr);
+	return;
 }

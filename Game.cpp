@@ -79,22 +79,7 @@ void Game::CreateSatellite()
 }
 
 void Game::Update()
-{
-
-//	if ((Enemy::getTotalNumberofEnemies()%MAXENEMIES) == 0 && Enemy::getNumberofEnemiesAlive()==0 && Enemy::getTotalNumberofEnemies()!=0)
-//	{
-//		window.setGameState(gameState::win);
-//
-//	}
-//	
-//	window.getGameState();
-//
-//	
-//	if (window.reset==true)
-//	{
-//		Reset();
-//	}
-	
+{	
 	userInput Keyevent =window.Update();
 	
 	createEnemies();
@@ -147,22 +132,21 @@ void Game::Render()
 	sf::Font font;
 	font.loadFromFile("HARRYP__.TTF");
 	sf::Text text("Enemies remaining:" + std::to_string(MAXENEMIES- Enemy::getNumberofEnemiesKilled()), font);
-//	sf::Text text("Enemies alive:" + std::to_string(Enemy::getNumberofEnemiesAlive()), font);
 	text.setCharacterSize(50);
 	text.setStyle(sf::Text::Bold);
 	text.setColor(sf::Color(255,1,1,255));
-	text.setPosition(1600, 1);
+	text.setPosition(1500, 1);
 	text.setStyle(sf::Text::Bold);
 	window._window.draw(text);
 
 
 	sf::Text lives("Lives remaining:" + std::to_string(playerPtr->getLives()), font);
-//	sf::Text text("Enemies alive:" + std::to_string(Enemy::getNumberofEnemiesAlive()), font);
 	lives.setCharacterSize(50);
 	lives.setStyle(sf::Text::Bold);
-	lives.setColor(sf::Color(255,1,1,255));
+	lives.setColor(sf::Color(255,0,0,255));
 	lives.setStyle(sf::Text::Bold);
 	window._window.draw(lives);
+	
 for (auto i= begin(movingEntity::entityList); i!=end(movingEntity::entityList);i++)
 {
 	window.showPointer((*i));
@@ -284,14 +268,6 @@ bool Game::Collision(int i, int j)
 		float deltaY= position1[1]-position2[1];
 		float intersectX= fabs(deltaX)- (halfSize1[0]/2+halfSize2[0]/2);
 		float intersectY= fabs(deltaY)- (halfSize1[1]/2+halfSize2[1]/2);
-
-//float distance = sqrt((position1[0]-position2[0])*(position1[0]-position2[0]) 
-//+ (position1[1]-position2[1])*(position1[1]-position2[1]));
-//
-//if (distance < (halfSize1[0]/2+halfSize2[0]/2))
-//{
-//    return true;
-//}
 		
 		if (intersectX < 0.0 && intersectY < 0.0)
 		{

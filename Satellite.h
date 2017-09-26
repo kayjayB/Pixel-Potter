@@ -57,6 +57,11 @@ private:
 	static bool _copies;
 	const int changeRadius=150;
 	float _playerAngle;
+	floatVector _playerPos;
+	floatVector satellitePosition;
+	float positionX;
+	float positionY;
+	float thetaBullet;
 
 };
 
