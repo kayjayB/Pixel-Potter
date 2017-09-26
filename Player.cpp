@@ -24,6 +24,7 @@ void Player::reset()
 	setPosition(initialPosition);
 	_body.setRotation(_theta*(180.0f/pi)+90);
 	setLives(_numberLives);
+	_upgradeBullets.clear();
 }
 
 //Player::~Player()
@@ -84,6 +85,7 @@ floatVector Player::calculatePosition(const bool &direction, float factor)
 	_theta+=factor;
 	else
 	_theta-=factor;
+
 	movement = getPosition();
 	return movement;
 }
@@ -109,14 +111,51 @@ float Player::getRadius()
 
 void Player::createBullets()
 {
-//	if (_checkShoot==10)
+	
+//	if (Satellite::getNumberofSatellitesKilled()%3==0 && Satellite::getTotalNumberofSatellites()!=0)
 //	{
-		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
-		movingEntity::entityList.push_back(bulletPtr);
-//		_checkShoot=0;
+//		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
+//		std::shared_ptr <PlayerBullet> bulletPtr1= std::make_shared<PlayerBullet> (*bulletPtr);
+//		std::shared_ptr <PlayerBullet> bulletPtr2= std::make_shared<PlayerBullet> (*bulletPtr1);
+//		std::shared_ptr <PlayerBullet> bulletPtr3= std::make_shared<PlayerBullet> (*bulletPtr2);
+//		movingEntity::entityList.push_back(bulletPtr1);
+//		movingEntity::entityList.push_back(bulletPtr2);
+//		movingEntity::entityList.push_back(bulletPtr3);
 //	}
 //	else
-//		return;
+//	{
+//		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
+//		movingEntity::entityList.push_back(bulletPtr);
+//	}
+if (Satellite::getNumberofSatellitesKilled()%3==0 && Satellite::getTotalNumberofSatellites()!=0
+&& Satellite::getNumberofSatellitesKilled()!=0)
+{
+_upgradeBullets.push_back(1);
+}
+else
+{
+_upgradeBullets.push_back(0);
+}
+
+auto index= std::find (begin(_upgradeBullets), end(_upgradeBullets), 1);
+
+if (index != end(_upgradeBullets))
+{
+		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
+		std::shared_ptr <PlayerBullet> bulletPtr1= std::make_shared<PlayerBullet> (*bulletPtr);
+		std::shared_ptr <PlayerBullet> bulletPtr2= std::make_shared<PlayerBullet> (*bulletPtr1);
+	//	std::shared_ptr <PlayerBullet> bulletPtr3= std::make_shared<PlayerBullet> (*bulletPtr2);
+		movingEntity::entityList.push_back(bulletPtr1);
+		movingEntity::entityList.push_back(bulletPtr2);
+	//	movingEntity::entityList.push_back(bulletPtr3);
+	
+}
+else
+{
+		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
+		movingEntity::entityList.push_back(bulletPtr);
+}
+
 }
 
 EntityList Player::getEntityType()

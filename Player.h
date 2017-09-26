@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm> 
 #include "math.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -12,6 +13,7 @@
 #include "PlayerBullet.h"
 #include "MovingShootingEntity.h"
 #include <memory> // required for smart pointers
+#include "Satellite.h"
 //using std::unique_ptr;
 //using std::make_unique;
 //using std::shared_ptr;
@@ -70,6 +72,7 @@ class Player: public MovingShootingEntity
        virtual floatVector calculatePosition(const bool& direction, float factor) override;
 	   EntityList _entityType;
 	   int _checkShoot;
+	   std::vector <int> _upgradeBullets;
 	  
 };
 

@@ -15,9 +15,6 @@ public:
         int red,
         int green,
         int blue);
-
-    // Copy constructor
- //   EnemyBullet(const EnemyBullet& bullet);
 	
     virtual floatVector getPosition() override;
 	

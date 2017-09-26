@@ -18,6 +18,7 @@ public:
 	void closeWindow();
 	void BeginDraw();
 	void EndDraw();
+	void BeginDrawMain();
 	userInput Update();
 	//std::vector<userInput> Update();
 	sf::Vector2u GetWindowSize();

@@ -10,7 +10,7 @@ class PlayerBullet: public movingEntity
 public:
 
 	PlayerBullet(float currentPlayerAngle);
-//	~PlayerBullet();
+	PlayerBullet(const PlayerBullet &bullet);
 	
 	virtual floatVector getPosition() override;
 	virtual float getAngle() override;
@@ -29,6 +29,7 @@ double _x_center = 1920.0 / 2.0;
 double _y_center = 1080.0/ 2.0;
 virtual floatVector calculatePosition(const bool& direction, float factor) override;
 EntityList _entityType;
+static int _copies;
 };
 
 #endif // BULLET_H

@@ -50,7 +50,7 @@ private:
 	void Reset();
 	float GetTime();
 	
-	const int MAXENEMIES=10;
+	const int MAXENEMIES=20;
 	
 };
 

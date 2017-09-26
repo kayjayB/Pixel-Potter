@@ -143,7 +143,7 @@ for (auto i =1; i< size; i++)
 void Game::Render()
 {
 	
-	window.BeginDraw();
+	window.BeginDrawMain();
 	sf::Font font;
 	font.loadFromFile("HARRYP__.TTF");
 	sf::Text text("Enemies remaining:" + std::to_string(MAXENEMIES- Enemy::getNumberofEnemiesKilled()), font);

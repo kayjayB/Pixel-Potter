@@ -13,8 +13,6 @@ _radius{80},
  _time{0.0},
  _playerAngle{playerAngle}
 {
-//	_x_center=position[0]-300;
-//	_y_center=position[1]-300;
 
 if (position[0] < _x_centerPlayer && position[1] < _y_centerPlayer)
 {
@@ -183,7 +181,7 @@ void Satellite::ResetSatellites()
 
 void Satellite::createBullets()
 {
-		std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(_theta, _radius, _x_center, _y_center, 1, 1, 255)};
+		std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(-1*_playerAngle, _radius, _x_center, _y_center, 1, 1, 255)};
 		movingEntity::entityList.push_back(bulletPtr);
 		return;
 }

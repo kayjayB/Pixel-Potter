@@ -1,5 +1,7 @@
 #include "PlayerBullet.h"
 
+int PlayerBullet::_copies=0;
+
 PlayerBullet::PlayerBullet(float currentPlayerAngle):
 movingEntity(10.0,20.0,"", 1),
 _minimumRadius{0.0},
@@ -9,9 +11,35 @@ _entityType{EntityList::PlayerBulletEntity}
 {
 	_body.setFillColor(sf::Color::Red);
 	floatVector initialPosition= getPosition();
-	//_body.setPosition(initialPosition[0], initialPosition[1]);
 	setPosition(initialPosition);
-//	movingEntity::entityList.push_back(this);
+}
+
+PlayerBullet::PlayerBullet(const PlayerBullet &bullet):
+movingEntity(15.0, 20.0, "", 1)
+{
+_copies++;	
+_minimumRadius=bullet._minimumRadius;
+_bulletRadius=bullet._bulletRadius;
+
+switch (_copies%2 )
+{
+	case 0:
+	_angle=bullet._angle-3*M_PI/180;
+	break;
+	case 1:
+	_angle=bullet._angle+3*M_PI/180;
+	break;
+}
+
+
+//_angle=bullet._angle;
+_entityType=bullet._entityType;
+
+_body.setFillColor(sf::Color::White);
+floatVector initialPosition= getPosition();
+	//_body.setPosition(initialPosition[0], initialPosition[1]);
+setPosition(initialPosition);
+
 }
 
 //PlayerBullet::~PlayerBullet()

@@ -24,13 +24,17 @@ void Window::closeWindow()
 	_window.close();
 }
 
-void Window::BeginDraw()
+void Window::BeginDrawMain()
 {
     _window.clear(sf::Color::White);
-//	sf::Sprite background(_backgroundTexture);
-//	_window.draw(background);
-//	_window.display();
+	sf::Sprite background(_backgroundTexture);
+	_window.draw(background);
 	
+}
+
+void Window::BeginDraw()
+{
+	    _window.clear(sf::Color::White);
 }
 
 void Window::EndDraw()
