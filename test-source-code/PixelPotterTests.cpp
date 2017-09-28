@@ -8,7 +8,6 @@
 #include "userInput.h"
 #include "movingEntity.h"
 #include <cmath>
-//#include "Game.h"
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
