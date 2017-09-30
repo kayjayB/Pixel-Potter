@@ -5,7 +5,6 @@ Game::Game()
 	window.SplashScreen();
 	_elapsedTime=0.0;
 	_bulletExists=false;
-//	srand(time(0));
 	movingEntity::entityList.push_back(playerPtr);
 	_timeAsteroid=0.0;
 	_timeEnemy=0.0;
@@ -22,49 +21,36 @@ Game::~Game()
 
 void Game::createEnemies()
 {
-//	if ( enemiesAlive < 3 )
-//	{
-//	std::cout << " random no " << generateEnemy <<" time " << _timeEnemy;
-//	if (_timeEnemy > (generateEnemy - 1) && _timeEnemy < (generateEnemy+1) && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
-//	{
-//		std::cout << " enemies alive inside if 1 " << enemiesAlive ;
-//		std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
-//		movingEntity::entityList.push_back(enemyPtr);
-//		generateEnemy=fmod(rand(),4)+_timeEnemy;
-//		_clockEnemy.restart();
-//	}
-//	}
-
+	
 _timeEnemy+=_elapsedTime;
 generateEnemy=fmod(rand(),4)+_timeEnemy;
 if ( Enemy::getNumberofEnemiesAlive() < 3 )
 	{
-//	std::cout << " random no " << generateEnemy <<" time " << _timeEnemy;
 	if (_timeEnemy > (generateEnemy - 1) && _timeEnemy < (generateEnemy+1) && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
 	{
-	//	std::cout << " enemies alive inside if 1 " << enemiesAlive ;
 		std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
 		movingEntity::entityList.push_back(enemyPtr);
-	//	_clockEnemy.restart();
-//	_timeEnemy=0.0;
 	}
 }
 }
 
 void Game::CreateAsteroid()
 {
-	if (_timeAsteroid > (generateAsteroid - 1) && _timeAsteroid < (generateAsteroid+1))
+
+_timeAsteroid=gameClock.getAsteroidTime();
+	if (_timeAsteroid > (generateAsteroid - 0.5) && _timeAsteroid < (generateAsteroid+0.5))
 	{
 		
 		std::shared_ptr <Asteroid> asteroidPtr{ new Asteroid{playerPtr->getAngle()}};
 		movingEntity::entityList.push_back(asteroidPtr);
 		generateAsteroid=fmod(rand(),8.0)+1;
-		_clockAsteroid.restart();
+		gameClock.RestartAsteroidClock();
 	}
 }
 
 void Game::CreateSatellite()
 {
+	_timeSatellite=gameClock.getSatelliteTime();
 	if ((fmod(_timeSatellite,5)>0) && fmod(_timeSatellite,5)<(0.2) && Satellite::getNumberofSatellitesAlive() ==0 )
 	{
 		floatVector position =playerPtr->getPosition();
@@ -129,27 +115,27 @@ void Game::Render()
 {
 	
 	window.BeginDrawMain();
-	sf::Font font;
-	font.loadFromFile("HARRYP__.TTF");
-	sf::Text text("Enemies remaining:" + std::to_string(MAXENEMIES- Enemy::getNumberofEnemiesKilled()), font);
-	text.setCharacterSize(50);
-	text.setStyle(sf::Text::Bold);
-	text.setColor(sf::Color(255,1,1,255));
-	text.setPosition(1500, 1);
-	text.setStyle(sf::Text::Bold);
-	window._window.draw(text);
-
-
-	sf::Text lives("Lives remaining:" + std::to_string(playerPtr->getLives()), font);
-	lives.setCharacterSize(50);
-	lives.setStyle(sf::Text::Bold);
-	lives.setColor(sf::Color(255,0,0,255));
-	lives.setStyle(sf::Text::Bold);
-	window._window.draw(lives);
+//	sf::Font font;
+//	font.loadFromFile("HARRYP__.TTF");
+//	sf::Text text("Enemies remaining:" + std::to_string(MAXENEMIES- Enemy::getNumberofEnemiesKilled()), font);
+//	text.setCharacterSize(50);
+//	text.setStyle(sf::Text::Bold);
+//	text.setColor(sf::Color(255,1,1,255));
+//	text.setPosition(1500, 1);
+//	text.setStyle(sf::Text::Bold);
+//	window._window.draw(text);
+//
+//
+//	sf::Text lives("Lives remaining:" + std::to_string(playerPtr->getLives()), font);
+//	lives.setCharacterSize(50);
+//	lives.setStyle(sf::Text::Bold);
+//	lives.setColor(sf::Color(255,0,0,255));
+//	lives.setStyle(sf::Text::Bold);
+//	window._window.draw(lives);
 	
 for (auto i= begin(movingEntity::entityList); i!=end(movingEntity::entityList);i++)
 {
-	window.showPointer((*i));
+	window.show((*i));
 }
 	
 	window.EndDraw(); 
@@ -162,15 +148,12 @@ Window* Game::GetWindow()
 
 float Game::GetTime()
 { 
-	return _elapsedTime; 
+	return gameClock.GetTime();
 }
 
 void Game::RestartClock()
 { 
-	_elapsedTime = _clock.restart().asSeconds();
-	_timeAsteroid=_clockAsteroid.getElapsedTime().asSeconds();
-//	_timeEnemy=_clockEnemy.getElapsedTime().asSeconds();
-	_timeSatellite=_clockSatellite.getElapsedTime().asSeconds();
+	gameClock.RestartClock();
 }
 
 void Game::checkCollision()
@@ -190,18 +173,14 @@ for (int i=0; i<movingEntity::entityList.size();i++)
 			{
 				movingEntity::entityList[i]->setLives(playerPtr->getLives() -1);
 				movingEntity::entityList[j]->setLives(0);
-				//window.setGameState(gameState::lose);
-				//return;
 			}
 		}
 			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity && movingEntity::entityList[j]->getEntityType()== EntityList::AsteroidEntity)
 			{
 				if (Collision(i,j)) 
 				{
-					//window.setGameState(gameState::lose);
 					movingEntity::entityList[i]->setLives(playerPtr->getLives() -1);
 					movingEntity::entityList[j]->setLives(0);
-					//return;
 				}
 			}
 			
@@ -209,8 +188,6 @@ for (int i=0; i<movingEntity::entityList.size();i++)
 			{
 				if (Collision(i,j)) 
 				{
-				//	window.setGameState(gameState::lose);
-				//	return;
 					movingEntity::entityList[i]->setLives(playerPtr->getLives() -1);
 					movingEntity::entityList[j]->setLives(0);
 				}
@@ -305,8 +282,9 @@ void Game::Reset()
 		playerPtr->reset();
 		movingEntity::entityList.push_back(playerPtr);
 		window.setGameState(gameState::playing);
-		_clockAsteroid.restart();
-		_clockEnemy.restart();
+//		_clockAsteroid.restart();
+//		_clockSatellite.restart();
+		gameClock.RestartAsteroidClock();
 		generateAsteroid= fmod(rand(),5.0)+1;
 		generateEnemy= 1;
 		Satellite::ResetSatellites();

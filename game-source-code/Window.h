@@ -8,6 +8,7 @@
 #include "movingEntity.h"
 #include "gameState.h"
 
+class FileNotFound{};
 
 class Window{
 
@@ -36,8 +37,7 @@ public:
 	userInput keyBoard;
 	//std::vector <userInput> keyBoard;
 	bool isShooting();
-	void show(movingEntity &entity);
-	void showPointer(std::shared_ptr<movingEntity> entity);
+	void show(std::shared_ptr<movingEntity> entity);
 	void setGameState(gameState state);
 	void getGameState();
 	bool reset;

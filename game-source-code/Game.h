@@ -1,6 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "Window.h"
 #include "Enemy.h"
@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <memory> // required for smart pointers
+#include "Clock.h"
 
 class Game
 {
@@ -26,12 +27,12 @@ public:
 
 private:
 	Window window;
+	Clock gameClock;
 	std::shared_ptr <Player> playerPtr{ new Player{}};
     int numberOfEnemies;
-    sf::Clock _clock;
-	sf::Clock _clockEnemy;
-	sf::Clock _clockAsteroid;
-	sf::Clock _clockSatellite;
+//    sf::Clock _clock;
+//	sf::Clock _clockAsteroid;
+//	sf::Clock _clockSatellite;
     float _elapsedTime;
 	float _timeEnemy;
 	float _timeAsteroid;

@@ -7,11 +7,14 @@ Window::Window()
 	_isShooting=false;
 	disableShooting=false;
 	reset=false;
-	_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080));
-	_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080));
-	_winTexture.loadFromFile("win.png", sf::IntRect(0, 0, 1920, 1080));
-	_backgroundTexture.loadFromFile("vortex.png", sf::IntRect(0, 0, 1920, 1080));
-
+	if (!_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080)))
+		throw FileNotFound();
+	if (!_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080)))
+			throw FileNotFound();
+	if(!_winTexture.loadFromFile("win.png", sf::IntRect(0, 0, 1920, 1080)))
+			throw FileNotFound();
+	if(!_backgroundTexture.loadFromFile("vortex.png", sf::IntRect(0, 0, 1920, 1080)))
+			throw FileNotFound();
 }
 
 Window::~Window()
@@ -47,7 +50,6 @@ bool Window::IsDone()
     return _isDone;
 }
 
-//std::vector<userInput> Window::Update()
 userInput Window::Update()
 {
 	reset=false;
@@ -219,12 +221,7 @@ bool Window::isShooting()
 	return _isShooting;
 }
 
-void Window::show(movingEntity &entity)
-{
-	_window.draw(entity.getBody());
-}
-
-void Window::showPointer(std::shared_ptr<movingEntity> entity)
+void Window::show(std::shared_ptr<movingEntity> entity)
 {
 	_window.draw(entity->getBody());
 }
