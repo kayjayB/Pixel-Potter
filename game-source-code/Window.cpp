@@ -7,7 +7,18 @@ Window::Window()
 	_isShooting=false;
 	disableShooting=false;
 	reset=false;
-	if (!_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080)))
+	fileLoader();
+
+}
+
+Window::~Window()
+{
+    _window.close();
+}
+
+void Window::fileLoader()
+{
+		if (!_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080)))
 		throw FileNotFound();
 	if (!_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080)))
 			throw FileNotFound();
@@ -15,11 +26,8 @@ Window::Window()
 			throw FileNotFound();
 	if(!_backgroundTexture.loadFromFile("vortex.png", sf::IntRect(0, 0, 1920, 1080)))
 			throw FileNotFound();
-}
-
-Window::~Window()
-{
-    _window.close();
+	if(!font.loadFromFile("HARRYP__.TTF"))
+		throw FileNotFound();
 }
 
 void Window::closeWindow()
@@ -32,23 +40,28 @@ void Window::BeginDrawMain()
     _window.clear(sf::Color::White);
 	sf::Sprite background(_backgroundTexture);
 	_window.draw(background);
-	sf::Font font;
-	font.loadFromFile("HARRYP__.TTF");
+	drawText();
+}
+
+void Window::drawText()
+{
+	
 	sf::Text text("Enemies remaining:" + std::to_string(_enemies- Enemy::getNumberofEnemiesKilled()), font);
-	text.setCharacterSize(50);
-	text.setStyle(sf::Text::Bold);
-	text.setColor(sf::Color(255,1,1,255));
-	text.setPosition(1500, 1);
-	text.setStyle(sf::Text::Bold);
+	textSetup(1500, 1, text);
 	_window.draw(text);
 
 	sf::Text lives("Lives remaining:" + std::to_string(_playerLives), font);
-	lives.setCharacterSize(50);
-	lives.setStyle(sf::Text::Bold);
-	lives.setColor(sf::Color(255,0,0,255));
-	lives.setStyle(sf::Text::Bold);
+	textSetup(0, 0, lives);
 	_window.draw(lives);
-	
+}
+
+void Window::textSetup(float xPos, float yPos, sf::Text &text)
+{
+	text.setCharacterSize(50);
+	text.setStyle(sf::Text::Bold);
+	text.setColor(sf::Color(255,0,0,255));
+	text.setStyle(sf::Text::Bold);
+	text.setPosition(xPos, yPos);
 }
 
 void Window::BeginDraw()
@@ -70,7 +83,6 @@ userInput Window::Update()
 {
 	reset=false;
     sf::Event event;
-    // sf::Event keyPress;
     while(_window.pollEvent(event)) 
 	{
 		if(event.type == sf::Event::Closed) 
@@ -133,23 +145,22 @@ void Window::SplashScreen()
 	
 	_window.display();
 	
-	if(EndSplashScreen())
+	if(End())
 	    return ;
     }
 }
 
-bool Window::EndSplashScreen()
+bool Window::End()
 {
-    sf::Event endSplash;
+    sf::Event end;
 
-    while(_window.pollEvent(endSplash)) {
-	//if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+    while(_window.pollEvent(end)) {
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
 	    _isDone = false;
 	    return true;
 	}
 	
-	if(endSplash.type == sf::Event::Closed) {
+	if(end.type == sf::Event::Closed) {
 	    _isDone = true;
 	    _window.close();
 	    return false;
@@ -169,27 +180,9 @@ void Window::Lose()
 	
 	_window.display();
 
-	if(EndLose())
+	if(End())
 	{
 	    return;
-	}
-    }
-}
-
-bool Window::EndLose()
-{
-    sf::Event endSplash;
-
-    while(_window.pollEvent(endSplash)) {
-	
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-	    _isDone = false;
-	    return true;
-		}
-	if(endSplash.type == sf::Event::Closed) {
-	    _isDone = true;
-	    _window.close();
-	    return false;
 	}
     }
 }
@@ -206,31 +199,13 @@ void Window::Win()
 	_window.draw(backgroundWin);
 	
 	_window.display();
-	if(EndWin())
+	if(End())
 	{
 	    return;
 	}
     }
 }
 
-bool Window::EndWin()
-{
-    sf::Event endSplash;
-
-    while(_window.pollEvent(endSplash)) {
-	
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-	    _isDone = false;
-	    return true;
-	}
-	if(endSplash.type == sf::Event::Closed) {
-	    _isDone = true;
-	    _window.close();
-	    return false;
-	}
-	
-    }
-}
 
 bool Window::isShooting()
 {

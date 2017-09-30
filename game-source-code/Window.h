@@ -29,13 +29,10 @@ public:
     sf::RenderWindow _window;
     bool IsDone();
     void SplashScreen();
-    bool EndSplashScreen();
 
     void Lose();
-    bool EndLose();
 
     void Win();
-	bool EndWin();
 	bool isShooting();
     userInput keyBoard;
     // std::vector <userInput> keyBoard;
@@ -50,11 +47,15 @@ public:
     bool reset;
 
 private:
-    //	sf::Sprite backgroundLose;
+    void fileLoader();
+	void drawText();
+	 bool End();
+	 void textSetup(float xPos, float yPos, sf::Text &text);
     sf::Texture _splashTexture;
     sf::Texture _loseTexture;
     sf::Texture _winTexture;
     sf::Texture _backgroundTexture;
+	sf::Font font;
     void Destroy();
     bool _isDone;
     bool _isShooting;

@@ -41,7 +41,6 @@ public:
 private:
 	float _theta;
 	float _radius;
-	const float _MAX_RADIUS = 480.0;
 	float _x_center;
 	float _y_center;
 	const float _x_centerPlayer=1920.0/2.0;
