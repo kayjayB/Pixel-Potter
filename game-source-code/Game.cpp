@@ -109,29 +109,16 @@ for (auto i =1; i< size; i++)
 		Reset();
 	}
 	
+	window.setLivesRemaining(playerPtr->getLives());
+	window.setMaximumEnemies(MAXENEMIES);
+	
 }
 
 void Game::Render()
 {
 	
 	window.BeginDrawMain();
-//	sf::Font font;
-//	font.loadFromFile("HARRYP__.TTF");
-//	sf::Text text("Enemies remaining:" + std::to_string(MAXENEMIES- Enemy::getNumberofEnemiesKilled()), font);
-//	text.setCharacterSize(50);
-//	text.setStyle(sf::Text::Bold);
-//	text.setColor(sf::Color(255,1,1,255));
-//	text.setPosition(1500, 1);
-//	text.setStyle(sf::Text::Bold);
-//	window._window.draw(text);
-//
-//
-//	sf::Text lives("Lives remaining:" + std::to_string(playerPtr->getLives()), font);
-//	lives.setCharacterSize(50);
-//	lives.setStyle(sf::Text::Bold);
-//	lives.setColor(sf::Color(255,0,0,255));
-//	lives.setStyle(sf::Text::Bold);
-//	window._window.draw(lives);
+
 	
 for (auto i= begin(movingEntity::entityList); i!=end(movingEntity::entityList);i++)
 {

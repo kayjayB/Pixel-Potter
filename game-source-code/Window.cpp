@@ -32,6 +32,22 @@ void Window::BeginDrawMain()
     _window.clear(sf::Color::White);
 	sf::Sprite background(_backgroundTexture);
 	_window.draw(background);
+	sf::Font font;
+	font.loadFromFile("HARRYP__.TTF");
+	sf::Text text("Enemies remaining:" + std::to_string(_enemies- Enemy::getNumberofEnemiesKilled()), font);
+	text.setCharacterSize(50);
+	text.setStyle(sf::Text::Bold);
+	text.setColor(sf::Color(255,1,1,255));
+	text.setPosition(1500, 1);
+	text.setStyle(sf::Text::Bold);
+	_window.draw(text);
+
+	sf::Text lives("Lives remaining:" + std::to_string(_playerLives), font);
+	lives.setCharacterSize(50);
+	lives.setStyle(sf::Text::Bold);
+	lives.setColor(sf::Color(255,0,0,255));
+	lives.setStyle(sf::Text::Bold);
+	_window.draw(lives);
 	
 }
 
@@ -249,4 +265,14 @@ void Window::getGameState()
 void Window::setGameState(gameState state)
 {
 	_state=state;
+}
+
+void Window::setLivesRemaining(int lives)
+{
+		_playerLives= lives;
+}
+	
+void Window::setMaximumEnemies(int maxEnemies)
+{
+	_enemies= maxEnemies;
 }
