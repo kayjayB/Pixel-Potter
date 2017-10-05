@@ -11,7 +11,8 @@
 #include "userInput.h"
 #include "PlayerBullet.h"
 #include "MovingShootingEntity.h"
-#include <memory> // required for smart pointers
+#include <memory> 
+//#include "entityManager.h"
 
 using floatVector =std::vector <float>;
 
@@ -46,6 +47,7 @@ private:
 	float _randomAngle;
 	EntityList _entityType;
 	virtual floatVector calculatePosition(const bool& direction, float factor) override;
+	//entityManager manager;
 };
 
 #endif // ASTEROID_H

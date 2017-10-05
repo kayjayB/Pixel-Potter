@@ -9,7 +9,7 @@ _theta{90*pi/180},
 //_faceRight{true},
 stationary{false},
 _entityType{EntityList::PlayerEntity},
-_checkShoot{0}
+_checkShoot{0} //, //manager(EntityList::PlayerEntity, 50.0, 100.0, "HP.png")
 {
 		floatVector initialPosition=getPosition();
 		//_body.setPosition(initialPosition[x], initialPosition[y]);
@@ -111,31 +111,16 @@ float Player::getRadius()
 
 void Player::createBullets()
 {
-	
-//	if (Satellite::getNumberofSatellitesKilled()%3==0 && Satellite::getTotalNumberofSatellites()!=0)
-//	{
-//		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
-//		std::shared_ptr <PlayerBullet> bulletPtr1= std::make_shared<PlayerBullet> (*bulletPtr);
-//		std::shared_ptr <PlayerBullet> bulletPtr2= std::make_shared<PlayerBullet> (*bulletPtr1);
-//		std::shared_ptr <PlayerBullet> bulletPtr3= std::make_shared<PlayerBullet> (*bulletPtr2);
-//		movingEntity::entityList.push_back(bulletPtr1);
-//		movingEntity::entityList.push_back(bulletPtr2);
-//		movingEntity::entityList.push_back(bulletPtr3);
-//	}
-//	else
-//	{
-//		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
-//		movingEntity::entityList.push_back(bulletPtr);
-//	}
+
 if (Satellite::getNumberofSatellitesKilled()%3==0 && Satellite::getTotalNumberofSatellites()!=0
 && Satellite::getNumberofSatellitesKilled()!=0)
-{
-_upgradeBullets.push_back(1);
-}
+	{
+	_upgradeBullets.push_back(1);
+	}
 else
-{
-_upgradeBullets.push_back(0);
-}
+	{
+	_upgradeBullets.push_back(0);
+	}
 
 auto index= std::find (begin(_upgradeBullets), end(_upgradeBullets), 1);
 
@@ -144,10 +129,8 @@ if (index != end(_upgradeBullets))
 		std::shared_ptr <PlayerBullet> bulletPtr{ new PlayerBullet(_theta)};
 		std::shared_ptr <PlayerBullet> bulletPtr1= std::make_shared<PlayerBullet> (*bulletPtr);
 		std::shared_ptr <PlayerBullet> bulletPtr2= std::make_shared<PlayerBullet> (*bulletPtr1);
-	//	std::shared_ptr <PlayerBullet> bulletPtr3= std::make_shared<PlayerBullet> (*bulletPtr2);
 		movingEntity::entityList.push_back(bulletPtr1);
 		movingEntity::entityList.push_back(bulletPtr2);
-	//	movingEntity::entityList.push_back(bulletPtr3);
 	
 }
 else

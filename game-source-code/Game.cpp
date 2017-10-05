@@ -95,6 +95,8 @@ for (auto i =1; i< size; i++)
 
 	entityCleanUp();
 	
+	//entityManager::setPosition();
+	
 		if ((Enemy::getTotalNumberofEnemies()%MAXENEMIES) == 0 && Enemy::getNumberofEnemiesAlive()==0 && Enemy::getTotalNumberofEnemies()!=0)
 	{
 		window.setGameState(gameState::win);
@@ -124,6 +126,11 @@ for (auto i= begin(movingEntity::entityList); i!=end(movingEntity::entityList);i
 {
 	window.show((*i));
 }
+
+//for (auto i=begin(entityManager::body); i!=end(entityManager::body); i++)
+//{
+//	window.show((**i));
+//}
 	
 	window.EndDraw(); 
 }

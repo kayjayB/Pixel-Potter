@@ -25,7 +25,6 @@ public:
     userInput Update();
     // std::vector<userInput> Update();
     sf::Vector2u GetWindowSize();
-    void Draw(sf::Drawable& l_drawable);
     sf::RenderWindow _window;
     bool IsDone();
     void SplashScreen();
@@ -37,6 +36,7 @@ public:
     userInput keyBoard;
     // std::vector <userInput> keyBoard;
     void show(std::shared_ptr<movingEntity> entity);
+	//void show(sf::RectangleShape entity);
     void setGameState(gameState state);
     void getGameState();
 	

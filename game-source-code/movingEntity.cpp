@@ -11,8 +11,6 @@ _lives{lives}
 		_body.setOrigin(_entityHeight/2,_entityHeight/2);
 }
 
-//movingEntity::~movingEntity() {}
-
 std::vector<std::shared_ptr<movingEntity>> movingEntity::entityList;
 
 floatVector movingEntity::getPosition()
@@ -28,10 +26,9 @@ void movingEntity::setTexture(string texture)
 {
 	if (texture.size()!=0)
 	{
-	_Texture.loadFromFile(texture, sf::IntRect(0, 0, 150, 150));
-	_body.setTexture(&_Texture);
+		_Texture.loadFromFile(texture, sf::IntRect(0, 0, 150, 150));
+		_body.setTexture(&_Texture);
 	}
-	
 }
 
 sf::RectangleShape movingEntity::getBody() const

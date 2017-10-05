@@ -4,7 +4,7 @@ Asteroid::Asteroid(float angle):
 movingEntity(50.0, 50.0, "quaffle.png", 1),
 _theta{angle},
 _radius{0.0},
-_entityType{EntityList::AsteroidEntity}
+_entityType{EntityList::AsteroidEntity} //,//manager(EntityList::AsteroidEntity, 50.0, 50.0, "quaffle.png")
 {
 	//_body.setRotation(_randomAngle);
 	floatVector initialPosition=getPosition();

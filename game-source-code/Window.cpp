@@ -1,12 +1,12 @@
 #include "Window.h"
 
-Window::Window()
-    : _window(sf::VideoMode(1920, 1080), "Pixel Potter", sf::Style::Titlebar | sf::Style::Close)
+Window::Window():
+	_window(sf::VideoMode(1920, 1080), "Pixel Potter", sf::Style::Titlebar | sf::Style::Close),
+	reset{false},
+	_isDone{false},
+	_isShooting{false},
+	disableShooting{false}
 {
-    _isDone = false;
-	_isShooting=false;
-	disableShooting=false;
-	reset=false;
 	fileLoader();
 
 }
@@ -18,14 +18,14 @@ Window::~Window()
 
 void Window::fileLoader()
 {
-		if (!_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080)))
+	if (!_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080)))
 		throw FileNotFound();
 	if (!_loseTexture.loadFromFile("lose.png", sf::IntRect(0, 0, 1920, 1080)))
-			throw FileNotFound();
+		throw FileNotFound();
 	if(!_winTexture.loadFromFile("win.png", sf::IntRect(0, 0, 1920, 1080)))
-			throw FileNotFound();
+		throw FileNotFound();
 	if(!_backgroundTexture.loadFromFile("vortex.png", sf::IntRect(0, 0, 1920, 1080)))
-			throw FileNotFound();
+		throw FileNotFound();
 	if(!font.loadFromFile("HARRYP__.TTF"))
 		throw FileNotFound();
 }
@@ -216,6 +216,11 @@ void Window::show(std::shared_ptr<movingEntity> entity)
 {
 	_window.draw(entity->getBody());
 }
+
+//void Window::show(sf::RectangleShape entity)
+//{
+//	_window.draw(entity);
+//}
 
 void Window::getGameState()
 {
