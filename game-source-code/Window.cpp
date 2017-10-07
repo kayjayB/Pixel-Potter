@@ -59,7 +59,7 @@ void Window::textSetup(float xPos, float yPos, sf::Text &text)
 {
 	text.setCharacterSize(50);
 	text.setStyle(sf::Text::Bold);
-	text.setColor(sf::Color(255,0,0,255));
+	text.setFillColor(sf::Color(255,0,0,255));
 	text.setStyle(sf::Text::Bold);
 	text.setPosition(xPos, yPos);
 }

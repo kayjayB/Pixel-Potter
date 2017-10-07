@@ -24,8 +24,6 @@ _time{0.0}
 Enemy::~Enemy()
 {	
 	_NumberEnemiesAlive--;
-//	std::cout << "killing enemy " << _NumberEnemiesAlive << "enemies alive ";
-//	_NumberEnemiesKilled++;
 	_NumberEnemiesKilled++;
 	if (_NumberEnemiesAlive<0)
 	{

@@ -12,11 +12,13 @@ using floatVector=std::vector<float>;
 class entityManager
 {
 public:
-	entityManager(EntityList entitytype, float entityWidth, float entityHeight, string texture);
+//	entityManager(EntityList entitytype, float entityWidth, float entityHeight, string texture);
+	entityManager();
 	~entityManager();
 	
 	//void setTexture(sf::RectangleShape &_body, string texture);
-	void setTexture(std::shared_ptr<sf::RectangleShape> body, string texture);
+//	void setTexture(std::shared_ptr<sf::RectangleShape> body, string texture);
+	void setTexture();
 	static void setPosition();
 	
 	void playerBody();

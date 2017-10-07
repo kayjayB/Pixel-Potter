@@ -9,6 +9,8 @@ enum class EntityList
 	EnemyBulletEntity,
 	AsteroidEntity,
 	SatelliteEntity,
+	LaserEntity,
+	ArcEntity,
 };
 
 #endif

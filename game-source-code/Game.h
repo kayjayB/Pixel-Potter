@@ -13,6 +13,7 @@
 #include <ctime>
 #include <memory> // required for smart pointers
 #include "Clock.h"
+#include "CollisionManager.h"
 //#include "entityManager.h"
 
 class Game
@@ -51,6 +52,7 @@ private:
 	float generateEnemy;
 	void Reset();
 	float GetTime();
+	CollisionManager collision;
 	
 	const int MAXENEMIES=20;
 	
