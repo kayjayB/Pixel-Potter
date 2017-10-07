@@ -1,6 +1,7 @@
 #include "Game.h"
 
-Game::Game()
+Game::Game():
+	_create(gameClock, MAXENEMIES, playerPtr)
 {
 	window.SplashScreen();
 	_elapsedTime=0.0;
@@ -12,7 +13,6 @@ Game::Game()
 	window.setGameState(gameState::playing);
 	generateAsteroid= fmod(rand(),5.0)+1;
 	generateEnemy= 1;
-	
 }
 
 Game::~Game()
@@ -22,7 +22,7 @@ Game::~Game()
 void Game::createEnemies()
 {
 	
-_timeEnemy+=_elapsedTime;
+_timeEnemy+=gameClock->GetTime();
 generateEnemy=fmod(rand(),4)+_timeEnemy;
 if ( Enemy::getNumberofEnemiesAlive() < 3 )
 	{
@@ -37,20 +37,20 @@ if ( Enemy::getNumberofEnemiesAlive() < 3 )
 void Game::CreateAsteroid()
 {
 
-_timeAsteroid=gameClock.getAsteroidTime();
+_timeAsteroid=gameClock->getAsteroidTime();
 	if (_timeAsteroid > (generateAsteroid - 0.5) && _timeAsteroid < (generateAsteroid+0.5))
 	{
 		
 		std::shared_ptr <Asteroid> asteroidPtr{ new Asteroid{playerPtr->getAngle()}};
 		movingEntity::entityList.push_back(asteroidPtr);
 		generateAsteroid=fmod(rand(),8.0)+1;
-		gameClock.RestartAsteroidClock();
+		gameClock->RestartAsteroidClock();
 	}
 }
 
 void Game::CreateSatellite()
 {
-	_timeSatellite=gameClock.getSatelliteTime();
+	_timeSatellite=gameClock->getSatelliteTime();
 	if ((fmod(_timeSatellite,5)>0) && fmod(_timeSatellite,5)<(0.2) && Satellite::getNumberofSatellitesAlive() ==0 )
 	{
 		floatVector position =playerPtr->getPosition();
@@ -67,18 +67,18 @@ void Game::CreateSatellite()
 void Game::Update()
 {	
 	userInput Keyevent =window.Update();
+//	createEnemies();
 	
-	createEnemies();
+//	CreateAsteroid();
 	
-	CreateAsteroid();
-	
-	CreateSatellite();
+//	CreateSatellite();
+_create.create();
 
 	playerPtr->Update(playerPtr->MovementDirection(Keyevent), GetTime());
 
 int size= movingEntity::entityList.size();
 
-// The for loop resizes dynamically as the size of the movingEntity::entityList vector is increasing
+// The for loop resizes dynamically since the size of the movingEntity::entityList vector is increasing
 // as the enemy bullets are created
 for (auto i =1; i< size; i++) 
 {
@@ -140,12 +140,12 @@ Window* Game::GetWindow()
 
 float Game::GetTime()
 { 
-	return gameClock.GetTime();
+	return gameClock->GetTime();
 }
 
 void Game::RestartClock()
 { 
-	gameClock.RestartClock();
+	gameClock->RestartClock();
 }
 
 void Game::Reset()
@@ -156,7 +156,7 @@ void Game::Reset()
 		playerPtr->reset();
 		movingEntity::entityList.push_back(playerPtr);
 		window.setGameState(gameState::playing);
-		gameClock.RestartAsteroidClock();
+		gameClock->RestartAsteroidClock();
 		generateAsteroid= fmod(rand(),5.0)+1;
 		generateEnemy= 1;
 		Satellite::ResetSatellites();
