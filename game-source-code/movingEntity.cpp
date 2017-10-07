@@ -6,9 +6,9 @@ _entityHeight{entityHeight},
 _lives{lives}
 {
 		_body.setSize(sf::Vector2f(_entityWidth,_entityHeight));
+		_body.setOrigin(_entityHeight/2,_entityHeight/2);
 		if (texture.size()!=0)
 		setTexture(texture);
-		_body.setOrigin(_entityHeight/2,_entityHeight/2);
 }
 
 std::vector<std::shared_ptr<movingEntity>> movingEntity::entityList;
@@ -46,8 +46,9 @@ floatVector movingEntity::getBodySize()
 	floatVector bodySize;
 	bodySize.push_back(_entityWidth);
 	bodySize.push_back(_entityHeight);
-	
-	return bodySize;
+//bodySize.push_back(_body.getSize().x);
+//bodySize.push_back(_body.getSize().y);	
+return bodySize;
 }
 
 int movingEntity::getLives()

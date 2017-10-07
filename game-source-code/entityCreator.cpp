@@ -18,12 +18,13 @@ entityCreator::~entityCreator()
 
 void entityCreator::create()
 {
-	createEnemies();
+	CreateEnemy();
 	CreateAsteroid();
 	CreateSatellite();
+	CreateLaser();
 }
 
-void entityCreator::createEnemies()
+void entityCreator::CreateEnemy()
 {
 	
 _timeEnemy+=_entityClock->GetTime();;
@@ -66,4 +67,25 @@ void entityCreator::CreateSatellite()
 		movingEntity::entityList.push_back(satellitePtr2);
 		movingEntity::entityList.push_back(satellitePtr3);
 	}
+}
+
+void entityCreator::CreateLaser()
+{
+		_timeSatellite=_entityClock->getSatelliteTime();
+	if ((fmod(_timeSatellite,2)>0) && fmod(_timeSatellite,2)<(0.2)  && LaserGenerator::getNumberofLasersAlive()==0)
+	{
+		std::shared_ptr <LaserGenerator> laserPtr{ new LaserGenerator{}};
+		std::shared_ptr <LaserGenerator> laserPtr2= std::make_shared<LaserGenerator> (*laserPtr);
+		movingEntity::entityList.push_back(laserPtr);
+		movingEntity::entityList.push_back(laserPtr2);
+		std::shared_ptr <LaserArc> arcPtr{ new LaserArc{laserPtr->getAngle(), laserPtr, laserPtr2}};
+		movingEntity::entityList.push_back(arcPtr);
+	}
+}
+
+void entityCreator::reset()
+{
+		_entityClock->RestartAsteroidClock();
+		generateAsteroid= fmod(rand(),5.0)+1;
+		generateEnemy= 1;
 }

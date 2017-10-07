@@ -1,17 +1,14 @@
 #ifndef GAME_H
 #define GAME_H
-//#include <SFML/Graphics.hpp>
-#include "Player.h"
-#include "Window.h"
-#include "Enemy.h"
-#include "vector"
-#include "PlayerBullet.h"
-#include "EntityList.h"
-#include "Asteroid.h"
-#include "Satellite.h"
+
 #include <cstdlib>
 #include <ctime>
 #include <memory> // required for smart pointers
+#include <vector>
+#include "Player.h"
+#include "Window.h"
+#include "Enemy.h"
+#include "EntityList.h"
 #include "Clock.h"
 #include "CollisionManager.h"
 #include "entityCreator.h"
@@ -34,15 +31,9 @@ private:
 	std::shared_ptr <Player> playerPtr{ new Player{}};
     int numberOfEnemies;
     float _elapsedTime;
-	float _timeEnemy;
-	float _timeAsteroid;
-	float _timeSatellite;
     bool _bulletExists;
-	void createEnemies();
 	float GetTotalTime();
 	void RestartTotalTime();
-	void CreateAsteroid();
-	void CreateSatellite();
 	float generateAsteroid;
 	float generateEnemy;
 	void Reset();

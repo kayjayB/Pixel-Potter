@@ -11,9 +11,9 @@ _theta{0},
 _radius{80},
 _entityType{EntityList::SatelliteEntity},
 _time{0.0},
-_playerAngle{playerAngle},
-positionX{0},
-positionY{0},
+//_playerAngle{playerAngle},
+//positionX{0},
+//positionY{0},
 thetaBullet{0}
 {
 

@@ -30,10 +30,6 @@ virtual float getRadius() override;
 
 virtual void Update(int direction, float timeElapsed) override;	
 
-void setTexture(string texture);
-
-sf::RectangleShape getBody() const;
-
 virtual EntityList getEntityType() override;
 
 

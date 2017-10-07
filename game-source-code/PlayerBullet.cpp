@@ -4,7 +4,7 @@ int PlayerBullet::_copies=0;
 
 PlayerBullet::PlayerBullet(float currentPlayerAngle):
 movingEntity(10.0,20.0,"", 1),
-_minimumRadius{0.0},
+_minimumRadius{50.0},
 _bulletRadius{480.0f},
 _angle{currentPlayerAngle},
 _entityType{EntityList::PlayerBulletEntity}

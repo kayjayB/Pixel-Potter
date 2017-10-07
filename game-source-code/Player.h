@@ -1,6 +1,5 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-//#include "animation.h"
 #include "movingEntity.h"
 #include <cmath>
 #include <cstdlib>
@@ -12,9 +11,8 @@
 #include "userInput.h"
 #include "PlayerBullet.h"
 #include "MovingShootingEntity.h"
-#include <memory> // required for smart pointers
+#include <memory> 
 #include "Satellite.h"
-//#include "entityManager.h"
 
 const double pi = M_PI;
 const int x=0;
@@ -39,8 +37,6 @@ class Player: public MovingShootingEntity
 		
 		virtual void Update(int direction, float timeElapsed) override;	
 		
-		std::vector<std::weak_ptr<PlayerBullet>> getBullets();
-		
 		virtual void createBullets() override;
 		
 		virtual EntityList getEntityType() override;
@@ -50,9 +46,7 @@ class Player: public MovingShootingEntity
    private:
         unsigned int _row;
 		const int _numberLives=5;
-      //  const float _switchTime = 0.3f;
 		float _speed = 0.9f;
-//        bool _faceRight;
 		double _theta;
         bool stationary;
         const double _x_center = 1920.0f / 2.0f;
@@ -63,8 +57,7 @@ class Player: public MovingShootingEntity
 	   EntityList _entityType;
 	   int _checkShoot;
 	   std::vector <int> _upgradeBullets;
-	//   entityManager manager;
 	  
 };
 
-#endif // PLAYERREFACTORED_H
+#endif

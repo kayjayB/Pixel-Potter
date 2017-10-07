@@ -45,6 +45,41 @@ for (int i=0; i<movingEntity::entityList.size();i++)
 				}
 			}
 			
+			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity && movingEntity::entityList[j]->getEntityType()== EntityList::ArcEntity)
+			{
+				if (Collision(i,j)) 
+				{
+					movingEntity::entityList[i]->setLives(movingEntity::entityList[i]->getLives() -1);
+					movingEntity::entityList[j]->setLives(0);
+				}
+			}
+			
+			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity && movingEntity::entityList[j]->getEntityType()== EntityList::LaserEntity)
+			{
+				if (Collision(i,j)) 
+				{
+					movingEntity::entityList[i]->setLives(movingEntity::entityList[i]->getLives() -1);
+					movingEntity::entityList[j]->setLives(0);
+				}
+			}
+			
+			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity && movingEntity::entityList[j]->getEntityType()== EntityList::LaserEntity)
+			{
+				if (Collision(i,j)) 
+				{
+					movingEntity::entityList[i]->setLives(0);
+					movingEntity::entityList[j]->setLives(0);
+				}
+			}
+			
+			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity && movingEntity::entityList[j]->getEntityType()== EntityList::ArcEntity)
+			{
+				if (Collision(i,j)) 
+				{
+					movingEntity::entityList[i]->setLives(0);
+				}
+			}
+			
 			if (movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity && movingEntity::entityList[j]->getEntityType()== EntityList::EnemyBulletEntity)
 			{
 				if (Collision(i,j)) 
@@ -91,7 +126,7 @@ bool CollisionManager::Collision(int i, int j)
 		floatVector position2= movingEntity::entityList[j]->getPosition();
 		floatVector halfSize1=movingEntity::entityList[i]->getBodySize();
 		floatVector halfSize2=movingEntity::entityList[j]->getBodySize();
-//			
+		
 		float deltaX= position1[0]-position2[0];
 		float deltaY= position1[1]-position2[1];
 		float intersectX= fabs(deltaX)- (halfSize1[0]/2+halfSize2[0]/2);

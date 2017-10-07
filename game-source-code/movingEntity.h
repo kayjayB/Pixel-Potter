@@ -22,7 +22,6 @@ virtual floatVector getPosition();
 
 virtual float getRadius()=0;
 
-//virtual void Update(bool direction, float timeElapsed)=0;
 virtual void Update(int direction, float timeElapsed) =0;	
 
 void setTexture(string texture);
@@ -32,8 +31,6 @@ sf::RectangleShape getBody() const;
 void setPosition(floatVector position);
 
 static std::vector<std::shared_ptr<movingEntity>> entityList;
-//static std::vector<EntityList> entities;
-//static addEntities()
 
 virtual EntityList getEntityType()=0;
 
@@ -49,8 +46,6 @@ sf::RectangleShape _body;
 
 virtual floatVector calculatePosition(const bool& direction, float factor)=0;
 
-
-//~movingEntity();
 
 private:
 

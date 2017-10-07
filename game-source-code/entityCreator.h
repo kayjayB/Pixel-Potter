@@ -7,6 +7,8 @@
 #include "Asteroid.h"
 #include "Satellite.h"
 #include "Player.h"
+#include "LaserGenerator.h"
+#include "LaserArc.h"
 
 class entityCreator
 {
@@ -14,6 +16,7 @@ public:
 	entityCreator(std::shared_ptr <Clock> gameClock, int maxEnemies, std::shared_ptr <Player> playerPtr);
 	~entityCreator();
 	void create();
+	void reset();
 
 private:
 //Clock entityClock;
@@ -25,9 +28,11 @@ private:
 	float generateAsteroid;
 	float generateEnemy;
 	
-	void createEnemies();
+	void CreateEnemy();
 	void CreateAsteroid();
 	void CreateSatellite();
+	
+	void CreateLaser();
 	int MAXENEMIES;
 };
 

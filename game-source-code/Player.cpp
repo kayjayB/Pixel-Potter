@@ -27,10 +27,6 @@ void Player::reset()
 	_upgradeBullets.clear();
 }
 
-//Player::~Player()
-//{
-//}
-
 int Player::MovementDirection(userInput event)
 {
 	switch (event)
@@ -73,7 +69,6 @@ void Player::Update(int direction, float timeElapsed)
 		case 3:
 		break;
 	}
-	//std::cout << movement[0] << " " << movement[1] << "end";
 	setPosition(movement);
 	_body.setRotation(_theta*(180.0f/pi)+90);
 }
