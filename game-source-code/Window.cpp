@@ -168,15 +168,14 @@ bool Window::End()
     }
 }
 
-void Window::Lose()
+void Window::DisplayGameState(sf::Sprite &texture)
 {
-   sf::Sprite backgroundLose(_loseTexture);
    movingEntity::entityList.clear();
     while(_window.isOpen()) {
 		
 	BeginDraw();
 	
-	_window.draw(backgroundLose);
+	_window.draw(texture);
 	
 	_window.display();
 
@@ -186,26 +185,6 @@ void Window::Lose()
 	}
     }
 }
-
-void Window::Win()
-{
-
-   sf::Sprite backgroundWin(_winTexture);
-   BeginDraw();
-   movingEntity::entityList.clear();
-    while(_window.isOpen()) {
-
-	BeginDraw();
-	_window.draw(backgroundWin);
-	
-	_window.display();
-	if(End())
-	{
-	    return;
-	}
-    }
-}
-
 
 bool Window::isShooting()
 {
@@ -227,18 +206,25 @@ void Window::getGameState()
 		switch (_state)
 		{
 		case gameState::lose:
+		{
 		reset=true;
 		Enemy::ResetEnemies();
-		Lose();
+		sf::Sprite background(_loseTexture); 	
+		DisplayGameState(background);
 		break;
+		}
 		case gameState::win:
+		{
 		reset=true;
 		Enemy::ResetEnemies();
-		Win();
+		sf::Sprite background2(_winTexture);
+		DisplayGameState(background2);
 		break;
+		}
 		case gameState::playing:
 		reset=false;
 		break;
+		
 		}
 }
 

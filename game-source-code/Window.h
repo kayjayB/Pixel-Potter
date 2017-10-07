@@ -29,9 +29,9 @@ public:
     bool IsDone();
     void SplashScreen();
 
-    void Lose();
-
-    void Win();
+    //void Lose();
+	void DisplayGameState(sf::Sprite &texture);
+	
 	bool isShooting();
     userInput keyBoard;
     // std::vector <userInput> keyBoard;
