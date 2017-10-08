@@ -3,33 +3,26 @@
 int LaserGenerator::_NumberLasersAlive=0;
 
 LaserGenerator::LaserGenerator():
-movingEntity(10.0, 10.0, "", 1),
+movingEntity(10.0, 10.0, 1),
 _radius{5.0},
 _entityType{EntityList::LaserEntity}
 {
 		_randomAngle = rand()%360;
 		_theta = _randomAngle*M_PI/180;
-		floatVector initialPosition=getPosition();
-		setPosition(initialPosition);
-		_body.setFillColor(sf::Color::Cyan);
-		_body.setScale(1.0, 1.0);
 		_scale=1.0;
 		_NumberLasersAlive++;
-		_body.setRotation(_randomAngle+90);
 }
 
 LaserGenerator::LaserGenerator(const LaserGenerator &generator):
-movingEntity(10.0, 10.0, "", 1)
+movingEntity(10.0, 10.0, 1)
 {
 	_theta=generator._theta-50*M_PI/180;
 	_scale=generator._scale;
-	_body=generator._body;
+	//_body=generator._body;
 	_radius=generator._radius;
 	floatVector initialPosition=getPosition();
-	setPosition(initialPosition);
 	_entityType=generator._entityType;
 	_NumberLasersAlive++;
-	_body.setRotation(_theta*180/M_PI+90);
 }
 
 LaserGenerator::~LaserGenerator()
@@ -61,12 +54,12 @@ void LaserGenerator::Update(int direction, float timeElapsed)
 	}
 	
 	movement=calculatePosition(true, factor);
-	setPosition(movement);
+	//setPosition(movement);
 	
-	_body.setScale(_scale,_scale);
+//	_body.setScale(_scale,_scale);
         // increase scale...
         _scale+=0.022*factor;
-	_body.setOrigin(_body.getSize().x/2,_body.getSize().y/2);
+//	_body.setOrigin(_body.getSize().x/2,_body.getSize().y/2);
 	
 //	std::cout << _body.getSize().x << " ";
 }

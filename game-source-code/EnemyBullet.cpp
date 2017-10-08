@@ -1,18 +1,13 @@
 #include "EnemyBullet.h"
 
-EnemyBullet::EnemyBullet(float currentEnemyAngle, float currentEnemyRadius, float x_center, float y_center,
-int red, int green, int blue):
-movingEntity(10.0,20.0,"", 1),
+EnemyBullet::EnemyBullet(float currentEnemyAngle, float currentEnemyRadius, float x_center, float y_center):
+movingEntity(10.0,20.0, 1),
 _bulletRadius{currentEnemyRadius},
 _angle{currentEnemyAngle},
 _x_center{x_center},
 _y_center{y_center},
 _entityType{EntityList::EnemyBulletEntity}
 {
-	_body.setFillColor(sf::Color(red,green,blue,255));
-//	_body.setFillColor(sf::Color::Green);
-	floatVector initialPosition= getPosition();
-	setPosition(initialPosition);
 }
 
 void EnemyBullet::Update(int direction, float timeElapsed)
@@ -24,8 +19,6 @@ void EnemyBullet::Update(int direction, float timeElapsed)
 		{
 		setLives(0);
 		}
-		setPosition(movement);
-	_body.setRotation(_angle*(180.0f/M_PI)+90);
 }
 
 floatVector EnemyBullet::getPosition()
@@ -42,10 +35,7 @@ floatVector EnemyBullet::calculatePosition(const bool &direction, float factor)
 	_bulletRadius+=factor;
 	if (_bulletRadius>=_MAXIMUM_RADIUS)
 	{
-		_body.setFillColor(sf::Color::Black);
-		movement.push_back(4000); // set the bullet off the screen
-		movement.push_back(4000);
-		return movement;
+	setLives(0);
 	}
 	movement = getPosition();
 	return movement;

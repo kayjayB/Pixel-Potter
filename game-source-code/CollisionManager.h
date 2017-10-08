@@ -1,9 +1,10 @@
 #ifndef COLLISIONMANAGER_H
 #define COLLISIONMANAGER_H
-#include "movingEntity.h"
-#include <cmath>
-#include "Player.h"
+
 #include <memory>
+
+#include "movingEntity.h"
+#include "Player.h"
 #include "Window.h"
 #include "gameState.h"
 

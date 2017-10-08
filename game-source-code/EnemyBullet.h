@@ -11,10 +11,7 @@ public:
     EnemyBullet(float currentEnemyAngle,
         float currentEnemyRadius,
         float x_center,
-        float y_center,
-        int red,
-        int green,
-        int blue);
+        float y_center);
 	
     virtual floatVector getPosition() override;
 	

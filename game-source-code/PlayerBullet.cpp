@@ -3,19 +3,19 @@
 int PlayerBullet::_copies=0;
 
 PlayerBullet::PlayerBullet(float currentPlayerAngle):
-movingEntity(10.0,20.0,"", 1),
+movingEntity(10.0,20.0, 1),
 _minimumRadius{50.0},
 _bulletRadius{480.0f},
 _angle{currentPlayerAngle},
 _entityType{EntityList::PlayerBulletEntity}
 {
-	_body.setFillColor(sf::Color::Red);
+//	_body.setFillColor(sf::Color::Red);
 	floatVector initialPosition= getPosition();
-	setPosition(initialPosition);
+//	setPosition(initialPosition);
 }
 
 PlayerBullet::PlayerBullet(const PlayerBullet &bullet):
-movingEntity(15.0, 20.0, "", 1)
+movingEntity(15.0, 20.0, 1)
 {
 _copies++;	
 _minimumRadius=bullet._minimumRadius;
@@ -35,10 +35,10 @@ switch (_copies%2 )
 //_angle=bullet._angle;
 _entityType=bullet._entityType;
 
-_body.setFillColor(sf::Color::White);
+//_body.setFillColor(sf::Color::White);
 floatVector initialPosition= getPosition();
 	//_body.setPosition(initialPosition[0], initialPosition[1]);
-setPosition(initialPosition);
+//setPosition(initialPosition);
 
 }
 
@@ -56,8 +56,8 @@ void PlayerBullet::Update(int direction, float timeElapsed)
 		{
 		setLives(0);
 		}
-		setPosition(movement);
-	_body.setRotation(_angle*(180.0f/M_PI)+90);
+//		setPosition(movement);
+//	_body.setRotation(_angle*(180.0f/M_PI)+90);
 }
 
 floatVector PlayerBullet::getPosition()
@@ -74,10 +74,7 @@ floatVector PlayerBullet::calculatePosition(const bool &direction, float factor)
 	_bulletRadius-=factor;
 	if (_bulletRadius<=_minimumRadius)
 	{
-		_body.setFillColor(sf::Color::Black);
-		movement.push_back(4000); // set the bullet off the screen
-		movement.push_back(4000);
-		return movement;
+		setLives(0);
 	}
 	movement = getPosition();
 	return movement;

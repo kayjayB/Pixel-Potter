@@ -9,34 +9,33 @@ Clock::~Clock()
 }
 
 float Clock::GetTime()
-{ 
-	return _elapsedTime; 
+{
+    return _elapsedTime;
 }
 
 float Clock::getAsteroidTime()
 {
-	return _timeAsteroid;
+    return _timeAsteroid;
 }
 
 float Clock::getSatelliteTime()
 {
-	return _timeSatellite;
+    return _timeSatellite;
 }
 
 void Clock::RestartClock()
 {
-	_elapsedTime = _clock.restart().asSeconds();
-	_timeAsteroid=_clockAsteroid.getElapsedTime().asSeconds();
-//	_timeEnemy=_clockEnemy.getElapsedTime().asSeconds();
-	_timeSatellite=_clockSatellite.getElapsedTime().asSeconds();
+    _elapsedTime = _clock.restart().asSeconds();
+    _timeAsteroid = _clockAsteroid.getElapsedTime().asSeconds();
+    _timeSatellite = _clockSatellite.getElapsedTime().asSeconds();
 }
 
 void Clock::RestartAsteroidClock()
 {
-	_clockAsteroid.restart();
+    _clockAsteroid.restart();
 }
 
 void Clock::RestartSatelliteClock()
 {
-	_clockSatellite.restart();
+    _clockSatellite.restart();
 }

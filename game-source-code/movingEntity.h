@@ -1,6 +1,5 @@
 #ifndef MOVINGENTITY_H
 #define MOVINGENTITY_H
-#include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
 #include <memory>
@@ -14,7 +13,7 @@ class movingEntity
 {
 public:
 
-movingEntity(float entityWidth, float entityHeight, string texture, int lives);
+movingEntity(float entityWidth, float entityHeight, int lives);
 
 virtual float getAngle()=0;
 
@@ -26,10 +25,6 @@ virtual void Update(int direction, float timeElapsed) =0;
 
 void setTexture(string texture);
 
-sf::RectangleShape getBody() const;
-
-void setPosition(floatVector position);
-
 static std::vector<std::shared_ptr<movingEntity>> entityList;
 
 virtual EntityList getEntityType()=0;
@@ -40,9 +35,9 @@ int getLives();
 
 void setLives(int life);
 
-protected:
+float getScale();
 
-sf::RectangleShape _body;
+protected:
 
 virtual floatVector calculatePosition(const bool& direction, float factor)=0;
 
@@ -51,7 +46,6 @@ float _scale;
 
 private:
 
-sf::Texture _Texture;
 float _entityWidth;
 float _entityHeight;
 int _lives;

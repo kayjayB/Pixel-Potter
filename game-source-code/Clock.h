@@ -23,7 +23,6 @@ void RestartSatelliteClock();
 	
 private:
 sf::Clock _clock;
-sf::Clock _clockEnemy;
 sf::Clock _clockAsteroid;
 sf::Clock _clockSatellite;
 float _elapsedTime;

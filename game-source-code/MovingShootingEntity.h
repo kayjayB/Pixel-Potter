@@ -1,14 +1,15 @@
 #ifndef MOVINGSHOOTINGENTITY_H
 #define MOVINGSHOOTINGENTITY_H
 
-#include "movingEntity.h"
 #include <vector>
-#include <memory> // required for smart pointers
+#include <memory> 
+
+#include "movingEntity.h"
 
 class MovingShootingEntity: public movingEntity
 {
 public:
-MovingShootingEntity(float entityWidth, float entityHeight, string texture,  int lives);
+MovingShootingEntity(float entityWidth, float entityHeight, int lives);
 
 virtual float getAngle() override =0;
 

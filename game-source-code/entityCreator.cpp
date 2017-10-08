@@ -27,7 +27,7 @@ void entityCreator::create()
 void entityCreator::CreateEnemy()
 {
 	
-_timeEnemy+=_entityClock->GetTime();;
+_timeEnemy+=_entityClock->GetTime();
 generateEnemy=fmod(rand(),4)+_timeEnemy;
 if ( Enemy::getNumberofEnemiesAlive() < 3 )
 	{

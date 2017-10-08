@@ -3,11 +3,11 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
-#include <SFML/Graphics.hpp>
+
 #include "MovingShootingEntity.h"
 #include "EnemyBullet.h"
 
-using floatVector =std::vector <float>;
+using floatVector =std::vector<float>;
 
 // The enemy class inherits from the movingEntity class
 class Enemy: public MovingShootingEntity

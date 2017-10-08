@@ -2,11 +2,12 @@
 #define WINDOW_H
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
-#include "userInput.h"
 #include <vector>
+#include "userInput.h"
 #include "Enemy.h"
 #include "movingEntity.h"
 #include "gameState.h"
+#include "EntityList.h"
 
 class FileNotFound
 {
@@ -23,7 +24,6 @@ public:
     void EndDraw();
     void BeginDrawMain();
     userInput Update();
-    // std::vector<userInput> Update();
     sf::Vector2u GetWindowSize();
     sf::RenderWindow _window;
     bool IsDone();
@@ -55,6 +55,11 @@ private:
     sf::Texture _loseTexture;
     sf::Texture _winTexture;
     sf::Texture _backgroundTexture;
+	sf::Texture _playerTexture;
+	sf::Texture _enemyTexture;
+	sf::Texture _satelliteTexture;
+	sf::Texture _asteroidTexture;
+	sf::Texture _arcTexture;
 	sf::Font font;
     void Destroy();
     bool _isDone;

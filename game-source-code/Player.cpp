@@ -1,13 +1,13 @@
 #include "Player.h"
 
 Player::Player():
-MovingShootingEntity(50.0, 100.0, "HP.png", 5),
+MovingShootingEntity(50.0, 100.0, 5),
 _theta{90*M_PI/180},
 _entityType{EntityList::PlayerEntity},
 _checkShoot{0}
 {
 		floatVector initialPosition=getPosition();
-		setPosition(initialPosition);
+//		setPosition(initialPosition);
 		
 }
 
@@ -15,8 +15,6 @@ void Player::reset()
 {
 	_theta=90*M_PI/180;
 	floatVector initialPosition=getPosition();
-	setPosition(initialPosition);
-	_body.setRotation(_theta*(180.0f/M_PI)+90);
 	setLives(_numberLives);
 	_upgradeBullets.clear();
 }
@@ -63,8 +61,8 @@ void Player::Update(int direction, float timeElapsed)
 		case 3:
 		break;
 	}
-	setPosition(movement);
-	_body.setRotation(_theta*(180.0f/M_PI)+90);
+//	setPosition(movement);
+//	_body.setRotation(_theta*(180.0f/M_PI)+90);
 }
 
 floatVector Player::calculatePosition(const bool &direction, float factor)
