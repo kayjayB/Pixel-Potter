@@ -1,10 +1,10 @@
 #ifndef LASERARC_H
 #define LASERARC_H
 
-#include "movingEntity.h"
-#include "EntityList.h"
 #include <vector>
 #include <cmath>
+#include "movingEntity.h"
+#include "EntityList.h"
 #include "LaserGenerator.h"
 
 using floatVector= std::vector<float>;
@@ -35,7 +35,7 @@ private:
 	EntityList _entityType;
 	std::shared_ptr<LaserGenerator> _laser1;
 	std::shared_ptr<LaserGenerator> _laser2;
-	virtual floatVector calculatePosition(const bool& direction, float factor) override;
+	virtual void calculatePosition(const bool& direction, float factor) override;
 
 };
 

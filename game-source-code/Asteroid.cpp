@@ -8,12 +8,12 @@ Asteroid::Asteroid(float angle)
 {
 }
 
-floatVector Asteroid::calculatePosition(const bool& direction, float factor)
+void Asteroid::calculatePosition(const bool& direction, float factor)
 {
     floatVector movement;
     _radius += factor;
-    movement = getPosition();
-    return movement;
+    getPosition();
+	return;
 }
 
 void Asteroid::Update(int direction, float timeElapsed)
@@ -25,7 +25,7 @@ void Asteroid::Update(int direction, float timeElapsed)
 	setLives(0);
     }
 
-    movement = calculatePosition(true, factor);
+	calculatePosition(true, factor);
 }
 
 float Asteroid::getAngle()

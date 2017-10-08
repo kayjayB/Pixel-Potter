@@ -22,7 +22,7 @@ virtual void Update(int direction, float timeElapsed) override =0;
 virtual void createBullets()=0;
 
 protected:
-virtual floatVector calculatePosition(const bool& direction, float factor) override=0;
+virtual void calculatePosition(const bool& direction, float factor) override=0;
 
 };
 

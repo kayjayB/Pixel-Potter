@@ -35,12 +35,12 @@ int LaserGenerator::getNumberofLasersAlive()
 		return _NumberLasersAlive;
 }
 
-floatVector LaserGenerator::calculatePosition(const bool &direction, float factor)
+void LaserGenerator::calculatePosition(const bool &direction, float factor)
 {
 	floatVector movement;
 	_radius +=factor;
-	movement = getPosition();
-	return movement;
+	getPosition();
+	return;
 }
 
 void LaserGenerator::Update(int direction, float timeElapsed)
@@ -53,15 +53,10 @@ void LaserGenerator::Update(int direction, float timeElapsed)
 		setLives(0);
 	}
 	
-	movement=calculatePosition(true, factor);
-	//setPosition(movement);
-	
-//	_body.setScale(_scale,_scale);
-        // increase scale...
+	//movement=calculatePosition(true, factor);
+	calculatePosition(true, factor);
+
         _scale+=0.022*factor;
-//	_body.setOrigin(_body.getSize().x/2,_body.getSize().y/2);
-	
-//	std::cout << _body.getSize().x << " ";
 }
 
 

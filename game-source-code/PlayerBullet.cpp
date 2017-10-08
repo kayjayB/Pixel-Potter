@@ -9,9 +9,6 @@ _bulletRadius{480.0f},
 _angle{currentPlayerAngle},
 _entityType{EntityList::PlayerBulletEntity}
 {
-//	_body.setFillColor(sf::Color::Red);
-	floatVector initialPosition= getPosition();
-//	setPosition(initialPosition);
 }
 
 PlayerBullet::PlayerBullet(const PlayerBullet &bullet):
@@ -31,33 +28,19 @@ switch (_copies%2 )
 	break;
 }
 
-
-//_angle=bullet._angle;
 _entityType=bullet._entityType;
-
-//_body.setFillColor(sf::Color::White);
-floatVector initialPosition= getPosition();
-	//_body.setPosition(initialPosition[0], initialPosition[1]);
-//setPosition(initialPosition);
 
 }
 
-//PlayerBullet::~PlayerBullet()
-//{
-//}
-
-//void PlayerBullet::Update(bool direction, float timeElapsed)
 void PlayerBullet::Update(int direction, float timeElapsed)
 {
 	float factor = _speed*timeElapsed;
-	floatVector movement= calculatePosition(true, factor);
+	calculatePosition(true, factor);
 	
 		if (getPosition()[0] > 4000)
 		{
 		setLives(0);
 		}
-//		setPosition(movement);
-//	_body.setRotation(_angle*(180.0f/M_PI)+90);
 }
 
 floatVector PlayerBullet::getPosition()
@@ -68,7 +51,7 @@ floatVector PlayerBullet::getPosition()
 	return currentPosition;
 }
 
-floatVector PlayerBullet::calculatePosition(const bool &direction, float factor)
+void PlayerBullet::calculatePosition(const bool &direction, float factor)
 {
 	floatVector movement;
 	_bulletRadius-=factor;
@@ -76,8 +59,8 @@ floatVector PlayerBullet::calculatePosition(const bool &direction, float factor)
 	{
 		setLives(0);
 	}
-	movement = getPosition();
-	return movement;
+	getPosition();
+	return;
 }
 
 float PlayerBullet::getAngle()

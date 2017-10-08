@@ -38,7 +38,7 @@ private:
 	const float _speed = 50.0;
 	float _randomAngle;
 	EntityList _entityType;
-	virtual floatVector calculatePosition(const bool& direction, float factor) override;
+	virtual void calculatePosition(const bool& direction, float factor) override;
 };
 
 #endif // LASERGENERATOR_H

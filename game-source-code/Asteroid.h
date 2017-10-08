@@ -32,7 +32,7 @@ private:
     float _y_center = 1080.0f / 2.0f;
     const float _speed = 100.9f;
     EntityList _entityType;
-    virtual floatVector calculatePosition(const bool& direction, float factor) override;
+    virtual void calculatePosition(const bool& direction, float factor) override;
 };
 
 #endif // ASTEROID_H

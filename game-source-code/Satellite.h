@@ -24,8 +24,6 @@ public:
 	
 	virtual void Update(int direction, float timeElapsed) override;	
 	
-	virtual floatVector calculatePosition(const bool& direction, float factor) override;
-	
 	virtual EntityList getEntityType() override;
 	
 	static int getNumberofSatellitesAlive();
@@ -46,7 +44,6 @@ private:
 	const float _x_centerPlayer=1920.0/2.0;
 	const float _y_centerPlayer=1080.0/2.0;
 	const float _speed = 1.0;
-//	float _randomAngle;
 	EntityList _entityType;
 	static int _NumberSatellitesAlive;
 	static int _TotalNumberOfSatellites;
@@ -55,12 +52,9 @@ private:
 	float _spawnBullet;
 	static bool _copies;
 	const int changeRadius=150;
-	//float _playerAngle;
-	floatVector _playerPos;
 	floatVector satellitePosition;
-//	float positionX;
-//	float positionY;
 	float thetaBullet;
+	virtual void calculatePosition(const bool& direction, float factor) override;
 
 };
 

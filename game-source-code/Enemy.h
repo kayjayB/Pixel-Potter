@@ -24,8 +24,6 @@ public:
 	
 	virtual void Update(int direction, float timeElapsed) override;	
 	
-	virtual floatVector calculatePosition(const bool& direction, float factor) override;
-	
 	virtual EntityList getEntityType() override;
 	
 	static int getNumberofEnemiesAlive();
@@ -52,6 +50,7 @@ private:
 	static int 	_NumberEnemiesKilled;
 	float _time;
 	float _spawnBullet;
+	virtual void calculatePosition(const bool& direction, float factor) override;
 
 };
 

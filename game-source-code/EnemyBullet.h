@@ -4,6 +4,9 @@
 #include "movingEntity.h"
 #include "EntityList.h"
 #include <cmath>
+#include <vector>
+
+using floatVector =std::vector <float>;
 
 class EnemyBullet : public movingEntity
 {
@@ -30,7 +33,7 @@ private:
     float _speed = 200;
     double _x_center;
     double _y_center;
-    virtual floatVector calculatePosition(const bool& direction, float factor) override;
+    virtual void calculatePosition(const bool& direction, float factor) override;
     EntityList _entityType;
 };
 

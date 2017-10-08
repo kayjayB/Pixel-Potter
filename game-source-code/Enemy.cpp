@@ -27,12 +27,12 @@ Enemy::~Enemy()
     }
 }
 
-floatVector Enemy::calculatePosition(const bool& direction, float factor)
+void Enemy::calculatePosition(const bool& direction, float factor)
 {
     floatVector movement;
     _radius += factor;
-    movement = getPosition();
-    return movement;
+	getPosition();
+	return;
 }
 
 void Enemy::Update(int direction, float timeElapsed)
@@ -51,9 +51,7 @@ void Enemy::Update(int direction, float timeElapsed)
 	_spawnBullet = fmod(rand(), _time) + 5;
     }
 
-    movement = calculatePosition(true, factor);
-    //	setPosition(movement);
-    //	_body.setRotation(_theta*(180.0f/M_PI)+90);
+   calculatePosition(true, factor);
 }
 
 float Enemy::getAngle()

@@ -17,7 +17,7 @@ movingEntity(float entityWidth, float entityHeight, int lives);
 
 virtual float getAngle()=0;
 
-virtual floatVector getPosition();
+virtual floatVector getPosition()=0;
 
 virtual float getRadius()=0;
 
@@ -39,7 +39,7 @@ float getScale();
 
 protected:
 
-virtual floatVector calculatePosition(const bool& direction, float factor)=0;
+virtual void calculatePosition(const bool& direction, float factor)=0;
 
 float _scale;
 

@@ -17,12 +17,12 @@ LaserArc::~LaserArc()
 {
 }
 
-floatVector LaserArc::calculatePosition(const bool& direction, float factor)
+void LaserArc::calculatePosition(const bool& direction, float factor)
 {
     floatVector movement;
     _radius += factor;
-    movement = getPosition();
-    return movement;
+    getPosition();
+	return;
 }
 
 void LaserArc::Update(int direction, float timeElapsed)
@@ -37,7 +37,8 @@ void LaserArc::Update(int direction, float timeElapsed)
 	setLives(0);
     }
 
-    movement = calculatePosition(true, factor);
+//    movement = calculatePosition(true, factor);
+	calculatePosition(true, factor);
     //setPosition(movement);
 
     _scale += 0.087 * factor;

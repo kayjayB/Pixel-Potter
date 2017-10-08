@@ -7,7 +7,6 @@ _entityType{EntityList::PlayerEntity},
 _checkShoot{0}
 {
 		floatVector initialPosition=getPosition();
-//		setPosition(initialPosition);
 		
 }
 
@@ -52,20 +51,18 @@ void Player::Update(int direction, float timeElapsed)
 		break;
 		case 1:
 		clockwise=false;
-		movement= calculatePosition(clockwise, factor);
+		calculatePosition(clockwise, factor);
 		break;
 		case 2:
 		clockwise=true;
-		movement= calculatePosition(clockwise, factor);
+		calculatePosition(clockwise, factor);
 		break;
 		case 3:
 		break;
 	}
-//	setPosition(movement);
-//	_body.setRotation(_theta*(180.0f/M_PI)+90);
 }
 
-floatVector Player::calculatePosition(const bool &direction, float factor)
+void Player::calculatePosition(const bool &direction, float factor)
 {
 	floatVector movement;
 	if (direction)
@@ -73,8 +70,8 @@ floatVector Player::calculatePosition(const bool &direction, float factor)
 	else
 	_theta-=factor;
 
-	movement = getPosition();
-	return movement;
+	getPosition();
+	return;
 }
 
 floatVector Player::getPosition()

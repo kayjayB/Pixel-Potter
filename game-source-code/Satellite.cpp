@@ -54,9 +54,6 @@ else if (position[1]== _y_centerPlayer && position[0] < _x_centerPlayer)
 	_x_center=position[0]+changeRadius;
 	_y_center=position[1];
 }
-	
-	_playerPos=position;
-	floatVector initialPosition=getPosition();
 	_NumberSatellitesAlive++;
 	_TotalNumberOfSatellites++;
 	
@@ -87,20 +84,18 @@ MovingShootingEntity(40.0, 40.0, 1)
 	_x_center=satellite._x_center;
 	_y_center=satellite._y_center;
 	_entityType=satellite._entityType;
-	floatVector initialPosition=getPosition();
 	_NumberSatellitesAlive++;
 	_TotalNumberOfSatellites++;
 	
 	_spawnBullet=rand()%5+1;
 }
 
-floatVector Satellite::calculatePosition(const bool &direction, float factor)
+void Satellite::calculatePosition(const bool &direction, float factor)
 {
 	floatVector movement;
-	//_radius -=factor;
 	_theta-=factor;
-	movement = getPosition();
-	return movement;
+	getPosition();
+	return;
 }
 
 void Satellite::Update(int direction, float timeElapsed)
@@ -116,8 +111,7 @@ void Satellite::Update(int direction, float timeElapsed)
 		_time=0.0;
 	}
 	
-	movement=calculatePosition(true, factor);
-//	setPosition(movement);
+calculatePosition(true, factor);
 }
 
 

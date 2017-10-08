@@ -13,7 +13,7 @@ _entityType{EntityList::EnemyBulletEntity}
 void EnemyBullet::Update(int direction, float timeElapsed)
 {
 	float factor = _speed*timeElapsed;
-	floatVector movement= calculatePosition(true, factor);
+	calculatePosition(true, factor);
 	
 		if (getPosition()[0] > 4000)
 		{
@@ -29,7 +29,7 @@ floatVector EnemyBullet::getPosition()
 	return currentPosition;
 }
 
-floatVector EnemyBullet::calculatePosition(const bool &direction, float factor)
+void EnemyBullet::calculatePosition(const bool &direction, float factor)
 {
 	floatVector movement;
 	_bulletRadius+=factor;
@@ -37,8 +37,8 @@ floatVector EnemyBullet::calculatePosition(const bool &direction, float factor)
 	{
 	setLives(0);
 	}
-	movement = getPosition();
-	return movement;
+	getPosition();
+	return;
 }
 
 float EnemyBullet::getAngle()
