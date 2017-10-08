@@ -1,18 +1,13 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "movingEntity.h"
 #include <cmath>
-#include <cstdlib>
-#include <ctime>
 #include <algorithm> 
-#include "math.h"
-#include <SFML/Graphics.hpp>
-#include <iostream>
+#include <memory> 
 #include "userInput.h"
 #include "PlayerBullet.h"
 #include "MovingShootingEntity.h"
-#include <memory> 
 #include "Satellite.h"
+#include "movingEntity.h"
 
 using floatVector =std::vector <float>;
 
@@ -47,7 +42,6 @@ class Player: public MovingShootingEntity
         const double _x_center = 1920.0f / 2.0f;
         const double _y_center = 1080.0f / 2.0f;
         const double _radius = 480.0f;
-        const sf::Vector2u _imageCount;
        virtual void calculatePosition(const bool& direction, float factor) override;
 	   EntityList _entityType;
 	   int _checkShoot;

@@ -1,10 +1,11 @@
 #ifndef LASERGENERATOR_H
 #define LASERGENERATOR_H
-#include "movingEntity.h"
-#include "EntityList.h"
+
 #include <vector>
 #include <cmath>
-#include <iostream>
+
+#include "movingEntity.h"
+#include "EntityList.h"
 
 using floatVector= std::vector<float>;
 

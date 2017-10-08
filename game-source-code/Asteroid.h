@@ -9,19 +9,46 @@
 
 using floatVector = std::vector<float>;
 
+/**
+* Asteroid class - represents the quaffle asteroids.
+* Inherits from movingEntity class.
+*/
 class Asteroid : public movingEntity
 {
 public:
+	/**
+	* Constructor. Calls the movingEntity constructor explicitly. Creates an asteroid 
+	* entity at the centre of the circle with an angle equal to the player's current 
+	* angle
+	* @param angle is a float containing the current player angle
+	*/
     Asteroid(float angle);
-
-    virtual float getAngle() override;
-
+    /**
+     * Inherited from movingEntity.
+     * @return current asteroid angle
+     */
+	virtual float getAngle() override;
+    /**
+     * Inherited from movingEntity.
+     * @return vector of floats containing the current asteroid position
+     */
     virtual floatVector getPosition() override;
-
+    /**
+     * Inherited from movingEntity.
+     * @return float containing the current asteroid radius
+     */
     virtual float getRadius() override;
-
+    /**
+     * Inherited from movingEntity.
+	 * Updates the current position of the asteroid 
+	 * @param direction is unused for the asteroid, but is required for the player class
+	 * @param timeElapsed is a float containing the time since the last movement occurred
+     */
     virtual void Update(int direction, float timeElapsed) override;
-
+    /**
+     * Inherited from movingEntity.
+	 * @return the EntityList containing the type of entity
+     */
     virtual EntityList getEntityType() override;
 
 private:
@@ -32,6 +59,10 @@ private:
     float _y_center = 1080.0f / 2.0f;
     const float _speed = 100.9f;
     EntityList _entityType;
+	/**
+     * Inherited from movingEntity.
+	 * Increments the asteroid radius and calculates the position of the asteroid 
+     */
     virtual void calculatePosition(const bool& direction, float factor) override;
 };
 

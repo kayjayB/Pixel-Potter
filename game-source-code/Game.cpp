@@ -36,7 +36,7 @@ void Game::Update()
     }
 
     collision.checkCollision();
-    gameState state = collision.entityCleanUp(playerPtr, window);
+    gameState state = collision.entityCleanUp(playerPtr);
     window.setGameState(state);
 
     if((Enemy::getTotalNumberofEnemies() % MAXENEMIES) == 0 && Enemy::getNumberofEnemiesAlive() == 0 &&

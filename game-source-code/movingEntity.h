@@ -3,8 +3,8 @@
 #include <vector>
 #include <string>
 #include <memory>
+
 #include "EntityList.h"
-#include <iostream>
 
 using floatVector =std::vector<float>;
 using string =std::string;
