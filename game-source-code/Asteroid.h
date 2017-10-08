@@ -52,13 +52,6 @@ public:
     virtual EntityList getEntityType() override;
 
 private:
-    float _theta;
-    float _radius;
-    const float _MAX_RADIUS = 480.0f;
-    float _x_center = 1920.0f / 2.0f;
-    float _y_center = 1080.0f / 2.0f;
-    const float _speed = 100.9f;
-    EntityList _entityType;
 	/**
      * Inherited from movingEntity.
 	 * Increments the asteroid radius and calculates the position of the asteroid 
@@ -67,6 +60,14 @@ private:
 	 * factor is dependent on the elapsed time
      */
     virtual void calculatePosition(const bool& direction, float factor) override;
+	
+    float _theta;
+    float _radius;
+    const float _MAX_RADIUS = 480.0f;
+    float _x_center = 1920.0f / 2.0f;
+    float _y_center = 1080.0f / 2.0f;
+    const float _speed = 100.9f;
+    EntityList _entityType;
 };
 
 #endif

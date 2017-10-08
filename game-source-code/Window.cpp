@@ -10,11 +10,6 @@ Window::Window()
     fileLoader();
 }
 
-Window::~Window()
-{
-    _window.close();
-}
-
 void Window::fileLoader()
 {
     if(!_splashTexture.loadFromFile("Slide1.png", sf::IntRect(0, 0, 1920, 1080)))
@@ -186,11 +181,6 @@ void Window::DisplayGameState(sf::Sprite& texture)
 	    return;
 	}
     }
-}
-
-bool Window::isShooting()
-{
-    return _isShooting;
 }
 
 void Window::show(std::shared_ptr<movingEntity> entity)

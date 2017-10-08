@@ -8,7 +8,7 @@ Game::Game()
     _bulletExists = false;
     movingEntity::entityList.push_back(playerPtr);
     window.setGameState(gameState::playing);
-	_create.reset();
+    _create.reset();
 }
 
 Game::~Game()
@@ -25,15 +25,13 @@ void Game::Update()
 
     int size = movingEntity::entityList.size();
 
-    // The for loop resizes dynamically since the size of the movingEntity::entityList vector is increasing
-    // as the enemy bullets are created
     for(auto i = 1; i < size; i++) {
 	int sizeInitial = movingEntity::entityList.size();
 	movingEntity::entityList[i]->Update(1, GetTime());
 	int sizeFinal = movingEntity::entityList.size();
-	if(sizeFinal > sizeInitial) {
+		if(sizeFinal > sizeInitial) {
 	    size += 1;
-	}
+		}
     }
 
     collision.checkCollision();
@@ -63,11 +61,6 @@ void Game::Render()
     for(auto i = begin(movingEntity::entityList); i != end(movingEntity::entityList); i++) {
 	window.show((*i));
     }
-
-    // for (auto i=begin(entityManager::body); i!=end(entityManager::body); i++)
-    //{
-    //	window.show((**i));
-    //}
 
     window.EndDraw();
 }

@@ -73,13 +73,22 @@ public:
 	 * Resets the number of enemies alive and killed, and the total number of enemies
      */
 	static void ResetEnemies();
+	
+private:
+	/**
+     * Inherited from MovingShootingEntity.
+	 * Increments the enemy radius and calculates the position of the enemy 
+	 * @param direction is unused for the enemy, but is required for the player class
+	 * @param factor is a float containing the amount by which the radius should be incremented.
+	 * factor is dependent on the elapsed time
+     */
+	virtual void calculatePosition(const bool& direction, float factor) override;
 	/**
      * Inherited from MovingShootingEntity.
 	 * Generates enemy bullets
      */
 	virtual void createBullets() override;
 	
-private:
 	static int _NumberEnemiesAlive;
 	static int _TotalNumberOfEnemies;
 	static int 	_NumberEnemiesKilled;
@@ -94,14 +103,6 @@ private:
 	float _time;
 	float _spawnBullet;
 	float _tolerance;
-	/**
-     * Inherited from MovingShootingEntity.
-	 * Increments the enemy radius and calculates the position of the enemy 
-	 * @param direction is unused for the enemy, but is required for the player class
-	 * @param factor is a float containing the amount by which the radius should be incremented.
-	 * factor is dependent on the elapsed time
-     */
-	virtual void calculatePosition(const bool& direction, float factor) override;
 
 };
 

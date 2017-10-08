@@ -10,11 +10,6 @@ LaserArc::LaserArc(float LaserAngle,
     , _laser2{ laserGen2 }
 {
     _theta = LaserAngle - 25 * M_PI / 180;
-    _scale = 1.0;
-}
-
-LaserArc::~LaserArc()
-{
 }
 
 void LaserArc::calculatePosition(const bool& direction, float factor)
@@ -39,7 +34,8 @@ void LaserArc::Update(int direction, float timeElapsed)
 
 	calculatePosition(true, factor);
 
-    _scale += 0.087 * factor;
+    _scaleX += 0.087 * factor;
+	_scaleY += 0.087 * factor/2;
 }
 
 float LaserArc::getAngle()

@@ -1,5 +1,6 @@
 #ifndef ENTITYCREATOR_H
 #define ENTITYCREATOR_H
+
 #include "Clock.h"
 #include "movingEntity.h"
 #include "Enemy.h"
@@ -38,9 +39,21 @@ public:
 	void reset();
 	
 private:	
+	/**
+	* Function to create Enemy entities
+	*/
 	void CreateEnemy();
+	/**
+	* Function to create Asteroid entities
+	*/
 	void CreateAsteroid();
+	/**
+	* Function to create Satellite entities
+	*/
 	void CreateSatellite();
+	/**
+	* Function to create LaserGenerator and LaserArc entities
+	*/
 	void CreateLaser();
 	
 	std::shared_ptr <Clock> _entityClock;

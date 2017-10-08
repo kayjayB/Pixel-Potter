@@ -9,7 +9,8 @@ _entityType{EntityList::LaserEntity}
 {
 		_randomAngle = rand()%360;
 		_theta = _randomAngle*M_PI/180;
-		_scale=1.0;
+		_scaleX=1.0;
+		_scaleY=1.0;
 		_NumberLasersAlive++;
 }
 
@@ -17,7 +18,8 @@ LaserGenerator::LaserGenerator(const LaserGenerator &generator):
 movingEntity(10.0, 10.0, 1)
 {
 	_theta=generator._theta-50*M_PI/180;
-	_scale=generator._scale;
+	_scaleX=generator._scaleX;
+	_scaleY=generator._scaleY;
 	//_body=generator._body;
 	_radius=generator._radius;
 	floatVector initialPosition=getPosition();
@@ -53,10 +55,10 @@ void LaserGenerator::Update(int direction, float timeElapsed)
 		setLives(0);
 	}
 	
-	//movement=calculatePosition(true, factor);
 	calculatePosition(true, factor);
 
-        _scale+=0.022*factor;
+        _scaleX+=0.022*factor;
+		_scaleY+=0.022*factor;
 }
 
 

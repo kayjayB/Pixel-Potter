@@ -53,13 +53,6 @@ public:
     virtual EntityList getEntityType() override;
 
 private:
-    const float _MAXIMUM_RADIUS = 480.0;
-    float _bulletRadius;
-    float _angle;
-    float _speed = 200;
-    double _x_center;
-    double _y_center;
-    EntityList _entityType;
 	/**
      * Inherited from movingEntity.
 	 * Increments the bullet radius and calculates the position of the bullet 
@@ -68,6 +61,14 @@ private:
 	 * factor is dependent on the elapsed time
      */
     virtual void calculatePosition(const bool& direction, float factor) override;
+	
+    const float _MAXIMUM_RADIUS = 480.0;
+    float _bulletRadius;
+    float _angle;
+    float _speed = 200;
+    double _x_center;
+    double _y_center;
+    EntityList _entityType;
 };
 
 #endif

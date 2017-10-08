@@ -40,7 +40,6 @@ void Player::Update(int direction, float timeElapsed)
 
 	floatVector movement= getPosition();
 	float factor = _speed*timeElapsed;
-	_row=0;
 	bool clockwise;
 	
 	switch (direction)
