@@ -23,8 +23,6 @@ virtual float getRadius()=0;
 
 virtual void Update(int direction, float timeElapsed) =0;	
 
-void setTexture(string texture);
-
 static std::vector<std::shared_ptr<movingEntity>> entityList;
 
 virtual EntityList getEntityType()=0;

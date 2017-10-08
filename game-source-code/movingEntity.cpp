@@ -10,15 +10,6 @@ _lives{lives}
 
 std::vector<std::shared_ptr<movingEntity>> movingEntity::entityList;
 
-//floatVector movingEntity::getPosition()
-//{
-//	floatVector position;
-//	position.push_back(0.0);
-//	position.push_back(0.0);
-//	
-//	return position;
-//}
-
 floatVector movingEntity::getBodySize()
 {
 	floatVector bodySize;

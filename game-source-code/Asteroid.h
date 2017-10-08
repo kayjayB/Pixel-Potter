@@ -47,7 +47,7 @@ public:
     virtual void Update(int direction, float timeElapsed) override;
     /**
      * Inherited from movingEntity.
-	 * @return the EntityList containing the type of entity
+	 * @return an EntityList type containing the type of entity
      */
     virtual EntityList getEntityType() override;
 
@@ -62,8 +62,11 @@ private:
 	/**
      * Inherited from movingEntity.
 	 * Increments the asteroid radius and calculates the position of the asteroid 
+	 * @param direction is unused for the asteroid, but is required for the player class
+	 * @param factor is a float containing the amount by which the radius should be incremented.
+	 * factor is dependent on the elapsed time
      */
     virtual void calculatePosition(const bool& direction, float factor) override;
 };
 
-#endif // ASTEROID_H
+#endif

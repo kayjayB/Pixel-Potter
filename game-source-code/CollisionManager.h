@@ -19,10 +19,6 @@ public:
     */
     CollisionManager();
     /**
-    * Default destructor
-    */
-    ~CollisionManager();
-    /**
     * Function to check all the collisions of the required entities
     */
     void checkCollision();
@@ -36,8 +32,7 @@ public:
 	/**
     * Function to delete entities that have collided, or are no longer valid
 	* @param playerPtr is a shared pointer to the player object
-	* @param j is an integer containing the index of the other entity
-	* @return bool true if a collision has occured and false otherwise
+	* @return gameState indicating whether the game has been lost or is still ongoing
     */
     gameState entityCleanUp(std::shared_ptr<Player> playerPtr);
 
@@ -45,4 +40,4 @@ private:
     bool _collidedArc;
 };
 
-#endif // COLLISIONMANAGER_H
+#endif 

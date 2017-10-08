@@ -5,10 +5,6 @@ _collidedArc{false}
 {
 }
 
-CollisionManager::~CollisionManager()
-{
-}
-
 void CollisionManager::checkCollision()
 {
 _collidedArc=false;

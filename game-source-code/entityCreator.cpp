@@ -3,13 +3,13 @@
 entityCreator::entityCreator(std::shared_ptr <Clock> gameClock, int maxEnemies, std::shared_ptr <Player> playerPtr):
 _entityClock{gameClock},
 _playerPtr{playerPtr},
-MAXENEMIES{maxEnemies}
+_MAXENEMIES{maxEnemies}
 {
 	_timeAsteroid=0.0;
 	_timeEnemy=0.0;
 	_timeSatellite=0.0;
-	generateAsteroid= fmod(rand(),5.0)+1;
-	generateEnemy= 1;
+	_generateAsteroid= fmod(rand(),5.0)+1;
+	_generateEnemy= 1;
 }
 
 entityCreator::~entityCreator()
@@ -28,10 +28,10 @@ void entityCreator::CreateEnemy()
 {
 	
 _timeEnemy+=_entityClock->GetTime();
-generateEnemy=fmod(rand(),4)+_timeEnemy;
+_generateEnemy=fmod(rand(),4)+_timeEnemy;
 if ( Enemy::getNumberofEnemiesAlive() < 3 )
 	{
-	if (_timeEnemy > (generateEnemy - 1) && _timeEnemy < (generateEnemy+1) && Enemy::getTotalNumberofEnemies()<MAXENEMIES)
+	if (_timeEnemy > (_generateEnemy - 1) && _timeEnemy < (_generateEnemy+1) && Enemy::getTotalNumberofEnemies()<_MAXENEMIES)
 	{
 		std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
 		movingEntity::entityList.push_back(enemyPtr);
@@ -43,12 +43,12 @@ void entityCreator::CreateAsteroid()
 {
 
 _timeAsteroid=_entityClock->getAsteroidTime();
-	if (_timeAsteroid > (generateAsteroid - 0.5) && _timeAsteroid < (generateAsteroid+0.5))
+	if (_timeAsteroid > (_generateAsteroid - 0.5) && _timeAsteroid < (_generateAsteroid+0.5))
 	{
 		
 		std::shared_ptr <Asteroid> asteroidPtr{ new Asteroid{_playerPtr->getAngle()}};
 		movingEntity::entityList.push_back(asteroidPtr);
-		generateAsteroid=fmod(rand(),8.0)+1;
+		_generateAsteroid=fmod(rand(),8.0)+1;
 		_entityClock->RestartAsteroidClock();
 	}
 }
@@ -86,6 +86,7 @@ void entityCreator::CreateLaser()
 void entityCreator::reset()
 {
 		_entityClock->RestartAsteroidClock();
-		generateAsteroid= fmod(rand(),5.0)+1;
-		generateEnemy= 1;
+		_generateAsteroid= fmod(rand(),5.0)+1;
+		_generateEnemy= 1;
+		_timeEnemy=0.0;
 }

@@ -8,6 +8,7 @@ Game::Game()
     _bulletExists = false;
     movingEntity::entityList.push_back(playerPtr);
     window.setGameState(gameState::playing);
+	_create.reset();
 }
 
 Game::~Game()

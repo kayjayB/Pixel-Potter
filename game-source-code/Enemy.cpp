@@ -9,6 +9,7 @@ Enemy::Enemy()
     , _radius{ 0.0 }
     , _entityType{ EntityList::EnemyEntity }
     , _time{ 0.0 }
+	, _tolerance{1}
 {
     _randomAngle = rand() % 360;
     _theta = _randomAngle * M_PI / 180;
@@ -46,7 +47,7 @@ void Enemy::Update(int direction, float timeElapsed)
 	_radius = 0.0;
     }
 
-    if(_time > (_spawnBullet - 1) && _time < (_spawnBullet + 1)) {
+    if(_time > (_spawnBullet - _tolerance) && _time < (_spawnBullet + _tolerance)) {
 	createBullets();
 	_spawnBullet = fmod(rand(), _time) + 5;
     }
