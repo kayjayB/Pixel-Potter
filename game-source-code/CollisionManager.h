@@ -19,6 +19,7 @@ public:
 	gameState entityCleanUp(std::shared_ptr <Player> playerPtr,  Window& window);
 
 private:
+	bool _collidedArc;
 
 };
 

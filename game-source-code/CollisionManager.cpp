@@ -1,6 +1,7 @@
 #include "CollisionManager.h"
 
-CollisionManager::CollisionManager()
+CollisionManager::CollisionManager():
+_collidedArc{false}
 {
 }
 
@@ -10,7 +11,7 @@ CollisionManager::~CollisionManager()
 
 void CollisionManager::checkCollision()
 {
-
+_collidedArc=false;
     for(int i = 0; i < movingEntity::entityList.size(); i++)
 
     {
@@ -45,6 +46,7 @@ void CollisionManager::checkCollision()
 		    if(Collision(i, j)) {
 			movingEntity::entityList[i]->setLives(movingEntity::entityList[i]->getLives() - 1);
 			movingEntity::entityList[j]->setLives(0);
+			_collidedArc=true;
 		    }
 		}
 
@@ -104,6 +106,14 @@ void CollisionManager::checkCollision()
 	    }
 	}
     }
+	
+	for (int i = 0; i < movingEntity::entityList.size(); i++)
+	{
+		if (_collidedArc==true && movingEntity::entityList[i]->getEntityType() == EntityList::LaserEntity)
+		{
+			movingEntity::entityList[i]->setLives(0);
+		}
+	}
 }
 
 bool CollisionManager::Collision(int i, int j)
@@ -128,7 +138,6 @@ bool CollisionManager::Collision(int i, int j)
 gameState CollisionManager::entityCleanUp(std::shared_ptr<Player> playerPtr, Window& window)
 {
     if(playerPtr->getLives() <= 0) {
-	//window.setGameState(gameState::lose);
 	return gameState::lose;
     }
     for(auto i = begin(movingEntity::entityList); i != end(movingEntity::entityList);) {
