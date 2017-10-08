@@ -125,11 +125,11 @@ bool CollisionManager::Collision(int i, int j)
     return false;
 }
 
-void CollisionManager::entityCleanUp(std::shared_ptr<Player> playerPtr, Window& window)
+gameState CollisionManager::entityCleanUp(std::shared_ptr<Player> playerPtr, Window& window)
 {
     if(playerPtr->getLives() <= 0) {
-	window.setGameState(gameState::lose);
-	return;
+	//window.setGameState(gameState::lose);
+	return gameState::lose;
     }
     for(auto i = begin(movingEntity::entityList); i != end(movingEntity::entityList);) {
 	if((*i)->getLives() == 0) {
@@ -138,4 +138,5 @@ void CollisionManager::entityCleanUp(std::shared_ptr<Player> playerPtr, Window& 
 	    i++;
 	}
     }
+	return gameState::playing;
 }

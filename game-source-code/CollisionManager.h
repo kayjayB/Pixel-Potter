@@ -16,7 +16,7 @@ public:
 	~CollisionManager();
 	void checkCollision();
 	bool Collision(int i, int j);
-	void entityCleanUp(std::shared_ptr <Player> playerPtr,  Window& window);
+	gameState entityCleanUp(std::shared_ptr <Player> playerPtr,  Window& window);
 
 private:
 

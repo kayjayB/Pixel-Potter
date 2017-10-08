@@ -38,8 +38,8 @@ for (auto i =1; i< size; i++)
 }
 
 	collision.checkCollision();
-
-	collision.entityCleanUp(playerPtr, window);
+	gameState state=collision.entityCleanUp(playerPtr, window);
+	window.setGameState(state);
 	
 	if ((Enemy::getTotalNumberofEnemies()%MAXENEMIES) == 0 && Enemy::getNumberofEnemiesAlive()==0 && Enemy::getTotalNumberofEnemies()!=0)
 	{

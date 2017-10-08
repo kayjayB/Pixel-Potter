@@ -37,9 +37,7 @@ void LaserArc::Update(int direction, float timeElapsed)
 	setLives(0);
     }
 
-//    movement = calculatePosition(true, factor);
 	calculatePosition(true, factor);
-    //setPosition(movement);
 
     _scale += 0.087 * factor;
 }
