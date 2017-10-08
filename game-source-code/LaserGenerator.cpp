@@ -15,7 +15,7 @@ _entityType{EntityList::LaserEntity}
 		_body.setScale(1.0, 1.0);
 		_scale=1.0;
 		_NumberLasersAlive++;
-		_body.setRotation(_randomAngle-90);
+		_body.setRotation(_randomAngle+90);
 }
 
 LaserGenerator::LaserGenerator(const LaserGenerator &generator):
@@ -29,7 +29,7 @@ movingEntity(10.0, 10.0, "", 1)
 	setPosition(initialPosition);
 	_entityType=generator._entityType;
 	_NumberLasersAlive++;
-	_body.setRotation(_theta*180/M_PI-90);
+	_body.setRotation(_theta*180/M_PI+90);
 }
 
 LaserGenerator::~LaserGenerator()

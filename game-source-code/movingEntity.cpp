@@ -1,10 +1,10 @@
 #include "movingEntity.h"
 
 movingEntity::movingEntity(float entityWidth, float entityHeight, string texture, int lives):
+_scale{1.0},
 _entityWidth{entityWidth},
 _entityHeight{entityHeight},
-_lives{lives},
-_scale{1.0}
+_lives{lives}
 {
 		_body.setSize(sf::Vector2f(_entityWidth,_entityHeight));
 		_body.setOrigin(_entityHeight/2,_entityHeight/2);
