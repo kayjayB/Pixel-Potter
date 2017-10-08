@@ -46,6 +46,8 @@ sf::RectangleShape _body;
 
 virtual floatVector calculatePosition(const bool& direction, float factor)=0;
 
+float _scale;
+
 
 private:
 

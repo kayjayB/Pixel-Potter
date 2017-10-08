@@ -72,7 +72,7 @@ void entityCreator::CreateSatellite()
 void entityCreator::CreateLaser()
 {
 		_timeSatellite=_entityClock->getSatelliteTime();
-	if ((fmod(_timeSatellite,2)>0) && fmod(_timeSatellite,2)<(0.2)  && LaserGenerator::getNumberofLasersAlive()==0)
+	if ((fmod(_timeSatellite,10)>0) && fmod(_timeSatellite,10)<(0.2)  && LaserGenerator::getNumberofLasersAlive()==0)
 	{
 		std::shared_ptr <LaserGenerator> laserPtr{ new LaserGenerator{}};
 		std::shared_ptr <LaserGenerator> laserPtr2= std::make_shared<LaserGenerator> (*laserPtr);

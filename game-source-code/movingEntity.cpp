@@ -3,7 +3,8 @@
 movingEntity::movingEntity(float entityWidth, float entityHeight, string texture, int lives):
 _entityWidth{entityWidth},
 _entityHeight{entityHeight},
-_lives{lives}
+_lives{lives},
+_scale{1.0}
 {
 		_body.setSize(sf::Vector2f(_entityWidth,_entityHeight));
 		_body.setOrigin(_entityHeight/2,_entityHeight/2);
@@ -44,11 +45,9 @@ void movingEntity::setPosition(floatVector position)
 floatVector movingEntity::getBodySize()
 {
 	floatVector bodySize;
-	bodySize.push_back(_entityWidth);
-	bodySize.push_back(_entityHeight);
-//bodySize.push_back(_body.getSize().x);
-//bodySize.push_back(_body.getSize().y);	
-return bodySize;
+	bodySize.push_back(_entityWidth*_scale);
+	bodySize.push_back(_entityHeight*_scale);
+	return bodySize;
 }
 
 int movingEntity::getLives()

@@ -36,7 +36,6 @@ private:
 	float _x_center = 1920.0/2.0;
 	float _y_center = 1080.0/2.0;
 	const float _speed = 50.0;
-	float _scale;
 	float _randomAngle;
 	EntityList _entityType;
 	virtual floatVector calculatePosition(const bool& direction, float factor) override;
