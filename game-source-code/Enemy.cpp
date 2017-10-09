@@ -42,6 +42,7 @@ void Enemy::Update(int direction, float timeElapsed)
     floatVector movement;
     float factor = _speed * timeElapsed;
     _time += timeElapsed;
+	
     if(_radius >= _MAX_RADIUS) {
 	_randomAngle = rand() % 360;
 	_theta = _randomAngle * M_PI / 180;

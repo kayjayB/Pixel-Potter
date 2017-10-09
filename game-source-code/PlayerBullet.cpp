@@ -41,7 +41,7 @@ void PlayerBullet::Update(int direction, float timeElapsed)
 	
 		if (getPosition()[0] > 4000)
 		{
-		collide();
+		setLives(0);
 		}
 	_scaleX-=0.0011*factor;
 	_scaleY-=0.0011*factor;
@@ -61,7 +61,7 @@ void PlayerBullet::calculatePosition(const bool &direction, float factor)
 	_bulletRadius-=factor;
 	if (_bulletRadius<=_minimumRadius)
 	{
-		collide();
+		setLives(0);
 	}
 	getPosition();
 	return;

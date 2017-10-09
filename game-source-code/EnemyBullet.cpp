@@ -19,7 +19,7 @@ void EnemyBullet::Update(int direction, float timeElapsed)
 	
 		if (getPosition()[0] > 4000)
 		{
-		collide();
+		setLives(0);
 		}
 }
 
@@ -37,7 +37,7 @@ void EnemyBullet::calculatePosition(const bool &direction, float factor)
 	_bulletRadius+=factor;
 	if (_bulletRadius>=_MAXIMUM_RADIUS)
 	{
-		collide();
+		setLives(0);
 	}
 	getPosition();
 	_scaleX+=0.001*factor;

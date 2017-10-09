@@ -76,11 +76,6 @@ public:
     * \brief Function to indicate that a collision has occurred. The function decreases the number of lives of the entity
 	*/
     void collide();
-    /**
-	* \brief  Function to set the number of lives remaining
-     * @param life is an integer containing the number of lives
- 	*/
-	void setLives(int life);
 
 protected:
     /**
@@ -92,6 +87,11 @@ protected:
     * factor is dependent on the elapsed time
     */
     virtual void calculatePosition(const bool& direction, float factor) = 0;
+	/**
+	* \brief  Function to set the number of lives remaining
+     * @param life is an integer containing the number of lives
+ 	*/
+	void setLives(int life);
 
     float _scaleX;
     float _scaleY;
