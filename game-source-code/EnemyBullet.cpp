@@ -8,6 +8,8 @@ _x_center{x_center},
 _y_center{y_center},
 _entityType{EntityList::EnemyBulletEntity}
 {
+	_scaleX=1.0;
+	_scaleY=1.0;
 }
 
 void EnemyBullet::Update(int direction, float timeElapsed)
@@ -38,6 +40,8 @@ void EnemyBullet::calculatePosition(const bool &direction, float factor)
 	setLives(0);
 	}
 	getPosition();
+	_scaleX+=0.001*factor;
+	_scaleY+=0.001*factor;
 	return;
 }
 

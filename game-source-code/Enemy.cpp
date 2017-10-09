@@ -15,7 +15,8 @@ Enemy::Enemy()
     _theta = _randomAngle * M_PI / 180;
     _NumberEnemiesAlive++;
     _TotalNumberOfEnemies++;
-
+	_scaleX=1.0;
+	_scaleY=1.0;
     _spawnBullet = rand() % 5 + 1;
 }
 
@@ -45,6 +46,8 @@ void Enemy::Update(int direction, float timeElapsed)
 	_randomAngle = rand() % 360;
 	_theta = _randomAngle * M_PI / 180;
 	_radius = 0.0;
+	_scaleX=1.0;
+	_scaleY=1.0;
     }
 
     if(_time > (_spawnBullet - _tolerance) && _time < (_spawnBullet + _tolerance)) {
@@ -53,6 +56,8 @@ void Enemy::Update(int direction, float timeElapsed)
     }
 
    calculatePosition(true, factor);
+	_scaleX+=0.0009*factor;
+	_scaleY+=0.0009*factor;
 }
 
 float Enemy::getAngle()

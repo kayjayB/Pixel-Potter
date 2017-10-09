@@ -6,6 +6,8 @@ Asteroid::Asteroid(float angle)
     , _radius{ 0.0 }
     , _entityType{ EntityList::AsteroidEntity }
 {
+		_scaleX=1.0;
+		_scaleY=1.0;
 }
 
 void Asteroid::calculatePosition(const bool& direction, float factor)
@@ -26,6 +28,8 @@ void Asteroid::Update(int direction, float timeElapsed)
     }
 
 	calculatePosition(true, factor);
+	_scaleX+=0.0012*factor;
+	_scaleY+=0.0012*factor;
 }
 
 float Asteroid::getAngle()

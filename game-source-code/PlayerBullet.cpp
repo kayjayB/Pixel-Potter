@@ -9,6 +9,8 @@ _bulletRadius{480.0f},
 _angle{currentPlayerAngle},
 _entityType{EntityList::PlayerBulletEntity}
 {
+	_scaleX=1;
+	_scaleY=1;
 }
 
 PlayerBullet::PlayerBullet(const PlayerBullet &bullet):
@@ -41,6 +43,8 @@ void PlayerBullet::Update(int direction, float timeElapsed)
 		{
 		setLives(0);
 		}
+	_scaleX-=0.0011*factor;
+	_scaleY-=0.0011*factor;
 }
 
 floatVector PlayerBullet::getPosition()
