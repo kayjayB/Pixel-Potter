@@ -4,7 +4,7 @@ int LaserGenerator::_NumberLasersAlive=0;
 
 LaserGenerator::LaserGenerator():
 movingEntity(10.0, 10.0, 1),
-_radius{5.0},
+_radius{0.0},
 _entityType{EntityList::LaserEntity}
 {
 		_randomAngle = rand()%360;
