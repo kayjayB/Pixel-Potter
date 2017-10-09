@@ -3,8 +3,7 @@
 Player::Player():
 MovingShootingEntity(50.0, 100.0, 5),
 _theta{90*M_PI/180},
-_entityType{EntityList::PlayerEntity},
-_checkShoot{0}
+_entityType{EntityList::PlayerEntity} //_checkShoot{0}
 {
 		floatVector initialPosition=getPosition();
 		
@@ -45,7 +44,6 @@ void Player::Update(int direction, float timeElapsed)
 	switch (direction)
 	{
 		case 0:
-		_checkShoot+=1;
 		createBullets();
 		break;
 		case 1:

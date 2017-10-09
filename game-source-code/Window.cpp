@@ -4,7 +4,7 @@ Window::Window()
     : _window(sf::VideoMode(1920, 1080), "Pixel Potter", sf::Style::Titlebar | sf::Style::Close)
     , reset{ false }
     , _isDone{ false }
-    , _isShooting{ false }
+ //   , _isShooting{ false }
     , disableShooting{ false }
 {
     fileLoader();
@@ -90,45 +90,32 @@ userInput Window::Update()
 	if(event.type == sf::Event::Closed) {
 	    _isDone = true;
 	}
-	//		if (event.type==sf::Event::KeyPressed)
-	//		{
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !disableShooting) {
+	    keyBoard = userInput::PressSpace;
+	    disableShooting = true;
+	    return keyBoard;
+	}
+	if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && disableShooting) {
+	    disableShooting = false;
+	}
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-	    // keyBoard.push_back(userInput::PressLeft);
 	    keyBoard = userInput::PressLeft;
-	    _isShooting = false;
+//	    _isShooting = false;
+	    return keyBoard;
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-	    // keyBoard.push_back(userInput::PressRight);
 	    keyBoard = userInput::PressRight;
-	    _isShooting = false;
+//	    _isShooting = false;
+	    return keyBoard;
 	}
-
+	
 	if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-	    // keyBoard.push_back(userInput::NoButtonPress);
 	    keyBoard = userInput::NoButtonPress;
-	    _isShooting = false;
+	//    _isShooting = false;
+	    return keyBoard;
 	}
-
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) // && !disableShooting)
-	{
-	    keyBoard = userInput::PressSpace;
-	    _isShooting = true;
-	    //	keyBoard.push_back(userInput::PressSpace);
-	}
-	//	disableShooting=!disableShooting;
     }
-    //		else if (event.type==sf::Event::KeyReleased)
-    //		{
-    //			disableShooting=false;
-    //		if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
-    //		&&!sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-    //		{
-    //			//keyBoard.push_back(userInput::NoButtonPress);
-    //			keyBoard=userInput::NoButtonPress;
-    //			_isShooting=false;
-    //		}
-    //		}
     return keyBoard;
 }
 

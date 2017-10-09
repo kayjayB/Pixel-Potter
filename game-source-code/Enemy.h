@@ -10,82 +10,82 @@
 using floatVector =std::vector<float>;
 
 /**
-* Enemy class - represents the voldemort enemies
+* \brief Enemy class - represents the voldemort enemies
 * Inherits from the MovingShootingEntity class
 */
 class Enemy: public MovingShootingEntity
 {
 public:
 	/**
-	* Default Constructor. Calls the MovingShootingEntity constructor explicitly.
+	* \brief Default Constructor. Calls the MovingShootingEntity constructor explicitly.
 	* Creates an enemy entity at the centre of the circle with a random starting angle
 	*/
 	Enemy();
 	/**
-	* Destructor. Decrements the number of enemies alive and increments the number 
+	* \brief Destructor. Decrements the number of enemies alive and increments the number 
 	* of enemies that have been killed
 	*/	
 	~Enemy();
 	/**
-     * Inherited from MovingShootingEntity.
-     * @return vector of floats containing the current enemy position
+     * \brief Inherited from MovingShootingEntity.
+     * @return vector of floats containing the current Enemy position
      */
 	virtual floatVector getPosition() override;
 	/**
-     * Inherited from MovingShootingEntity.
+     * \brief Inherited from MovingShootingEntity.
      * @return current enemy angle
      */
 	virtual float getAngle() override;
 	/**
-     * Inherited from MovingShootingEntity.
-     * @return float containing the current enemy radius
+     * \brief Inherited from MovingShootingEntity.
+     * @return float containing the current Enemy radius
      */
 	virtual float getRadius() override;
 	/**
-     * Inherited from MovingShootingEntity.
-	 * Updates the current position of the enemy 
-	 * @param direction is unused for the enemy, but is required for the player class
+     * \brief Inherited from MovingShootingEntity.
+	 * Updates the current position of the Enemy 
+	 * @param direction is unused for the Enemy, but is required for the Player class
 	 * @param timeElapsed is a float containing the time since the last movement occurred
      */
 	virtual void Update(int direction, float timeElapsed) override;	
 	/**
-     * Inherited from MovingShootingEntity.
+     * \brief Inherited from MovingShootingEntity.
 	 * @return an EntityList type containing the type of entity
      */
 	virtual EntityList getEntityType() override;
 	/**
-     * Static function
+     * \brief Static function
 	 * @return int containing the number of enemies alive
      */
 	static int getNumberofEnemiesAlive();
 	/**
-     * Static function
+     * \brief Static function
 	 * @return int containing the total number of enemies
      */	
 	static int getTotalNumberofEnemies();
 	/**
-     * Static function
+     * \brief Static function
 	 * @return int containing the number of enemies that have been killed
      */
 	static int getNumberofEnemiesKilled();
 	/**
-     * Static function
+     * \brief Static function
 	 * Resets the number of enemies alive and killed, and the total number of enemies
      */
 	static void ResetEnemies();
 	
 private:
 	/**
-     * Inherited from MovingShootingEntity.
-	 * Increments the enemy radius and calculates the position of the enemy 
-	 * @param direction is unused for the enemy, but is required for the player class
+     * \brief Inherited from MovingShootingEntity.
+	 * Increments the enemy radius and calculates the position of the Enemy 
+	 * @param direction is unused for the Enemy, but is required for the Player class
 	 * @param factor is a float containing the amount by which the radius should be incremented.
 	 * factor is dependent on the elapsed time
      */
 	virtual void calculatePosition(const bool& direction, float factor) override;
 	/**
-     * Inherited from MovingShootingEntity.
-	 * Generates enemy bullets
+     * \brief Inherited from MovingShootingEntity.
+	 * Generates EnemyBullet
      */
 	virtual void createBullets() override;
 	

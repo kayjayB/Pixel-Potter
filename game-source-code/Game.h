@@ -13,49 +13,54 @@
 #include "entityCreator.h"
 
 /**
-* Game class - handles all the logic required in the operating of the game
+* \brief Game class - handles all of the logic required in the operating of the game
 */
 class Game
 {
 public:
 	/**
-	* Default Constructor. Creates a Game object
+	* \brief Default Constructor. Creates a Game object
 	*/
     Game();
 	/**
-	* Destructor
+	* \brief Destructor
 	*/
     ~Game();
 	/**
-	* Function that updates all of the entities involved in the game.
+	* \brief Function ot control the game loop.
+	* The function calls the Update, Render, RestartClock functions
+	*/	
+	void GameLoop();
+	/**
+	* \brief Function that updates all of the entities involved in the game.
 	* This includes calling the functions that create the various enemy entities, updating the 
 	* positions of the entities, calling the function that checks for collisions, calling the 
 	* function that deletes expired entities
 	*/
     void Update();
 	/**
-	* Function that renders the movingEntities to the screen.
-	* The function loops through the vector of movingEntity and calls the Window draw function 
+	* \brief Function that renders the movingEntity objects to the screen.
+	* The function loops through the vector of movingEntity and calls the Window show() function 
 	* on each entity
 	*/
     void Render();
 	/**
-	* Function that returns a pointer to the Window class
+	* \brief Function that returns a pointer to the Window class
 	* @return Window pointer
 	*/
     Window* GetWindow();
 	/**
-	* Function that calls the Clock RestartClock function
+	* \brief Function that calls the Clock RestartClock function
 	*/	
     void RestartClock();
 	
 private:
 	/**
-	* Function that resets all the necessary variables upon restarting a new game
+	* \brief Function that resets all the necessary variables upon restarting a new game
 	*/	
 	void Reset();
 	/**
-	* Function that calls the Clock GetTime function
+	* \brief Function that calls the Clock GetTime function
 	*/	
 	float GetTime();
 	

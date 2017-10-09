@@ -2,7 +2,7 @@
 #define USERINPUT_H
 
 /**
-* userInput is strongly typed enum class 
+* \brief userInput is strongly typed enum class 
 * It is used to classify the user's input independent of the interface layer
 */
 enum class userInput

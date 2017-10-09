@@ -9,10 +9,23 @@ Game::Game()
     movingEntity::entityList.push_back(playerPtr);
     window.setGameState(gameState::playing);
     _create.reset();
+	
+	//GameLoop();
 }
 
 Game::~Game()
 {
+}
+
+void Game::GameLoop()
+{
+	while(!window.IsDone())
+{
+	Update();
+	Render();
+	RestartClock();
+		 
+}	
 }
 
 void Game::Update()

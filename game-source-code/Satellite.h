@@ -11,90 +11,90 @@
 using floatVector = std::vector<float>;
 
 /**
-* Satellite class - represents the dementor Satellites.
+* \brief Satellite class - represents the dementor Satellites.
 * Inherits from MovingShootingEntity class.
 */
 class Satellite: public MovingShootingEntity
 {
 public:
 	/**
-	* Constructor. Calls the MovingShootingEntity constructor explicitly. Creates a Satellite
-	* entity directly below the player 
-	* @param angle is a vector of floats containing the current player position
-	* @param angle is a float containing the current player angle
+	* \brief Constructor. Calls the MovingShootingEntity constructor explicitly. Creates a Satellite
+	* entity directly below the Player 
+	* @param angle is a vector of floats containing the current Player position
+	* @param angle is a float containing the current Player angle
 	*/
 	Satellite(floatVector position, float playerAngle);
 	/**
-	* Destructor. Decrements the number of Satellites alive and increments the number 
-	* of Satellites that have been killed
+	* \brief Destructor. Decrements the number of Satellite entities alive and increments the number 
+	* of Satellite entities that have been killed
 	*/
 	~Satellite();
 	/**
-	* Copy constructor. Calls the MovingShootingEntity constructor explicitly.
-	* Creates a copy of the initial Satellites with an angle that is either the 
+	* \brief Copy constructor. Calls the MovingShootingEntity constructor explicitly.
+	* Creates a copy of the initial Satellite with an angle that is either the 
 	* original Satellite plus 120 degrees or the original Satellite plus 240 degrees
 	*/
     Satellite(const Satellite &satellite);
 	/**
-	* Inherited from MovingShootingEntity.
+	* \brief Inherited from MovingShootingEntity.
 	* @return vector of floats containing the current Satellite position
 	*/
 	virtual floatVector getPosition() override;
 	/**
-	* Inherited from MovingShootingEntity.
+	* \brief Inherited from MovingShootingEntity.
 	* @return current Satellite angle
 	*/
 	virtual float getAngle() override;
 	/**
-	* Inherited from MovingShootingEntity.
+	* \brief Inherited from MovingShootingEntity.
 	* @return float containing the current Satellite radius
 	*/
 	virtual float getRadius() override;
 	/**
-	* Inherited from MovingShootingEntity.
+	* \brief Inherited from MovingShootingEntity.
 	* Updates the current position of the Satellite 
-	* @param direction is unused for the Satellite, but is required for the player class
+	* @param direction is unused for the Satellite, but is required for the Player class
 	* @param timeElapsed is a float containing the time since the last movement occurred
 	*/
 	virtual void Update(int direction, float timeElapsed) override;	
 	/**
-	* Inherited from MovingShootingEntity.
+	* \brief Inherited from MovingShootingEntity.
 	* @return an EntityList type containing the type of entity
 	*/
 	virtual EntityList getEntityType() override;
 	/**
-	* Static function
+	* \brief Static function
 	* @return int containing the number of Satellites alive
 	*/
 	static int getNumberofSatellitesAlive();
 	/**
-	* Static function
+	* \brief Static function
 	* @return int containing the total number of Satellites
 	*/	
 	static int getTotalNumberofSatellites();
 	/**
-	* Static function
+	* \brief Static function
 	* @return int containing the number of Satellites that have been killed
 	*/
 	static int getNumberofSatellitesKilled();
 	/**
-	* Static function
-	* Resets the number of Satellites alive and killed, and the total number of Satellites
+	* \brief Static function
+	* Resets the number of Satellite entities alive and killed, and the total number of Satellite entities
 	*/
 	static void ResetSatellites();
 	
 private:
 	/**
-     * Inherited from MovingShootingEntity.
+     * \brief Inherited from MovingShootingEntity.
 	* Increments the Satellite angle and calculates the position of the Satellite 
-	* @param direction is unused for the Satellite, but is required for the player class
+	* @param direction is unused for the Satellite, but is required for the Player class
 	* @param factor is a float containing the amount by which the angle should be decremented.
 	* factor is dependent on the elapsed time
 	*/
 	virtual void calculatePosition(const bool& direction, float factor) override;
 	/**
-	* Inherited from MovingShootingEntity.
-	* Generates enemy bullets
+	*\brief Inherited from MovingShootingEntity.
+	* Generates EnemyBullet entities
 	*/
 	virtual void createBullets() override;
 	

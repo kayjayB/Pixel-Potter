@@ -10,7 +10,7 @@
 #include "EntityList.h"
 
 /**
-* FileNotFound class
+* \brief FileNotFound class
 * Throws an exception if a file to be opened cannot be found
 */
 class FileNotFound
@@ -18,74 +18,74 @@ class FileNotFound
 };
 
 /**
-* Window class
-* Interface class - creates a window, draws the entities, displays the splashscreens
+* \brief Window class.
+* Acts as an Interface - creates a window, draws the entities, displays the splashscreens
 */
 class Window
 {
 
 public:
 	/**
-	* Default Constructor. 
-	* Creates a new window 
+	* \brief Default Constructor. 
+	* Creates a new Window 
 	*/
     Window();
 	/**
-	* Function to close the window
+	* \brief Function to close the SFML window
 	*/
     void closeWindow();
 	/**
-	* Function to clear the window prior to drawing
+	* \brief Function to clear the SFML window prior to drawing
 	*/
     void BeginDraw();
 	/**
-	* Function to display the window
+	* \brief Function to display the SFML window
 	*/
     void EndDraw();
 	/**
-	* Function to clear the window prior to drawing and set the background 
+	* \brief Function to clear the SFML window prior to drawing and set the background 
 	* for the main game
 	*/
     void BeginDrawMain();
 	/**
-	* Function that converts the keyboard input to a userInput type
+	* \brief Function that converts the keyboard input to a userInput type
 	* The function is used to seperate the logic and interface layers
 	* @return userInput 
 	*/
     userInput Update();
 	/**
-	* Function that checks the status of the window (open or closed)
-	* @return bool indicating whether the window should be closed or not 
+	* \brief Function that checks the status of the SFML window (open or closed)
+	* @return bool indicating whether the SFML window should be closed or not 
 	*/
     bool IsDone();
 	/**
-	* Function that displays the splashscreen at the start of the game
+	* \brief Function that displays the splashscreen at the start of the game
 	*/
     void SplashScreen();
 	/**
-	* Function that displays the win or lose screen
+	* \brief Function that displays the win or lose screen
 	*/
     void DisplayGameState(sf::Sprite& texture);
 	/**
-	* Function that draws the entity to the screen
+	* \brief Function that draws the entity to the screen
 	* @param entity is a shared pointer to a movingEntity object
 	*/
     void show(std::shared_ptr<movingEntity> entity);
 	/**
-	* Function that gets the current state of the game
+	* \brief Function that gets the current state of the game
 	*/		
     void setGameState(gameState state);
 	/**
-	* Function that gets the current state of the game and calls the win/lose screen
+	* \brief Function that gets the current state of the game and calls the win/lose screen
 	* @param state is a gameState variable that indicates the state of the game
 	*/	
     void getGameState();
 	/**
-	* Function that sets the number of player lives remaining
+	* \brief Function that sets the number of Player lives remaining
 	*/		
     void setLivesRemaining(int lives);
 	/**
-	* Function that sets the maximum number of enemies
+	* \brief Function that sets the maximum number of Enemy entities
 	*/		
     void setMaximumEnemies(int maxEnemies);
 	
@@ -95,20 +95,20 @@ public:
 
 private:
 	/**
-	* Function that loads the required images
+	* \brief Function that loads the required images
 	*/		
     void fileLoader();
 	/**
-	* Function that draws the reqired text to the screen
+	* \brief Function that draws the reqired text to the screen
 	*/		
     void drawText();
 	/**
-	* Function that ends the splashscreen by either starting the game or closing the window
+	* \brief Function that ends the splashscreen by either starting the game or closing the window
 	* @param bool that indicates whether the window should be closed or not
 	*/		
     bool End();
 	/**
-	* Function that sets up the text to be drawn on the screen
+	* \brief Function that sets up the text to be drawn on the screen
 	* @param xPos is a float indicating the x position of the text
 	* @param yPos is a float indicating the y position of the text
 	* @param text is a reference to an sf::Text containing the text to be altered
@@ -126,7 +126,7 @@ private:
     sf::Texture _arcTexture;
     sf::Font font;
     bool _isDone;
-    bool _isShooting;
+  //  bool _isShooting;
     bool disableShooting;
     gameState _state;
     int _playerLives;

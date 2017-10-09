@@ -12,47 +12,47 @@
 #include "LaserArc.h"
 
 /**
-* entityCreator class - handles the creation of all of the enemy entities (Enemy, LaserGenerator,
+* \brief entityCreator class - handles the creation of all of the enemy entities (Enemy, LaserGenerator,
 * LaserArc, Asteroid, Satellite)
 */
 class entityCreator
 {
 public:
 	/**
-	* Constructor. Creates an entityCreator object
+	* \brief Constructor. Creates an entityCreator object
 	* @param gameClock is a shared pointer to a Clock object
 	* @param maxEnemies is an int containing the maximum number of enemies to be created
-	* @param playerPtr is a shared pointer to the player object
+	* @param playerPtr is a shared pointer to the Player object
 	*/
 	entityCreator(std::shared_ptr <Clock> gameClock, int maxEnemies, std::shared_ptr <Player> playerPtr);
 	/**
-	* Destructor
+	* \brief Destructor
 	*/
 	~entityCreator();
 	/**
-	* Function to create all of the enemy entities
+	* \brief Function to create all of the various enemy entities
 	*/	
 	void create();
 	/**
-	* Function to reset the required variables upon restarting the game
+	* \brief Function to reset the required variables upon restarting the game
 	*/
 	void reset();
 	
 private:	
 	/**
-	* Function to create Enemy entities
+	* \brief Function to create Enemy entities
 	*/
 	void CreateEnemy();
 	/**
-	* Function to create Asteroid entities
+	* \brief Function to create Asteroid entities
 	*/
 	void CreateAsteroid();
 	/**
-	* Function to create Satellite entities
+	* \brief Function to create Satellite entities
 	*/
 	void CreateSatellite();
 	/**
-	* Function to create LaserGenerator and LaserArc entities
+	* \brief Function to create LaserGenerator and LaserArc entities
 	*/
 	void CreateLaser();
 	

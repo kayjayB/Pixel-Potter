@@ -6,58 +6,58 @@
 #include "movingEntity.h"
 
 /**
-* PlayerBullet class - represents the player entities' bullets
+* \brief PlayerBullet class - represents the Player entities' bullets
 * Inherits from movingEntity class.
 */
 class PlayerBullet : public movingEntity
 {
 public:
     /**
-    * Constructor. Calls the movingEntity constructor explicitly.
-    * Creates an enemy bullet at the current position
-	* @param currentPlayerAngle is a float containing the current player angle
+    * \brief Constructor. Calls the movingEntity constructor explicitly.
+    * Creates a PlayerBullet at the current position
+	* @param currentPlayerAngle is a float containing the current Player angle
     */
     PlayerBullet(float currentPlayerAngle);
 	/**
-	* Copy constructor. Calls the movingEntity constructor explicitly.
+	* \brief Copy constructor. Calls the movingEntity constructor explicitly.
 	* Creates a copy of the initial PlayerBullet with an angle that is either the 
 	* original PlayerBullet minus 3 degrees or the original PlayerBullet plus 3 degrees
 	*/
     PlayerBullet(const PlayerBullet& bullet);
 	/**
-	* Inherited from movingEntity.
-	* @return vector of floats containing the current bullet position
+	* \brief Inherited from movingEntity.
+	* @return vector of floats containing the current PlayerBullet position
 	*/
     virtual floatVector getPosition() override;
 	/**
-	* Inherited from movingEntity.
-	* @return current bullet angle
+	* \brief Inherited from movingEntity.
+	* @return current PlayerBullet angle
 	*/
     virtual float getAngle() override;
 	/**
-	* Inherited from movingEntity.
-	* @return float containing the current bullet radius
+	* \brief Inherited from movingEntity.
+	* @return float containing the current PlayerBullet radius
 	*/
     virtual float getRadius() override;
 	/**
-	* Inherited from movingEntity.
-	* Updates the current position of the bullet 
-	* @param direction is unused for the bullet, but is required for the player class
+	* \brief Inherited from movingEntity.
+	* Updates the current position of the PlayerBullet 
+	* @param direction is unused for the PlayerBullet, but is required for the Player class
 	* @param timeElapsed is a float containing the time since the last movement occurred
 	*/
     virtual void Update(int direction, float timeElapsed) override;
 	/**
-	* Inherited from movingEntity.
+	* \brief Inherited from movingEntity.
 	* @return an EntityList type containing the type of entity
 	*/
     virtual EntityList getEntityType() override;
 
 private:
 	/**
-	* Inherited from movingEntity.
-	* Increments the bullet radius and calculates the position of the bullet 
-	* @param direction is unused for the bullet, but is required for the player class
-	* @param factor is a float containing the amount by which the radius should be incremented.
+	* \brief Inherited from movingEntity.
+	* Decrements the PlayerBullet radius and calculates the position of the PlayerBullet 
+	* @param direction is unused for the PlayerBullet, but is required for the Player class
+	* @param factor is a float containing the amount by which the radius should be decremented.
 	* factor is dependent on the elapsed time
 	*/
     virtual void calculatePosition(const bool& direction, float factor) override;
