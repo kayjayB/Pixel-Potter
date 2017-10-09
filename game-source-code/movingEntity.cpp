@@ -25,6 +25,11 @@ int movingEntity::getLives()
 	
 }
 
+void movingEntity::collide()
+{
+	_lives-=1;
+}
+
 void movingEntity::setLives(int life)
 {
 	_lives=life;

@@ -15,33 +15,32 @@ _collidedArc=false;
 	    if(i != j) {
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::EnemyEntity) {
-
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(movingEntity::entityList[i]->getLives() - 1);
-			movingEntity::entityList[j]->setLives(0);
+			movingEntity::entityList[i]->collide();
+			movingEntity::entityList[j]->collide();
 		    }
 		}
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::AsteroidEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(movingEntity::entityList[i]->getLives() - 1);
-			movingEntity::entityList[j]->setLives(0);
+			movingEntity::entityList[i]->collide();
+			movingEntity::entityList[j]->collide();
 		    }
 		}
 
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::EnemyBulletEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(movingEntity::entityList[i]->getLives() - 1);
-			movingEntity::entityList[j]->setLives(0);
+			movingEntity::entityList[i]->collide();
+			movingEntity::entityList[j]->collide();
 		    }
 		}
 
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::ArcEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(movingEntity::entityList[i]->getLives() - 1);
-			movingEntity::entityList[j]->setLives(0);
+			movingEntity::entityList[i]->collide();
+			movingEntity::entityList[j]->collide();
 			_collidedArc=true;
 		    }
 		}
@@ -49,54 +48,54 @@ _collidedArc=false;
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::LaserEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(movingEntity::entityList[i]->getLives() - 1);
-			movingEntity::entityList[j]->setLives(0);
+			movingEntity::entityList[i]->collide();
+			movingEntity::entityList[j]->collide();
 		    }
 		}
 
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::LaserEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(0);
-			movingEntity::entityList[j]->setLives(0);
+			movingEntity::entityList[i]->collide();
+			movingEntity::entityList[j]->collide();
 		    }
 		}
 
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::ArcEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(0);
+			movingEntity::entityList[i]->collide();
 		    }
 		}
 
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::EnemyBulletEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(0);
-			movingEntity::entityList[j]->setLives(0);
+			movingEntity::entityList[i]->collide();
+			movingEntity::entityList[j]->collide();
 		    }
 		}
 
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::EnemyEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(0);
-			movingEntity::entityList[j]->setLives(0);
+			movingEntity::entityList[i]->collide();
+			movingEntity::entityList[j]->collide();
 		    }
 		}
 
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::AsteroidEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(0);
+			movingEntity::entityList[i]->collide();
 		    }
 		}
 
 		if(movingEntity::entityList[i]->getEntityType() == EntityList::PlayerBulletEntity &&
 		    movingEntity::entityList[j]->getEntityType() == EntityList::SatelliteEntity) {
 		    if(Collision(i, j)) {
-			movingEntity::entityList[i]->setLives(0);
-			movingEntity::entityList[j]->setLives(0);
+			movingEntity::entityList[i]->collide();
+			movingEntity::entityList[j]->collide();
 		    }
 		}
 	    }
@@ -107,7 +106,7 @@ _collidedArc=false;
 	{
 		if (_collidedArc==true && movingEntity::entityList[i]->getEntityType() == EntityList::LaserEntity)
 		{
-			movingEntity::entityList[i]->setLives(0);
+			movingEntity::entityList[i]->collide();
 		}
 	}
 }

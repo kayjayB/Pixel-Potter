@@ -73,10 +73,14 @@ public:
 	*/
     int getLives();
     /**
-    * \brief Function to set the number of lives remaining.
-    * @param life is an integer containing the number of lives
+    * \brief Function to indicate that a collision has occurred. The function decreases the number of lives of the entity
 	*/
-    void setLives(int life);
+    void collide();
+    /**
+	* \brief  Function to set the number of lives remaining
+     * @param life is an integer containing the number of lives
+ 	*/
+	void setLives(int life);
 
 protected:
     /**
