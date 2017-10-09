@@ -73,6 +73,11 @@ public:
 	 * Resets the number of enemies alive and killed, and the total number of enemies
      */
 	static void ResetEnemies();
+	/**
+     * \brief Inherited from MovingShootingEntity.
+	 * Generates EnemyBullet
+     */
+	virtual void createBullets() override;
 	
 private:
 	/**
@@ -83,11 +88,6 @@ private:
 	 * factor is dependent on the elapsed time
      */
 	virtual void calculatePosition(const bool& direction, float factor) override;
-	/**
-     * \brief Inherited from MovingShootingEntity.
-	 * Generates EnemyBullet
-     */
-	virtual void createBullets() override;
 	
 	static int _NumberEnemiesAlive;
 	static int _TotalNumberOfEnemies;

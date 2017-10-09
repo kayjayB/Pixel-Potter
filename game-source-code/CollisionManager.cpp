@@ -136,7 +136,7 @@ gameState CollisionManager::entityCleanUp(std::shared_ptr<Player> playerPtr)
 	return gameState::lose;
     }
     for(auto i = begin(movingEntity::entityList); i != end(movingEntity::entityList);) {
-	if((*i)->getLives() == 0) {
+	if((*i)->getLives() <= 0) {
 	    movingEntity::entityList.erase(i);
 	} else {
 	    i++;

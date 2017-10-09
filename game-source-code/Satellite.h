@@ -82,6 +82,11 @@ public:
 	* Resets the number of Satellite entities alive and killed, and the total number of Satellite entities
 	*/
 	static void ResetSatellites();
+	/**
+	*\brief Inherited from MovingShootingEntity.
+	* Generates EnemyBullet entities
+	*/
+	virtual void createBullets() override;
 	
 private:
 	/**
@@ -92,11 +97,6 @@ private:
 	* factor is dependent on the elapsed time
 	*/
 	virtual void calculatePosition(const bool& direction, float factor) override;
-	/**
-	*\brief Inherited from MovingShootingEntity.
-	* Generates EnemyBullet entities
-	*/
-	virtual void createBullets() override;
 	
 	float _theta;
 	float _radius;

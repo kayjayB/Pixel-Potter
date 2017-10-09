@@ -57,8 +57,15 @@ public:
 	* @return an EntityList type containing the type of entity
 	*/
     virtual EntityList getEntityType() override;
-
+	/**
+     * \brief Function to reset all the variables required for the player class
+     */
     void reset();
+	/**
+     * \brief Inherited from MovingShootingEntity.
+	 * Generates PlayerBullet entities
+     */
+	virtual void createBullets() override;
 
 private:
 	/**
@@ -70,11 +77,6 @@ private:
 	* or decremented. factor is dependent on the elapsed time
      */
     virtual void calculatePosition(const bool& direction, float factor) override;
-	/**
-     * \brief Inherited from MovingShootingEntity.
-	 * Generates PlayerBullet entities
-     */
-	virtual void createBullets() override;
 	
     const int _numberLives = 5;
     float _speed = 0.9f;
