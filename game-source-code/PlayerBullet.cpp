@@ -39,10 +39,6 @@ void PlayerBullet::Update(int direction, float timeElapsed)
 	float factor = _speed*timeElapsed;
 	calculatePosition(true, factor);
 	
-		if (getPosition()[0] > 4000)
-		{
-		setLives(0);
-		}
 	_scaleX-=0.0011*factor;
 	_scaleY-=0.0011*factor;
 }

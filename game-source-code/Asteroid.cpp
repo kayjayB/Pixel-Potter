@@ -14,6 +14,9 @@ void Asteroid::calculatePosition(const bool& direction, float factor)
 {
     floatVector movement;
     _radius += factor;
+	if(_radius >= _MAX_RADIUS) {
+	setLives(0);
+    }
     getPosition();
 	return;
 }
@@ -22,10 +25,6 @@ void Asteroid::Update(int direction, float timeElapsed)
 {
     floatVector movement;
     float factor = _speed * timeElapsed;
-
-    if(_radius >= _MAX_RADIUS) {
-	setLives(0);
-    }
 
 	calculatePosition(true, factor);
 	_scaleX+=0.0012*factor;

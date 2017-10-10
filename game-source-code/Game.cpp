@@ -9,8 +9,9 @@ Game::Game()
     movingEntity::entityList.push_back(playerPtr);
     window.setGameState(gameState::playing);
     _create.reset();
+	window.setMaximumEnemies(MAXENEMIES);
 	
-	//GameLoop();
+	GameLoop();
 }
 
 Game::~Game()
@@ -63,7 +64,6 @@ void Game::Update()
     }
 
     window.setLivesRemaining(playerPtr->getLives());
-    window.setMaximumEnemies(MAXENEMIES);
 }
 
 void Game::Render()

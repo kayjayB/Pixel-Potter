@@ -16,11 +16,6 @@ void EnemyBullet::Update(int direction, float timeElapsed)
 {
 	float factor = _speed*timeElapsed;
 	calculatePosition(true, factor);
-	
-		if (getPosition()[0] > 4000)
-		{
-		setLives(0);
-		}
 }
 
 floatVector EnemyBullet::getPosition()

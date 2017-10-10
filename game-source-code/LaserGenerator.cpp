@@ -20,7 +20,6 @@ movingEntity(10.0, 10.0, 1)
 	_theta=generator._theta-50*M_PI/180;
 	_scaleX=generator._scaleX;
 	_scaleY=generator._scaleY;
-	//_body=generator._body;
 	_radius=generator._radius;
 	floatVector initialPosition=getPosition();
 	_entityType=generator._entityType;

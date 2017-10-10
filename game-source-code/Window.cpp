@@ -4,7 +4,6 @@ Window::Window()
     : _window(sf::VideoMode(1920, 1080), "Pixel Potter", sf::Style::Titlebar | sf::Style::Close)
     , reset{ false }
     , _isDone{ false }
- //   , _isShooting{ false }
     , disableShooting{ false }
 {
     fileLoader();
@@ -32,6 +31,14 @@ void Window::fileLoader()
 	throw FileNotFound();
     if(!_arcTexture.loadFromFile("arcMedium.png", sf::IntRect(0, 0, 150, 150)))
 	throw FileNotFound();
+//	if(!_livesTexture.loadFromFile("heart.png", sf::IntRect(0, 0, 150, 150)))
+//	throw FileNotFound();
+//	_lives.setTexture(&_livesTexture);
+//	
+//	for (auto i=0;_playerLives-1;i++)
+//	{
+//		
+//	}
 }
 
 void Window::closeWindow()
@@ -98,6 +105,7 @@ userInput Window::Update()
 	if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && disableShooting) {
 	    disableShooting = false;
 	}
+	
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 	    keyBoard = userInput::PressLeft;
 //	    _isShooting = false;
@@ -263,14 +271,12 @@ void Window::getGameState()
     switch(_state) {
     case gameState::lose: {
 	reset = true;
-	Enemy::ResetEnemies();
 	sf::Sprite background(_loseTexture);
 	DisplayGameState(background);
 	break;
     }
     case gameState::win: {
 	reset = true;
-	Enemy::ResetEnemies();
 	sf::Sprite background2(_winTexture);
 	DisplayGameState(background2);
 	break;

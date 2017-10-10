@@ -124,9 +124,10 @@ private:
     sf::Texture _satelliteTexture;
     sf::Texture _asteroidTexture;
     sf::Texture _arcTexture;
+	sf::Texture _livesTexture;
+	sf::RectangleShape _lives;
     sf::Font font;
     bool _isDone;
-  //  bool _isShooting;
     bool disableShooting;
     gameState _state;
     int _playerLives;

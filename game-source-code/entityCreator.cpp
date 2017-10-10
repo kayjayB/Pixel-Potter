@@ -56,7 +56,7 @@ _timeAsteroid=_entityClock->getAsteroidTime();
 void entityCreator::CreateSatellite()
 {
 	_timeSatellite=_entityClock->getSatelliteTime();
-	if ((fmod(_timeSatellite,5)>0) && fmod(_timeSatellite,5)<(0.2) && Satellite::getNumberofSatellitesAlive() ==0 )
+	if ((fmod(_timeSatellite,7)>0) && fmod(_timeSatellite,7)<(0.2) && Satellite::getNumberofSatellitesAlive() ==0 )
 	{
 		floatVector position =_playerPtr->getPosition();
 		float angle =_playerPtr->getAngle();
