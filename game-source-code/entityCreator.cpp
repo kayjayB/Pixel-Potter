@@ -42,7 +42,7 @@ if ( Enemy::getNumberofEnemiesAlive() < 3 )
 void entityCreator::CreateAsteroid()
 {
 
-_timeAsteroid=_entityClock->getAsteroidTime();
+	_timeAsteroid=_entityClock->getAsteroidTime();
 	if (_timeAsteroid > (_generateAsteroid - 0.5) && _timeAsteroid < (_generateAsteroid+0.5))
 	{
 		

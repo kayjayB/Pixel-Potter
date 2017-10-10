@@ -28,10 +28,6 @@ void LaserArc::Update(int direction, float timeElapsed)
 	setLives(0);
 	}
 
-    if(_radius >= _MAX_RADIUS) {
-	setLives(0);
-    }
-
 	calculatePosition(true, factor);
 
     _scaleX += 0.087 * factor;
