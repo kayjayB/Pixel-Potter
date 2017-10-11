@@ -66,7 +66,11 @@ public:
 	 * Generates PlayerBullet entities
      */
 	virtual void createBullets() override;
-	
+	/**
+	* \brief  Function to get the required colour of the entity.
+	* Overwritten from movingEntity since the Player changes colour when he loses lives
+     * @return vector of integers containing the RGB values of the Player colour
+ 	*/	
 	virtual std::vector<int> getColour() override;
 
 private:

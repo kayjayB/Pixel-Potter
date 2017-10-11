@@ -37,6 +37,12 @@ if ( Enemy::getNumberofEnemiesAlive() < 3 )
 		movingEntity::entityList.push_back(enemyPtr);
 	}
 }
+if ( Enemy::getNumberofEnemiesAlive() ==0 )
+{
+		std::shared_ptr <Enemy> enemyPtr{ new Enemy{}};
+		movingEntity::entityList.push_back(enemyPtr);	
+}
+
 }
 
 void entityCreator::CreateAsteroid()

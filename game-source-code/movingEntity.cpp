@@ -3,12 +3,12 @@
 movingEntity::movingEntity(float entityWidth, float entityHeight, int lives, int red, int blue, int green, string texture):
 _scaleX{1.0},
 _scaleY{1.0},
-_entityWidth{entityWidth},
-_entityHeight{entityHeight},
-_lives{lives},
 _red{red},
  _blue{blue},
 _green{green},
+_entityWidth{entityWidth},
+_entityHeight{entityHeight},
+_lives{lives},
 _texture{texture}
 {
 }

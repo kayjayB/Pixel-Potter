@@ -10,6 +10,7 @@ Game::Game()
     window.setGameState(gameState::playing);
     _create.reset();
 	window.setMaximumEnemies(MAXENEMIES);
+	srand(time(0));
 	
 	GameLoop();
 }

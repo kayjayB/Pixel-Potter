@@ -3,6 +3,8 @@
 
 #include <memory>
 #include <vector>
+#include <ctime>
+#include <cstdlib>
 
 #include "Player.h"
 #include "Window.h"
