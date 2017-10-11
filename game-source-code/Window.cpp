@@ -180,7 +180,7 @@ void Window::show(std::shared_ptr<movingEntity> entity)
 		if(!_bodyTexture.loadFromFile(entity->getTextureName(), sf::IntRect(0, 0, 150, 150)))
 		{
 			//throw FileNotFound();
-		//	std::cerr<< "File not found" << std::endl;
+			std::cerr<< "File not found" << std::endl;
 		}
 	}
 	
