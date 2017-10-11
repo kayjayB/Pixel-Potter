@@ -20,8 +20,8 @@ public:
 	/**
 	* \brief Constructor. Calls the MovingShootingEntity constructor explicitly. Creates a Satellite
 	* entity directly below the Player 
-	* @param angle is a vector of floats containing the current Player position
-	* @param angle is a float containing the current Player angle
+	* @param position is a vector of floats containing the current Player position
+	* @param playerAngle is a float containing the current Player angle
 	*/
 	Satellite(floatVector position, float playerAngle);
 	/**

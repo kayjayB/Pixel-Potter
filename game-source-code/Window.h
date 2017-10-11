@@ -72,13 +72,13 @@ public:
 	*/
     void show(std::shared_ptr<movingEntity> entity);
 	/**
-	* \brief Function that gets the current state of the game
-	*/		
-    void setGameState(gameState state);
-	/**
 	* \brief Function that gets the current state of the game and calls the win/lose screen
 	* @param state is a gameState variable that indicates the state of the game
 	*/	
+    void setGameState(gameState state);
+	/**
+	* \brief Function that gets the current state of the game
+	*/		
     void getGameState();
 	/**
 	* \brief Function that sets the number of Player lives remaining
@@ -102,7 +102,7 @@ private:
     void drawText();
 	/**
 	* \brief Function that ends the splashscreen by either starting the game or closing the window
-	* @param bool that indicates whether the window should be closed or not
+	* @return bool that indicates whether the window should be closed or not
 	*/		
     bool End();
 	/**
