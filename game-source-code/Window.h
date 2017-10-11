@@ -112,6 +112,7 @@ private:
 	* @param text is a reference to an sf::Text containing the text to be altered
 	*/	
     void textSetup(float xPos, float yPos, sf::Text& text);
+	
 	userInput keyBoard;
 	sf::RenderWindow _window;
     sf::Texture _splashTexture;

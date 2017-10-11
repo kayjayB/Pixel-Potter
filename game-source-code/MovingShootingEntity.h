@@ -18,6 +18,10 @@ public:
 	* @param entityWidth is a float containing the width of the entity
 	* @param entityHeight is a float containing the height of the entity
 	* @param lives in an int containing the number of lives of the entity
+	* @param red is an integer between 0 and 255 containing the amount of red in the colour of the entity
+	* @param blue is an integer between 0 and 255 containing the amount of blue in the colour of the entity
+	* @param green is an integer between 0 and 255 containing the amount of green in the colour of the entity
+	* @param texture is the name of the file to be loaded as the texture for the entity
     */
     MovingShootingEntity(float entityWidth, float entityHeight, int lives, int red, int blue, int green, string texture);
    /**
