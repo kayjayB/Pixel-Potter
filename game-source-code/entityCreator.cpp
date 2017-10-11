@@ -45,7 +45,6 @@ void entityCreator::CreateAsteroid()
 	_timeAsteroid=_entityClock->getAsteroidTime();
 	if (_timeAsteroid > (_generateAsteroid - 0.5) && _timeAsteroid < (_generateAsteroid+0.5))
 	{
-		
 		std::shared_ptr <Asteroid> asteroidPtr{ new Asteroid{_playerPtr->getAngle()}};
 		movingEntity::entityList.push_back(asteroidPtr);
 		_generateAsteroid=fmod(rand(),8.0)+1;

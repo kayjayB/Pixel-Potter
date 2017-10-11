@@ -66,6 +66,8 @@ public:
 	 * Generates PlayerBullet entities
      */
 	virtual void createBullets() override;
+	
+	virtual std::vector<int> getColour() override;
 
 private:
 	/**
@@ -85,7 +87,6 @@ private:
     const double _y_center = 1080.0f / 2.0f;
     const double _radius = 480.0f;
     EntityList _entityType;
-    int _checkShoot;
     std::vector<int> _upgradeBullets;
 };
 

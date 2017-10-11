@@ -1,7 +1,7 @@
 #include "Asteroid.h"
 
 Asteroid::Asteroid(float angle)
-    : movingEntity(50.0, 50.0, 1)
+    : movingEntity(50.0, 50.0, 1, 255,255,255, "quaffle.png") //int red, int blue, int green, string texture
     , _theta{ angle }
     , _radius{ 0.0 }
     , _entityType{ EntityList::AsteroidEntity }

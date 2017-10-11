@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player():
-MovingShootingEntity(50.0, 100.0, 5),
+MovingShootingEntity(50.0, 100.0, 5, 255,255,255, "HP.png"),
 _theta{90*M_PI/180},
 _entityType{EntityList::PlayerEntity}
 {
@@ -125,4 +125,42 @@ else
 EntityList Player::getEntityType()
 {
 	return _entityType;
+}
+
+std::vector<int> Player::getColour()
+{
+	switch(getLives()) {
+	case 0:
+	    _red = 255;
+	    _green = 0;
+	    _blue = 0;
+	    break;
+	case 1:
+	    _red = 255;
+	    _green = 0;
+	    _blue = 0;
+	    break;
+	case 2:
+	    _red = 255;
+	    _green = 120;
+	    _blue = 114;
+	    break;
+	case 3:
+	    _red = 255;
+	    _green = 154;
+	    _blue = 144;
+	    break;
+	case 4:
+	    _red = 255;
+	    _green = 182;
+	    _blue = 193;
+	    break;
+	case 5:
+	    _red = 255;
+	    _green = 255;
+	    _blue = 255;
+	}
+	
+std::vector<int> colour{_red,_green,_blue};
+return colour;	
 }

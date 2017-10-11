@@ -1,11 +1,15 @@
 #include "movingEntity.h"
 
-movingEntity::movingEntity(float entityWidth, float entityHeight, int lives):
+movingEntity::movingEntity(float entityWidth, float entityHeight, int lives, int red, int blue, int green, string texture):
 _scaleX{1.0},
 _scaleY{1.0},
 _entityWidth{entityWidth},
 _entityHeight{entityHeight},
-_lives{lives}
+_lives{lives},
+_red{red},
+ _blue{blue},
+_green{green},
+_texture{texture}
 {
 }
 
@@ -33,4 +37,15 @@ void movingEntity::collide()
 void movingEntity::setLives(int life)
 {
 	_lives=life;
+}
+
+std::vector<int> movingEntity::getColour()
+{
+	std::vector<int> colour{_red,_blue,_green};
+	return colour;
+}
+	
+string movingEntity::getTextureName()
+{
+	return _texture;
 }

@@ -26,6 +26,8 @@ public:
 	* \brief Destructor
 	*/
     ~Game();
+	
+private:
 	/**
 	* \brief Function ot control the game loop.
 	* The function calls the Update, Render, RestartClock functions
@@ -45,16 +47,9 @@ public:
 	*/
     void Render();
 	/**
-	* \brief Function that returns a pointer to the Window class
-	* @return Window pointer
-	*/
-    Window* GetWindow();
-	/**
 	* \brief Function that calls the Clock RestartClock function
 	*/	
     void RestartClock();
-	
-private:
 	/**
 	* \brief Function that resets all the necessary variables upon restarting a new game
 	*/	
@@ -76,4 +71,4 @@ private:
 	
 };
 
-#endif // GAME_H
+#endif

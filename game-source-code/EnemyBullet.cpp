@@ -1,7 +1,7 @@
 #include "EnemyBullet.h"
 
 EnemyBullet::EnemyBullet(float currentEnemyAngle, float currentEnemyRadius, float x_center, float y_center):
-movingEntity(10.0,20.0, 1),
+movingEntity(10.0,20.0, 1, 1, 255, 1, ""),
 _bulletRadius{currentEnemyRadius},
 _angle{currentEnemyAngle},
 _x_center{x_center},

@@ -5,7 +5,7 @@ int Enemy::_TotalNumberOfEnemies = 0;
 int Enemy::_NumberEnemiesKilled = 0;
 
 Enemy::Enemy()
-    : MovingShootingEntity(40.0, 80.0, 1)
+    : MovingShootingEntity(40.0, 80.0, 1, 255,255,255, "voldy.png")
     , _radius{ 0.0 }
     , _entityType{ EntityList::EnemyEntity }
     , _time{ 0.0 }

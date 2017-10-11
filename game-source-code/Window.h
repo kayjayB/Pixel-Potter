@@ -89,9 +89,7 @@ public:
 	*/		
     void setMaximumEnemies(int maxEnemies);
 	
-	sf::RenderWindow _window;
 	bool reset;
-	userInput keyBoard;
 
 private:
 	/**
@@ -114,18 +112,12 @@ private:
 	* @param text is a reference to an sf::Text containing the text to be altered
 	*/	
     void textSetup(float xPos, float yPos, sf::Text& text);
-	
+	userInput keyBoard;
+	sf::RenderWindow _window;
     sf::Texture _splashTexture;
     sf::Texture _loseTexture;
     sf::Texture _winTexture;
     sf::Texture _backgroundTexture;
-    sf::Texture _playerTexture;
-    sf::Texture _enemyTexture;
-    sf::Texture _satelliteTexture;
-    sf::Texture _asteroidTexture;
-    sf::Texture _arcTexture;
-	sf::Texture _livesTexture;
-	sf::RectangleShape _lives;
     sf::Font font;
     bool _isDone;
     bool disableShooting;

@@ -3,7 +3,7 @@
 int LaserGenerator::_NumberLasersAlive=0;
 
 LaserGenerator::LaserGenerator():
-movingEntity(10.0, 10.0, 1),
+movingEntity(10.0, 10.0, 1, 0,255,255, ""),
 _radius{0.0},
 _entityType{EntityList::LaserEntity}
 {
@@ -15,7 +15,7 @@ _entityType{EntityList::LaserEntity}
 }
 
 LaserGenerator::LaserGenerator(const LaserGenerator &generator):
-movingEntity(10.0, 10.0, 1)
+movingEntity(10.0, 10.0, 1, 0,255,255, "")
 {
 	_theta=generator._theta-50*M_PI/180;
 	_scaleX=generator._scaleX;

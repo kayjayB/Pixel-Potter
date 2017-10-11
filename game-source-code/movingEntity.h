@@ -2,6 +2,7 @@
 #define MOVINGENTITY_H
 #include <vector>
 #include <memory>
+#include <string>
 
 #include "EntityList.h"
 
@@ -21,7 +22,7 @@ public:
 	* @param entityHeight is a float containing the height of the entity
 	* @param lives in an int containing the number of lives of the entity
     */
-    movingEntity(float entityWidth, float entityHeight, int lives);
+    movingEntity(float entityWidth, float entityHeight, int lives, int red, int blue, int green, string texture);
     /**
     * \brief Function to get the angle of the entity.
 	* The function is not implemented in this class and must be implemented
@@ -76,6 +77,16 @@ public:
     * \brief Function to indicate that a collision has occurred. The function decreases the number of lives of the entity
 	*/
     void collide();
+	/**
+	* \brief  Function to get the required colour of the entity
+     * @return vector of integers containing the RGB values of the entity colour
+ 	*/	
+	virtual std::vector<int> getColour();
+	/**
+	* \brief  Function to get the name of the texture to be loaded
+     * @return string containing the 
+ 	*/		
+	string getTextureName();
 
 protected:
     /**
@@ -95,11 +106,15 @@ protected:
 
     float _scaleX;
     float _scaleY;
+	int _red;
+	int _blue;
+	int _green;
 
 private:
     float _entityWidth;
     float _entityHeight;
     int _lives;
+	string _texture;
 };
 
 #endif

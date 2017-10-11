@@ -19,7 +19,7 @@ public:
 	* @param entityHeight is a float containing the height of the entity
 	* @param lives in an int containing the number of lives of the entity
     */
-    MovingShootingEntity(float entityWidth, float entityHeight, int lives);
+    MovingShootingEntity(float entityWidth, float entityHeight, int lives, int red, int blue, int green, string texture);
    /**
     * \brief Function to get the angle of the entity
 	* The function is not implemented in this class and must be implemented

@@ -78,11 +78,6 @@ void Game::Render()
     window.EndDraw();
 }
 
-Window* Game::GetWindow()
-{
-    return &window;
-}
-
 float Game::GetTime()
 {
     return gameClock->GetTime();

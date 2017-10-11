@@ -3,7 +3,7 @@
 LaserArc::LaserArc(float LaserAngle,
     std::shared_ptr<LaserGenerator> laserGen1,
     std::shared_ptr<LaserGenerator> laserGen2)
-    : movingEntity(14.0, 4.0, 1)
+    : movingEntity(14.0, 4.0, 1, 255,255,255, "arcMedium.png")
     , _radius{ 0 }
     , _entityType{ EntityList::ArcEntity }
     , _laser1{ laserGen1 }

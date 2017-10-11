@@ -6,7 +6,7 @@ int Satellite::_NumberSatellitesKilled=0;
 bool Satellite::_copies=false;
 
 Satellite::Satellite(floatVector position, float playerAngle):
-MovingShootingEntity(40.0, 40.0, 1),
+MovingShootingEntity(40.0, 40.0, 1, 255,255,255, "dementor.png"),
 _theta{0},
 _radius{80},
 _entityType{EntityList::SatelliteEntity},
@@ -67,7 +67,7 @@ Satellite::~Satellite()
 	_NumberSatellitesKilled++;
 }
 Satellite::Satellite(const Satellite &satellite):
-MovingShootingEntity(40.0, 40.0, 1)
+MovingShootingEntity(40.0, 40.0, 1, 255,255,255, "dementor.png")
 {
 	_radius = satellite._radius;
 	
