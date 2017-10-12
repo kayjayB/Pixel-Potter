@@ -115,13 +115,13 @@ bool CollisionManager::Collision(int i, int j)
 {
     floatVector position1 = movingEntity::entityList[i]->getPosition();
     floatVector position2 = movingEntity::entityList[j]->getPosition();
-    floatVector halfSize1 = movingEntity::entityList[i]->getBodySize();
-    floatVector halfSize2 = movingEntity::entityList[j]->getBodySize();
+    floatVector Size1 = movingEntity::entityList[i]->getBodySize();
+    floatVector Size2 = movingEntity::entityList[j]->getBodySize();
 
     float deltaX = position1[0] - position2[0];
     float deltaY = position1[1] - position2[1];
-    float intersectX = fabs(deltaX) - (halfSize1[0] / 2 + halfSize2[0] / 2);
-    float intersectY = fabs(deltaY) - (halfSize1[1] / 2 + halfSize2[1] / 2);
+    float intersectX = fabs(deltaX) - (Size1[0] / 2 + Size2[0] / 2);
+    float intersectY = fabs(deltaY) - (Size1[1] / 2 + Size2[1] / 2);
 
     if(intersectX < 0.0 && intersectY < 0.0) {
 	return true;

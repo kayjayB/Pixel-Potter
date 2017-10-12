@@ -31,10 +31,10 @@ void Game::GameLoop()
 }
 
 void Game::Update()
-{
+{	  
     userInput Keyevent = window.Update();
-
-    _create.create();
+	
+	_create.create();
 
     playerPtr->Update(playerPtr->MovementDirection(Keyevent), GetTime());
 

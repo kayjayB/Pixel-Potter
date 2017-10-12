@@ -91,19 +91,16 @@ userInput Window::Update()
 	
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 	    keyBoard = userInput::PressLeft;
-//	    _isShooting = false;
 	    return keyBoard;
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
 	    keyBoard = userInput::PressRight;
-//	    _isShooting = false;
 	    return keyBoard;
 	}
 	
 	if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
 	    keyBoard = userInput::NoButtonPress;
-	//    _isShooting = false;
 	    return keyBoard;
 	}
     }
@@ -179,7 +176,6 @@ void Window::show(std::shared_ptr<movingEntity> entity)
 	{
 		if(!_bodyTexture.loadFromFile(entity->getTextureName(), sf::IntRect(0, 0, 150, 150)))
 		{
-			//throw FileNotFound();
 			std::cerr<< "File not found" << std::endl;
 		}
 	}
