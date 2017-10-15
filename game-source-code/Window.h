@@ -32,22 +32,12 @@ public:
 	*/
     Window();
 	/**
-	* \brief Function to close the SFML window
+	* \brief Function to draw the entities to the screen and set the background.
+	* The function clears the SFML window prior to drawing and sets the background 
+	* for the main game. The function also calls the show() function to display the entities 
+	* on the screen. 
 	*/
-    void closeWindow();
-	/**
-	* \brief Function to clear the SFML window prior to drawing
-	*/
-    void BeginDraw();
-	/**
-	* \brief Function to display the SFML window
-	*/
-    void EndDraw();
-	/**
-	* \brief Function to clear the SFML window prior to drawing and set the background 
-	* for the main game
-	*/
-    void BeginDrawMain();
+    void Draw();
 	/**
 	* \brief Function that converts the keyboard input to a userInput type
 	* The function is used to seperate the logic and interface layers
@@ -63,10 +53,6 @@ public:
 	* \brief Function that displays the splashscreen at the start of the game
 	*/
     void SplashScreen();
-	/**
-	* \brief Function that displays the win or lose screen
-	*/
-    void DisplayGameState(sf::Sprite& texture);
 	/**
 	* \brief Function that draws the entity to the screen
 	* @param entity is a shared pointer to a movingEntity object
@@ -94,6 +80,18 @@ public:
 
 private:
 	/**
+	* \brief Function to close the SFML window
+	*/
+	void closeWindow();
+	/**
+	* \brief Function to clear the SFML window prior to drawing
+	*/
+    void BeginDraw();
+	/**
+	* \brief Function to display the SFML window
+	*/
+    void EndDraw();
+	/**
 	* \brief Function that loads the required images
 	*/		
     void fileLoader();
@@ -106,6 +104,10 @@ private:
 	* @return bool that indicates whether the window should be closed or not
 	*/		
     bool End();
+	/**
+	* \brief Function that displays the win or lose screen
+	*/
+    void DisplayGameState(sf::Sprite& texture);
 	/**
 	* \brief Function that sets up the text to be drawn on the screen
 	* @param xPos is a float indicating the x position of the text

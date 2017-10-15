@@ -1,8 +1,8 @@
 #include "Window.h"
 
-Window::Window()
-    : _window(sf::VideoMode(1920, 1080), "Pixel Potter", sf::Style::Titlebar | sf::Style::Close)
-    , reset{ false }
+Window::Window():
+	reset{ false }
+    , _window(sf::VideoMode(1920, 1080), "Pixel Potter", sf::Style::Titlebar | sf::Style::Close)
     , _isDone{ false }
     , disableShooting{ false }
 {
@@ -29,12 +29,18 @@ void Window::closeWindow()
     _window.close();
 }
 
-void Window::BeginDrawMain()
+void Window::Draw()
 {
     _window.clear(sf::Color::White);
     sf::Sprite background(_backgroundTexture);
     _window.draw(background);
     drawText();
+	
+	for(auto i = begin(movingEntity::entityList); i != end(movingEntity::entityList); i++) {
+	show((*i));
+    }
+	
+	EndDraw();
 }
 
 void Window::drawText()
@@ -135,7 +141,7 @@ bool Window::End()
 
 	if(end.type == sf::Event::Closed) {
 	    _isDone = true;
-	    _window.close();
+		closeWindow();
 	    return false;
 	}
     }

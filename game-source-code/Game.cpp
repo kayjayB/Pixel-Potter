@@ -70,13 +70,8 @@ void Game::Update()
 void Game::Render()
 {
 
-    window.BeginDrawMain();
+    window.Draw();
 
-    for(auto i = begin(movingEntity::entityList); i != end(movingEntity::entityList); i++) {
-	window.show((*i));
-    }
-
-    window.EndDraw();
 }
 
 float Game::GetTime()
