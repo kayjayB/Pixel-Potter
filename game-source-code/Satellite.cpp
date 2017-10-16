@@ -11,47 +11,47 @@ _theta{0},
 _radius{80},
 _entityType{EntityList::SatelliteEntity},
 _time{0.0},
-thetaBullet{0}
+_thetaBullet{0}
 {
 
 if (position[0] < _x_centerPlayer && position[1] < _y_centerPlayer)
 {
-	_x_center=position[0]+changeRadius;
-	_y_center=position[1]+changeRadius;
+	_x_center=position[0]+_changeRadius;
+	_y_center=position[1]+_changeRadius;
 }
 else if (position[0] < _x_centerPlayer && position[1] > _y_centerPlayer)
 {
-	_x_center=position[0]+changeRadius;
-	_y_center=position[1]-changeRadius;
+	_x_center=position[0]+_changeRadius;
+	_y_center=position[1]-_changeRadius;
 }
 else if (position[0] > _x_centerPlayer && position[1] > _y_centerPlayer)
 {
-	_x_center=position[0]-changeRadius;
-	_y_center=position[1]-changeRadius;
+	_x_center=position[0]-_changeRadius;
+	_y_center=position[1]-_changeRadius;
 }
 else if (position[0] > _x_centerPlayer && position[1] < _y_centerPlayer)
 {
-	_x_center=position[0]-changeRadius;
-	_y_center=position[1]+changeRadius;
+	_x_center=position[0]-_changeRadius;
+	_y_center=position[1]+_changeRadius;
 }
 else if (position[0]== _x_centerPlayer && position[1] < _y_centerPlayer)
 {
 	_x_center=position[0];
-	_y_center=position[1]+changeRadius;
+	_y_center=position[1]+_changeRadius;
 }
 else if (position[0]== _x_centerPlayer && position[1] > _y_centerPlayer)
 {
 	_x_center=position[0];
-	_y_center=position[1]-changeRadius;
+	_y_center=position[1]-_changeRadius;
 }
 else if (position[1]== _y_centerPlayer && position[0] > _x_centerPlayer)
 {
-	_x_center=position[0]-changeRadius;
+	_x_center=position[0]-_changeRadius;
 	_y_center=position[1];
 }
 else if (position[1]== _y_centerPlayer && position[0] < _x_centerPlayer)
 {
-	_x_center=position[0]+changeRadius;
+	_x_center=position[0]+_changeRadius;
 	_y_center=position[1];
 }
 	_NumberSatellitesAlive++;
@@ -163,25 +163,25 @@ void Satellite::ResetSatellites()
 
 void Satellite::createBullets()
 {
-satellitePosition=getPosition();
+_satellitePosition=getPosition();
 	
-if (satellitePosition[0] < _x_centerPlayer && satellitePosition[1] < _y_centerPlayer)
+if (_satellitePosition[0] < _x_centerPlayer && _satellitePosition[1] < _y_centerPlayer)
 {
-	thetaBullet=M_PI;
+	_thetaBullet=M_PI;
 }
-if (satellitePosition[0] <= _x_centerPlayer && satellitePosition[1] >= _y_centerPlayer)
+if (_satellitePosition[0] <= _x_centerPlayer && _satellitePosition[1] >= _y_centerPlayer)
 {
-	thetaBullet=M_PI/2;
+	_thetaBullet=M_PI/2;
 }
-if (satellitePosition[0] > _x_centerPlayer && satellitePosition[1] <= _y_centerPlayer)
+if (_satellitePosition[0] > _x_centerPlayer && _satellitePosition[1] <= _y_centerPlayer)
 {
-	thetaBullet=3*M_PI/2;
+	_thetaBullet=3*M_PI/2;
 }
-if (satellitePosition[0] >= _x_centerPlayer && satellitePosition[1] > _y_centerPlayer)
+if (_satellitePosition[0] >= _x_centerPlayer && _satellitePosition[1] > _y_centerPlayer)
 {
-	thetaBullet=0;
+	_thetaBullet=0;
 }
-	std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(thetaBullet, _radius, _x_center, _y_center)};
+	std::shared_ptr <EnemyBullet> bulletPtr{ new EnemyBullet(_thetaBullet, _radius, _x_center, _y_center)};
 	movingEntity::entityList.push_back(bulletPtr);
 	return;
 }

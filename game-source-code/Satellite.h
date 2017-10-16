@@ -112,9 +112,9 @@ private:
 	float _time;
 	float _spawnBullet;
 	static bool _copies;
-	const int changeRadius=150;
-	floatVector satellitePosition;
-	float thetaBullet;
+	const int _changeRadius=150;
+	floatVector _satellitePosition;
+	float _thetaBullet;
 
 };
 

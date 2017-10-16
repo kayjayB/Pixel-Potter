@@ -4,5 +4,3 @@ MovingShootingEntity::MovingShootingEntity(float entityWidth, float entityHeight
 movingEntity(entityWidth, entityHeight, lives, red, blue, green, texture)
 {
 }
-
-//MovingShootingEntity::~MovingShootingEntity() {}

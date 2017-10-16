@@ -58,6 +58,13 @@ public:
     * in the derived class.
     */
     virtual void createBullets() = 0;
+	/**
+    * \brief Function to return the entityType.
+    * The function is not implemented in this class and must be implemented
+    * in the derived class.
+    * @return an EntityList type containing the type of entity
+    */
+    virtual EntityList getEntityType() override = 0;
 
 protected:
     /**
