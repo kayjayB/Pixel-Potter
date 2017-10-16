@@ -116,15 +116,15 @@ private:
 	*/	
     void textSetup(float xPos, float yPos, sf::Text& text);
 	
-	userInput keyBoard;
+	userInput _keyBoard;
 	sf::RenderWindow _window;
     sf::Texture _splashTexture;
     sf::Texture _loseTexture;
     sf::Texture _winTexture;
     sf::Texture _backgroundTexture;
-    sf::Font font;
+    sf::Font _font;
     bool _isDone;
-    bool disableShooting;
+    bool _disableShooting;
     gameState _state;
     int _playerLives;
     int _enemies;

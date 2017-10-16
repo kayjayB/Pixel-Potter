@@ -4,7 +4,7 @@ Window::Window():
 	reset{ false }
     , _window(sf::VideoMode(1920, 1080), "Pixel Potter", sf::Style::Titlebar | sf::Style::Close)
     , _isDone{ false }
-    , disableShooting{ false }
+    , _disableShooting{ false }
 {
     fileLoader();
 }
@@ -19,7 +19,7 @@ void Window::fileLoader()
 	throw FileNotFound();
     if(!_backgroundTexture.loadFromFile("vortex.png", sf::IntRect(0, 0, 1920, 1080)))
 	throw FileNotFound();
-    if(!font.loadFromFile("HARRYP__.TTF"))
+    if(!_font.loadFromFile("HARRYP__.TTF"))
 	throw FileNotFound();
 
 }
@@ -46,11 +46,11 @@ void Window::Draw()
 void Window::drawText()
 {
 
-    sf::Text text("Enemies remaining:" + std::to_string(_enemies - Enemy::getNumberofEnemiesKilled()), font);
+    sf::Text text("Enemies remaining:" + std::to_string(_enemies - Enemy::getNumberofEnemiesKilled()), _font);
     textSetup(1500, 1, text);
     _window.draw(text);
 
-    sf::Text lives("Lives remaining:" + std::to_string(_playerLives), font);
+    sf::Text lives("Lives remaining:" + std::to_string(_playerLives), _font);
     textSetup(0, 0, lives);
     _window.draw(lives);
 }
@@ -86,31 +86,31 @@ userInput Window::Update()
 	if(event.type == sf::Event::Closed) {
 	    _isDone = true;
 	}
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !disableShooting) {
-	    keyBoard = userInput::PressSpace;
-	    disableShooting = true;
-	    return keyBoard;
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !_disableShooting) {
+	    _keyBoard = userInput::PressSpace;
+	    _disableShooting = true;
+	    return _keyBoard;
 	}
-	if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && disableShooting) {
-	    disableShooting = false;
+	if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && _disableShooting) {
+	    _disableShooting = false;
 	}
 	
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-	    keyBoard = userInput::PressLeft;
-	    return keyBoard;
+	    _keyBoard = userInput::PressLeft;
+	    return _keyBoard;
 	}
 
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-	    keyBoard = userInput::PressRight;
-	    return keyBoard;
+	    _keyBoard = userInput::PressRight;
+	    return _keyBoard;
 	}
 	
 	if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-	    keyBoard = userInput::NoButtonPress;
-	    return keyBoard;
+	    _keyBoard = userInput::NoButtonPress;
+	    return _keyBoard;
 	}
     }
-    return keyBoard;
+    return _keyBoard;
 }
 
 void Window::SplashScreen()
