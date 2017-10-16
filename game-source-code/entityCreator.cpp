@@ -1,6 +1,6 @@
 #include "entityCreator.h"
 
-entityCreator::entityCreator(std::shared_ptr<Clock> gameClock, int maxEnemies, std::shared_ptr<Player> playerPtr)
+entityCreator::entityCreator(const std::shared_ptr <Clock> &gameClock, int maxEnemies, const std::shared_ptr <Player> &playerPtr)
     : _entityClock{ gameClock }
     , _playerPtr{ playerPtr }
     , _MAXENEMIES{ maxEnemies }

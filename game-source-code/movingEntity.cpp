@@ -1,6 +1,6 @@
 #include "movingEntity.h"
 
-movingEntity::movingEntity(float entityWidth, float entityHeight, int lives, int red, int blue, int green, string texture):
+movingEntity::movingEntity(float entityWidth, float entityHeight, int lives, int red, int blue, int green, const string &texture):
 _scaleX{1.0},
 _scaleY{1.0},
 _red{red},

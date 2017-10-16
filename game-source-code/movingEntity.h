@@ -26,7 +26,7 @@ public:
 	* @param green is an integer between 0 and 255 containing the amount of green in the colour of the entity
 	* @param texture is the name of the file to be loaded as the texture for the entity
     */
-    movingEntity(float entityWidth, float entityHeight, int lives, int red, int blue, int green, string texture);
+    movingEntity(float entityWidth, float entityHeight, int lives, int red, int blue, int green, const string &texture);
     /**
     * \brief Function to get the angle of the entity.
 	* The function is not implemented in this class and must be implemented

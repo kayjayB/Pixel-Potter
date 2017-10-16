@@ -164,7 +164,7 @@ void Window::DisplayGameState(sf::Sprite& texture)
     }
 }
 
-void Window::show(std::shared_ptr<movingEntity> entity)
+void Window::show(const std::shared_ptr<movingEntity> &entity)
 {	
 	sf::RectangleShape _body;
 	

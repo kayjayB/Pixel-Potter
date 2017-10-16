@@ -34,7 +34,7 @@ public:
 	* @param playerPtr is a shared pointer to the Player object
 	* @return gameState indicating whether the game has been lost or is still ongoing
     */
-    gameState entityCleanUp(std::shared_ptr<Player> playerPtr);
+    gameState entityCleanUp(const std::shared_ptr<Player> &playerPtr);
 
 private:
     bool _collidedArc;

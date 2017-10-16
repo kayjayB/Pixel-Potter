@@ -57,7 +57,7 @@ public:
 	* \brief Function that draws the entity to the screen
 	* @param entity is a shared pointer to a movingEntity object
 	*/
-    void show(std::shared_ptr<movingEntity> entity);
+    void show(const std::shared_ptr<movingEntity> &entity);
 	/**
 	* \brief Function that gets the current state of the game and calls the win/lose screen
 	* @param state is a gameState variable that indicates the state of the game

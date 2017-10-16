@@ -130,7 +130,7 @@ bool CollisionManager::Collision(int i, int j)
     return false;
 }
 
-gameState CollisionManager::entityCleanUp(std::shared_ptr<Player> playerPtr)
+gameState CollisionManager::entityCleanUp(const std::shared_ptr<Player> &playerPtr)
 {
     if(playerPtr->getLives() <= 0) {
 	return gameState::lose;

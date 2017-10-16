@@ -24,7 +24,7 @@ public:
 	* @param maxEnemies is an int containing the maximum number of enemies to be created
 	* @param playerPtr is a shared pointer to the Player object
 	*/
-	entityCreator(std::shared_ptr <Clock> gameClock, int maxEnemies, std::shared_ptr <Player> playerPtr);
+	entityCreator(const std::shared_ptr <Clock> &gameClock, int maxEnemies, const std::shared_ptr <Player> &playerPtr);
 	/**
 	* \brief Destructor
 	*/
