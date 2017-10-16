@@ -63,12 +63,12 @@ private:
 	
     float _elapsedTime;
     bool _bulletExists;
-	const int MAXENEMIES=20;
+	const int _MAXENEMIES=20;
 	
-	std::shared_ptr< Clock> gameClock{new Clock{}};
-	std::shared_ptr <Player> playerPtr{ new Player{}};
-	Window window;
-	CollisionManager collision;
+	std::shared_ptr< Clock> _gameClock{new Clock{}};
+	std::shared_ptr <Player> _playerPtr{ new Player{}};
+	Window _window;
+	CollisionManager _collision;
 	entityCreator _create;
 	
 };

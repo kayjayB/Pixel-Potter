@@ -1,15 +1,15 @@
 #include "Game.h"
 
 Game::Game()
-    : _create(gameClock, MAXENEMIES, playerPtr)
+    : _create(_gameClock, _MAXENEMIES, _playerPtr)
 {
-    window.SplashScreen();
+    _window.SplashScreen();
     _elapsedTime = 0.0;
     _bulletExists = false;
-    movingEntity::entityList.push_back(playerPtr);
-    window.setGameState(gameState::playing);
+    movingEntity::entityList.push_back(_playerPtr);
+    _window.setGameState(gameState::playing);
     _create.reset();
-	window.setMaximumEnemies(MAXENEMIES);
+	_window.setMaximumEnemies(_MAXENEMIES);
 	srand(time(0));
 	
 	GameLoop();
@@ -21,7 +21,7 @@ Game::~Game()
 
 void Game::GameLoop()
 {
-	while(!window.IsDone())
+	while(!_window.IsDone())
 {
 	Update();
 	Render();
@@ -32,11 +32,11 @@ void Game::GameLoop()
 
 void Game::Update()
 {	  
-    userInput Keyevent = window.Update();
+    userInput Keyevent = _window.Update();
 	
 	_create.create();
 
-    playerPtr->Update(playerPtr->MovementDirection(Keyevent), GetTime());
+    _playerPtr->Update(_playerPtr->MovementDirection(Keyevent), GetTime());
 
     int size = movingEntity::entityList.size();
 
@@ -49,39 +49,39 @@ void Game::Update()
 		}
     }
 
-    collision.checkCollision();
-    gameState state = collision.entityCleanUp(playerPtr);
-    window.setGameState(state);
+    _collision.checkCollision();
+    gameState state = _collision.entityCleanUp(_playerPtr);
+    _window.setGameState(state);
 
-    if((Enemy::getTotalNumberofEnemies() % MAXENEMIES) == 0 && Enemy::getNumberofEnemiesAlive() == 0 &&
+    if((Enemy::getTotalNumberofEnemies() % _MAXENEMIES) == 0 && Enemy::getNumberofEnemiesAlive() == 0 &&
         Enemy::getTotalNumberofEnemies() != 0) {
-	window.setGameState(gameState::win);
+	_window.setGameState(gameState::win);
     }
 
-    window.getGameState();
+    _window.getGameState();
 
-    if(window.reset == true) {
+    if(_window.reset == true) {
 	Reset();
     }
 
-    window.setLivesRemaining(playerPtr->getLives());
+    _window.setLivesRemaining(_playerPtr->getLives());
 }
 
 void Game::Render()
 {
 
-    window.Draw();
+    _window.Draw();
 
 }
 
 float Game::GetTime()
 {
-    return gameClock->GetTime();
+    return _gameClock->GetTime();
 }
 
 void Game::RestartClock()
 {
-    gameClock->RestartClock();
+    _gameClock->RestartClock();
 }
 
 void Game::Reset()
@@ -89,9 +89,9 @@ void Game::Reset()
 
     movingEntity::entityList.clear();
     Enemy::ResetEnemies();
-    playerPtr->reset();
-    movingEntity::entityList.push_back(playerPtr);
-    window.setGameState(gameState::playing);
+    _playerPtr->reset();
+    movingEntity::entityList.push_back(_playerPtr);
+    _window.setGameState(gameState::playing);
     Satellite::ResetSatellites();
     _create.reset();
 }
