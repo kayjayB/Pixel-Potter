@@ -70,7 +70,7 @@ private:
 	Window _window;
 	CollisionManager _collision;
 	entityCreator _create;
-	
+
 };
 
 #endif
