@@ -1,0 +1,5 @@
+<map id="LaserGenerator::getPosition" name="LaserGenerator::getPosition">
+<area shape="rect" id="node2" href="$class_laser_generator.html#ad74721b74f9c827cf09a4090da97adc3" title="Inherited from movingEntity. Increments the LaserArc radius and calculates the position of the LaserA..." alt="" coords="215,5,353,47"/>
+<area shape="rect" id="node4" href="$class_laser_generator.html#ac71bed3552dc516cb656ce890c03f323" title="Copy constructor. Calls the movingEntity constructor explicitly. Creates a copy of the initial LaserG..." alt="" coords="200,71,368,98"/>
+<area shape="rect" id="node3" href="$class_laser_generator.html#a8933a980501a8c08f8c8b70571449ec5" title="Inherited from movingEntity. Updates the current position of the LaserGenerator. " alt="" coords="416,13,545,39"/>
+</map>

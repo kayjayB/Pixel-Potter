@@ -1,0 +1,7 @@
+<map id="Satellite::getNumberofSatellitesAlive" name="Satellite::getNumberofSatellitesAlive">
+<area shape="rect" id="node2" href="$classentity_creator.html#a3e22b13730763bd85a79f882cd2898f2" title="Function to create Satellite entities. " alt="" coords="215,13,365,39"/>
+<area shape="rect" id="node3" href="$classentity_creator.html#a59633ff8eb0268d5dddbdf967eefc0ec" title="Function to create all of the various enemy entities. " alt="" coords="413,13,525,39"/>
+<area shape="rect" id="node4" href="$class_game.html#a1c5373c68261c54aff03e6abe40fee52" title="Function that updates all of the entities involved in the game. This includes calling the functions t..." alt="" coords="573,13,660,39"/>
+<area shape="rect" id="node5" href="$class_game.html#aaa0ff18388b32b4e6198835a35e000d3" title="Function ot control the game loop. The function calls the Update, Render, RestartClock functions..." alt="" coords="708,13,812,39"/>
+<area shape="rect" id="node6" href="$class_game.html#ad59df6562a58a614fda24622d3715b65" title="Default Constructor. Creates a Game object. " alt="" coords="860,13,943,39"/>
+</map>

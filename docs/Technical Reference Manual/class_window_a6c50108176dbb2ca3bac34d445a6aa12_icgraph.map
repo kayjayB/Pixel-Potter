@@ -1,0 +1,8 @@
+<map id="Window::BeginDraw" name="Window::BeginDraw">
+<area shape="rect" id="node2" href="$class_window.html#aa75c071f352ce773f6ccfc8d873c99f0" title="Function that displays the win or lose screen. " alt="" coords="165,5,312,32"/>
+<area shape="rect" id="node7" href="$class_window.html#a8a81fb9726a6c5777f4947bddc5a855a" title="Function that displays the splashscreen at the start of the game. " alt="" coords="361,56,487,83"/>
+<area shape="rect" id="node3" href="$class_window.html#a561f15161f009cf80444cd5743a4df10" title="Function that gets the current state of the game. " alt="" coords="360,5,488,32"/>
+<area shape="rect" id="node4" href="$class_game.html#a1c5373c68261c54aff03e6abe40fee52" title="Function that updates all of the entities involved in the game. This includes calling the functions t..." alt="" coords="536,5,623,32"/>
+<area shape="rect" id="node5" href="$class_game.html#aaa0ff18388b32b4e6198835a35e000d3" title="Function ot control the game loop. The function calls the Update, Render, RestartClock functions..." alt="" coords="671,5,775,32"/>
+<area shape="rect" id="node6" href="$class_game.html#ad59df6562a58a614fda24622d3715b65" title="Default Constructor. Creates a Game object. " alt="" coords="823,31,905,57"/>
+</map>

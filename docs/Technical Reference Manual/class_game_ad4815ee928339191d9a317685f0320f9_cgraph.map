@@ -1,0 +1,6 @@
+<map id="Game::RestartClock" name="Game::RestartClock">
+<area shape="rect" id="node2" href="$class_enemy.html#a83527a4b5ae6aa4a4883005d7e21c700" title="Enemy::ResetEnemies" alt="" coords="168,5,292,32"/>
+<area shape="rect" id="node3" href="$class_window.html#ae40eafa3c653381dd48c4f5beb686440" title="Window::setGameState" alt="" coords="167,56,293,83"/>
+<area shape="rect" id="node4" href="$class_satellite.html#a3ff70c4ec4cf9a7313bd3a9d4cff84f5" title="Satellite::ResetSatellites" alt="" coords="165,107,295,133"/>
+<area shape="rect" id="node5" href="$classentity_creator.html#a8743e87edeebe6d8a8ca3b71429fdb56" title="entityCreator::reset" alt="" coords="177,157,283,184"/>
+</map>

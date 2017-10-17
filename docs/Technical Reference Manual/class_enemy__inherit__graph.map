@@ -1,0 +1,4 @@
+<map id="Enemy" name="Enemy">
+<area shape="rect" id="node2" href="$class_moving_shooting_entity.html" title="MovingShootingEntity class &#45; represents any entities that can both move and shoot. Inherits from the movingEntity class. " alt="" coords="17,439,152,619"/>
+<area shape="rect" id="node3" href="$classmoving_entity.html" title="movingEntity class &#45; manages properties of all game entities. These entities can be categorised as an..." alt="" coords="29,5,141,391"/>
+</map>

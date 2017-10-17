@@ -1,0 +1,11 @@
+<map id="movingEntity" name="movingEntity">
+<area shape="rect" id="node2" href="$class_asteroid.html" title="Asteroid class &#45; represents the quaffle asteroids. Inherits from movingEntity class. " alt="" coords="5,475,115,729"/>
+<area shape="rect" id="node3" href="$class_enemy_bullet.html" title="EnemyBullet class &#45; represents the Enemy entities&#39; bullets Inherits from movingEntity class..." alt="" coords="139,475,264,729"/>
+<area shape="rect" id="node4" href="$class_laser_arc.html" title="LaserArc class &#45; represents the arc of the laser generator Inherits from the movingEntity class..." alt="" coords="288,461,397,743"/>
+<area shape="rect" id="node5" href="$class_laser_generator.html" title="LaserGenerator class &#45; represents the generators of the laser generator Inherits from the movingEntit..." alt="" coords="421,439,568,765"/>
+<area shape="rect" id="node6" href="$class_moving_shooting_entity.html" title="MovingShootingEntity class &#45; represents any entities that can both move and shoot. Inherits from the movingEntity class. " alt="" coords="593,512,727,692"/>
+<area shape="rect" id="node10" href="$class_player_bullet.html" title="PlayerBullet class &#45; represents the Player entities&#39; bullets Inherits from movingEntity class..." alt="" coords="752,461,861,743"/>
+<area shape="rect" id="node7" href="$class_enemy.html" title="Enemy class &#45; represents the voldemort enemies Inherits from the MovingShootingEntity class..." alt="" coords="415,843,574,1287"/>
+<area shape="rect" id="node8" href="$class_player.html" title="Player class &#45; represents the harry potter player Inherits from the MovingShootingEntity class..." alt="" coords="598,901,722,1228"/>
+<area shape="rect" id="node9" href="$class_satellite.html" title="Satellite class &#45; represents the dementor Satellites. Inherits from MovingShootingEntity class..." alt="" coords="747,813,907,1316"/>
+</map>

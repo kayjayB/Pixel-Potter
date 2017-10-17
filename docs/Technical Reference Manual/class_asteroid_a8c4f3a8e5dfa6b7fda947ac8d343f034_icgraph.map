@@ -1,0 +1,4 @@
+<map id="Asteroid::getPosition" name="Asteroid::getPosition">
+<area shape="rect" id="node2" href="$class_asteroid.html#a1392b894a3a388def7afd2aa5de26faf" title="Inherited from movingEntity. Increments the asteroid radius and calculates the position of the astero..." alt="" coords="167,5,305,32"/>
+<area shape="rect" id="node3" href="$class_asteroid.html#a70ccbd2ea5d8bef1819ebb67fec29f72" title="Inherited from movingEntity. Updates the current position of the Asteroid. " alt="" coords="353,5,449,32"/>
+</map>

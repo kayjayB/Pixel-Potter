@@ -1,0 +1,5 @@
+<map id="PlayerBullet::Update" name="PlayerBullet::Update">
+<area shape="rect" id="node2" href="$class_player_bullet.html#a8beb2a22d02964b12ecda995a328237c" title="Inherited from movingEntity. Decrements the PlayerBullet radius and calculates the position of the Pl..." alt="" coords="167,31,323,57"/>
+<area shape="rect" id="node3" href="$class_player_bullet.html#ae152ca885af34d80c2eff1db093eb532" title="Inherited from movingEntity. " alt="" coords="371,5,501,32"/>
+<area shape="rect" id="node4" href="$classmoving_entity.html#a5ee8ebb56466ae1cb4debdd09bb7222a" title="Function to set the number of lives remaining. " alt="" coords="375,56,497,83"/>
+</map>

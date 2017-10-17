@@ -1,0 +1,3 @@
+<map id="movingEntity::getLives" name="movingEntity::getLives">
+<area shape="rect" id="node2" href="$class_player.html#a226cf9aabfe192cd0474b260ce7ba78b" title="Function to get the required colour of the entity. Overwritten from movingEntity since the Player cha..." alt="" coords="176,5,275,32"/>
+</map>

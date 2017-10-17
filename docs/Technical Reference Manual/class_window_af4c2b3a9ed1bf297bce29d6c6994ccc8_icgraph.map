@@ -1,0 +1,5 @@
+<map id="Window::BeginDrawMain" name="Window::BeginDrawMain">
+<area shape="rect" id="node2" href="$class_game.html#a0897730fc9fed789f6c0f11d21a0c14a" title="Function that renders the movingEntity objects to the screen. The function loops through the vector o..." alt="" coords="187,5,275,32"/>
+<area shape="rect" id="node3" href="$class_game.html#aaa0ff18388b32b4e6198835a35e000d3" title="Function ot control the game loop. The function calls the Update, Render, RestartClock functions..." alt="" coords="323,5,427,32"/>
+<area shape="rect" id="node4" href="$class_game.html#ad59df6562a58a614fda24622d3715b65" title="Default Constructor. Creates a Game object. " alt="" coords="475,5,557,32"/>
+</map>

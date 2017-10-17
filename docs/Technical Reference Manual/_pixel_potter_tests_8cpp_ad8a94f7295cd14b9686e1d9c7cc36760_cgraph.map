@@ -1,0 +1,7 @@
+<map id="TEST_SUITE" name="TEST_SUITE">
+<area shape="rect" id="node2" href="$class_enemy.html#abf374923e251d04dee5fdfca8bee8a3f" title="Inherited from MovingShootingEntity. Generates EnemyBullet. " alt="" coords="143,5,259,32"/>
+<area shape="rect" id="node3" href="$class_satellite.html#a4cc42e3ec5516fe4ef1b2980f1c32114" title="Inherited from MovingShootingEntity. Generates EnemyBullet entities. " alt="" coords="140,56,261,83"/>
+<area shape="rect" id="node5" href="$class_collision_manager.html#a816c0bffd69273a158a0f269bc764b1e" title="Function to delete entities that have collided, or are no longer valid. " alt="" coords="136,107,265,149"/>
+<area shape="rect" id="node6" href="$class_laser_arc.html#a853aaf71c6d37af87cd9bd573c121369" title="Inherited from movingEntity. " alt="" coords="147,173,254,200"/>
+<area shape="rect" id="node4" href="$class_satellite.html#acc15fd537d9ebdda378205bd5b56f115" title="Inherited from MovingShootingEntity. " alt="" coords="313,56,425,83"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="LaserArc::getPosition" name="LaserArc::getPosition">
+<area shape="rect" id="node2" href="$class_laser_arc.html#ac024059e90a475e4777642bf5466b94e" title="Inherited from movingEntity. Increments the LaserArc radius and calculates the position of the LaserA..." alt="" coords="171,5,313,32"/>
+<area shape="rect" id="node3" href="$class_laser_arc.html#aef124375e9d7a8a3a4a9013929967809" title="Inherited from movingEntity. Updates the current position of the LaserArc. " alt="" coords="361,5,461,32"/>
+</map>

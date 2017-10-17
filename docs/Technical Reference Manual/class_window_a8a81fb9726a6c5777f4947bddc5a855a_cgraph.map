@@ -1,0 +1,5 @@
+<map id="Window::SplashScreen" name="Window::SplashScreen">
+<area shape="rect" id="node2" href="$class_window.html#a6c50108176dbb2ca3bac34d445a6aa12" title="Function to clear the SFML window prior to drawing. " alt="" coords="179,5,291,32"/>
+<area shape="rect" id="node3" href="$class_window.html#a192a3d8c46160f574811645ef24caa4c" title="Function that ends the splashscreen by either starting the game or closing the window. " alt="" coords="194,56,275,83"/>
+<area shape="rect" id="node4" href="$class_window.html#add70a8a06ab990b02e9e77a4fe5ba5ac" title="Function to close the SFML window. " alt="" coords="339,56,461,83"/>
+</map>

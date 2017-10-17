@@ -1,0 +1,5 @@
+<map id="Satellite::Update" name="Satellite::Update">
+<area shape="rect" id="node2" href="$class_satellite.html#a1ec522dc97c07c86b69cc4202fb0b7f1" title="Inherited from MovingShootingEntity. Increments the Satellite angle and calculates the position of th..." alt="" coords="149,5,288,32"/>
+<area shape="rect" id="node4" href="$class_satellite.html#a4cc42e3ec5516fe4ef1b2980f1c32114" title="Inherited from MovingShootingEntity. Generates EnemyBullet entities. " alt="" coords="158,56,279,83"/>
+<area shape="rect" id="node3" href="$class_satellite.html#acc15fd537d9ebdda378205bd5b56f115" title="Inherited from MovingShootingEntity. " alt="" coords="336,31,448,57"/>
+</map>

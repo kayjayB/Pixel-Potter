@@ -1,0 +1,11 @@
+<map id="entityCreator::create" name="entityCreator::create">
+<area shape="rect" id="node2" href="$classentity_creator.html#a5a01a8afd2acdbc641f5b267a2f335b2" title="Function to create Asteroid entities. " alt="" coords="165,25,317,51"/>
+<area shape="rect" id="node3" href="$classentity_creator.html#a846b724d510c32eb1cd2e412f953343d" title="Function to create Enemy entities. " alt="" coords="169,75,314,102"/>
+<area shape="rect" id="node6" href="$classentity_creator.html#a8b8a0f8842ff8980209ffb46e753231e" title="Function to create LaserGenerator and LaserArc entities. " alt="" coords="171,130,311,157"/>
+<area shape="rect" id="node9" href="$classentity_creator.html#a3e22b13730763bd85a79f882cd2898f2" title="Function to create Satellite entities. " alt="" coords="166,214,317,241"/>
+<area shape="rect" id="node4" href="$class_enemy.html#a152fdbc9618d657fe87da3dfe7b55ea2" title="Static function. " alt="" coords="376,5,532,47"/>
+<area shape="rect" id="node5" href="$class_enemy.html#afd576d2fbf3d0f8065db633cb84be4cb" title="Static function. " alt="" coords="365,71,543,98"/>
+<area shape="rect" id="node7" href="$class_laser_generator.html#ae3a5e1601718646df4c55d076adfca99" title="Static function. " alt="" coords="376,123,532,164"/>
+<area shape="rect" id="node8" href="$class_laser_arc.html#a853aaf71c6d37af87cd9bd573c121369" title="Inherited from movingEntity. " alt="" coords="401,189,507,215"/>
+<area shape="rect" id="node10" href="$class_satellite.html#ab4012c85eb5fa077a40ae3b2c6aacd98" title="Static function. " alt="" coords="373,240,535,281"/>
+</map>

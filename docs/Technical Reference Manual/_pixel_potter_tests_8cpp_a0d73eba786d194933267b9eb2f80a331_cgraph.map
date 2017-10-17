@@ -1,0 +1,11 @@
+<map id="TEST_SUITE" name="TEST_SUITE">
+<area shape="rect" id="node2" href="$class_player.html#aa14ae742c784c67003a548de27c94950" title="Inherited from MovingShootingEntity. " alt="" coords="153,5,249,32"/>
+<area shape="rect" id="node3" href="$class_player.html#ad0df136b95cea359cb7e9170a17a03ec" title="Inherited from MovingShootingEntity. " alt="" coords="520,107,625,133"/>
+<area shape="rect" id="node4" href="$class_satellite.html#a3ff70c4ec4cf9a7313bd3a9d4cff84f5" title="Static function Resets the number of Satellite entities alive and killed, and the total number of Sat..." alt="" coords="136,107,265,133"/>
+<area shape="rect" id="node5" href="$class_player.html#a6cac5d9bff572c1430235fe7928ecd57" title="Inherited from MovingShootingEntity. Updates the current position of the Player. " alt="" coords="157,157,245,184"/>
+<area shape="rect" id="node10" href="$class_satellite.html#a7dfb03d8ff53e0bbec69647a310bbbd3" title="Destructor. Decrements the number of Satellite entities alive and increments the number of Satellite ..." alt="" coords="149,208,253,235"/>
+<area shape="rect" id="node6" href="$class_player.html#a1624e0acdcea611c488744f922fe132a" title="Inherited from MovingShootingEntity. Generates PlayerBullet entities. " alt="" coords="322,208,435,235"/>
+<area shape="rect" id="node9" href="$class_player.html#ada045cd5e1d86ab886a3856c6ce73951" title="Inherited from MovingShootingEntity. Increments or decrements the Player angle and calculates the pos..." alt="" coords="313,157,444,184"/>
+<area shape="rect" id="node7" href="$class_satellite.html#a889192b9d2af688ebe3358561b9edb16" title="Static function. " alt="" coords="492,179,653,221"/>
+<area shape="rect" id="node8" href="$class_satellite.html#acb2d69b2fbab59755f95378f2283b364" title="Static function. " alt="" coords="501,245,644,286"/>
+</map>

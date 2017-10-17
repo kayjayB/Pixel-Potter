@@ -1,0 +1,5 @@
+<map id="Window::BeginDrawMain" name="Window::BeginDrawMain">
+<area shape="rect" id="node2" href="$class_window.html#aa4d7f910a810957efa00c854fad5bdc2" title="Function that draws the reqired text to the screen. " alt="" coords="187,42,291,69"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a78bbf9ff8ee84d7174a9b0a024af7143" title="Static function. " alt="" coords="339,5,495,47"/>
+<area shape="rect" id="node4" href="$class_window.html#a2cb6dd827276ca262de949447a06ef76" title="Function that sets up the text to be drawn on the screen. " alt="" coords="364,71,469,98"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="CollisionManager::Collision" name="CollisionManager::Collision">
+<area shape="rect" id="node2" href="$class_collision_manager.html#a50d3f8c6cebdb8f3c83b3857fa08ce5c" title="Function to check all the collisions of the required entities. " alt="" coords="196,31,365,57"/>
+<area shape="rect" id="node3" href="$_pixel_potter_tests_8cpp.html#a2252ed5ea9de914eeaf27a0b32848b21" title="TEST_SUITE" alt="" coords="415,5,498,32"/>
+<area shape="rect" id="node4" href="$class_game.html#a1c5373c68261c54aff03e6abe40fee52" title="Function that updates all of the entities involved in the game. This includes calling the functions t..." alt="" coords="413,56,500,83"/>
+<area shape="rect" id="node5" href="$class_game.html#aaa0ff18388b32b4e6198835a35e000d3" title="Function ot control the game loop. The function calls the Update, Render, RestartClock functions..." alt="" coords="548,56,652,83"/>
+<area shape="rect" id="node6" href="$class_game.html#ad59df6562a58a614fda24622d3715b65" title="Default Constructor. Creates a Game object. " alt="" coords="700,56,783,83"/>
+</map>

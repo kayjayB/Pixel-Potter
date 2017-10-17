@@ -1,0 +1,4 @@
+<map id="PlayerBullet::getPosition" name="PlayerBullet::getPosition">
+<area shape="rect" id="node2" href="$class_player_bullet.html#a8beb2a22d02964b12ecda995a328237c" title="Inherited from movingEntity. Decrements the PlayerBullet radius and calculates the position of the Pl..." alt="" coords="184,5,340,32"/>
+<area shape="rect" id="node3" href="$class_player_bullet.html#a300726cf3c5726fa06eaeb94beb3d3aa" title="Inherited from movingEntity. Updates the current position of the PlayerBullet. " alt="" coords="388,5,501,32"/>
+</map>

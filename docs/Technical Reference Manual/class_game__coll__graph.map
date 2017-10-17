@@ -1,0 +1,5 @@
+<map id="Game" name="Game">
+<area shape="rect" id="node2" href="$classentity_creator.html" title="entityCreator class &#45; handles the creation of all of the enemy entities (Enemy, LaserGenerator, LaserArc, Asteroid, Satellite) " alt="" coords="5,115,115,398"/>
+<area shape="rect" id="node3" href="$class_collision_manager.html" title="CollisionManager class &#45; used to check collisions between entities and manage the deletions of entiti..." alt="" coords="139,196,253,317"/>
+<area shape="rect" id="node4" href="$class_window.html" title="Window class. Acts as an Interface &#45; creates a window, draws the entities, displays the splashscreens..." alt="" coords="277,5,411,508"/>
+</map>

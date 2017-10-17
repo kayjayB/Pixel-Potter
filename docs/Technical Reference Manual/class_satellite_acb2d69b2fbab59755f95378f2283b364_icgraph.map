@@ -1,0 +1,5 @@
+<map id="Satellite::getTotalNumberofSatellites" name="Satellite::getTotalNumberofSatellites">
+<area shape="rect" id="node2" href="$class_player.html#a1624e0acdcea611c488744f922fe132a" title="Inherited from MovingShootingEntity. Generates PlayerBullet entities. " alt="" coords="196,13,309,39"/>
+<area shape="rect" id="node3" href="$class_player.html#a6cac5d9bff572c1430235fe7928ecd57" title="Inherited from MovingShootingEntity. Updates the current position of the Player. " alt="" coords="357,13,445,39"/>
+<area shape="rect" id="node4" href="$_pixel_potter_tests_8cpp.html#afdce87ebc12cace8a300ef8518987ba0" title="TEST_SUITE" alt="" coords="493,13,576,39"/>
+</map>

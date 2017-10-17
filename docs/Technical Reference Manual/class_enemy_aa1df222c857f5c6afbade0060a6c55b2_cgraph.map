@@ -1,0 +1,5 @@
+<map id="Enemy::Update" name="Enemy::Update">
+<area shape="rect" id="node2" href="$class_enemy.html#abb74311f97f53d7f4a837cea767c7b40" title="Inherited from MovingShootingEntity. Increments the enemy radius and calculates the position of the E..." alt="" coords="144,5,277,32"/>
+<area shape="rect" id="node4" href="$class_enemy.html#abf374923e251d04dee5fdfca8bee8a3f" title="Inherited from MovingShootingEntity. Generates EnemyBullet. " alt="" coords="153,56,269,83"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a48ad58c8a4e7ea5808070642a738b5b9" title="Inherited from MovingShootingEntity. " alt="" coords="325,5,433,32"/>
+</map>

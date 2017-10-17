@@ -1,0 +1,8 @@
+<map id="TEST_SUITE" name="TEST_SUITE">
+<area shape="rect" id="node2" href="$class_enemy.html#abf374923e251d04dee5fdfca8bee8a3f" title="Inherited from MovingShootingEntity. Generates EnemyBullet. " alt="" coords="297,81,413,108"/>
+<area shape="rect" id="node3" href="$class_enemy.html#aa943c14a5422a6816d7a591d5475baf0" title="Inherited from MovingShootingEntity. " alt="" coords="139,56,237,83"/>
+<area shape="rect" id="node4" href="$class_enemy.html#a48ad58c8a4e7ea5808070642a738b5b9" title="Inherited from MovingShootingEntity. " alt="" coords="469,132,577,159"/>
+<area shape="rect" id="node5" href="$class_enemy.html#a07ad5cd9570d4c70cec1966ad63bc68d" title="Inherited from MovingShootingEntity. " alt="" coords="136,157,240,184"/>
+<area shape="rect" id="node6" href="$class_enemy.html#aa1df222c857f5c6afbade0060a6c55b2" title="Inherited from MovingShootingEntity. Updates the current position of the Enemy. " alt="" coords="143,5,233,32"/>
+<area shape="rect" id="node7" href="$class_enemy.html#abb74311f97f53d7f4a837cea767c7b40" title="Inherited from MovingShootingEntity. Increments the enemy radius and calculates the position of the E..." alt="" coords="288,19,421,45"/>
+</map>

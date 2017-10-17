@@ -1,0 +1,7 @@
+<map id="LaserGenerator::getNumberofLasersAlive" name="LaserGenerator::getNumberofLasersAlive">
+<area shape="rect" id="node2" href="$classentity_creator.html#a8b8a0f8842ff8980209ffb46e753231e" title="Function to create LaserGenerator and LaserArc entities. " alt="" coords="209,13,349,39"/>
+<area shape="rect" id="node3" href="$classentity_creator.html#a59633ff8eb0268d5dddbdf967eefc0ec" title="Function to create all of the various enemy entities. " alt="" coords="397,13,509,39"/>
+<area shape="rect" id="node4" href="$class_game.html#a1c5373c68261c54aff03e6abe40fee52" title="Function that updates all of the entities involved in the game. This includes calling the functions t..." alt="" coords="557,13,644,39"/>
+<area shape="rect" id="node5" href="$class_game.html#aaa0ff18388b32b4e6198835a35e000d3" title="Function ot control the game loop. The function calls the Update, Render, RestartClock functions..." alt="" coords="692,13,796,39"/>
+<area shape="rect" id="node6" href="$class_game.html#ad59df6562a58a614fda24622d3715b65" title="Default Constructor. Creates a Game object. " alt="" coords="844,13,927,39"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="EnemyBullet::getPosition" name="EnemyBullet::getPosition">
+<area shape="rect" id="node2" href="$class_enemy_bullet.html#aaecced4f65a27fadf088d34ff0482f74" title="Inherited from movingEntity. Increments the EnemyBullet radius and calculates the position of the Ene..." alt="" coords="187,5,345,32"/>
+<area shape="rect" id="node3" href="$class_enemy_bullet.html#a7dfa82ca818cfac0606f68bc90748807" title="Inherited from movingEntity. Updates the current position of the EnemyBullet. " alt="" coords="393,5,509,32"/>
+</map>

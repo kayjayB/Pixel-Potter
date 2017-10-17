@@ -1,0 +1,7 @@
+<map id="Player::getPosition" name="Player::getPosition">
+<area shape="rect" id="node2" href="$class_player.html#ada045cd5e1d86ab886a3856c6ce73951" title="Inherited from MovingShootingEntity. Increments or decrements the Player angle and calculates the pos..." alt="" coords="159,5,289,32"/>
+<area shape="rect" id="node3" href="$class_player.html#a6cac5d9bff572c1430235fe7928ecd57" title="Inherited from MovingShootingEntity. Updates the current position of the Player. " alt="" coords="337,56,425,83"/>
+<area shape="rect" id="node4" href="$_pixel_potter_tests_8cpp.html#afdce87ebc12cace8a300ef8518987ba0" title="TEST_SUITE" alt="" coords="473,81,556,108"/>
+<area shape="rect" id="node5" href="$class_player.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8" title="Default Constructor. Calls the MovingShootingEntity constructor explicitly. Creates a Player entity o..." alt="" coords="182,157,266,184"/>
+<area shape="rect" id="node6" href="$class_player.html#a1af5d39f7bac2aeaa1e30c7dda2332fa" title="Function to reset all the variables required for the player class. " alt="" coords="185,208,263,235"/>
+</map>

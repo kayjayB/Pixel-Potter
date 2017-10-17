@@ -1,0 +1,7 @@
+<map id="Window::Draw" name="Window::Draw">
+<area shape="rect" id="node2" href="$class_window.html#aa4d7f910a810957efa00c854fad5bdc2" title="Function that draws the reqired text to the screen. " alt="" coords="140,42,244,69"/>
+<area shape="rect" id="node5" href="$class_window.html#a8d4bf9571a74b652b001dcf6001704ec" title="Function to display the SFML window. " alt="" coords="140,93,244,119"/>
+<area shape="rect" id="node6" href="$class_window.html#a8d6a866d6aba7c1a06755b1146d82bba" title="Function that draws the entity to the screen. " alt="" coords="149,143,235,170"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a78bbf9ff8ee84d7174a9b0a024af7143" title="Static function. " alt="" coords="292,5,448,47"/>
+<area shape="rect" id="node4" href="$class_window.html#a2cb6dd827276ca262de949447a06ef76" title="Function that sets up the text to be drawn on the screen. " alt="" coords="317,71,423,98"/>
+</map>

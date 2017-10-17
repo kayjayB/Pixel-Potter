@@ -1,0 +1,4 @@
+<map id="Player::reset" name="Player::reset">
+<area shape="rect" id="node2" href="$class_player.html#ad0df136b95cea359cb7e9170a17a03ec" title="Inherited from MovingShootingEntity. " alt="" coords="140,5,245,32"/>
+<area shape="rect" id="node3" href="$classmoving_entity.html#a5ee8ebb56466ae1cb4debdd09bb7222a" title="Function to set the number of lives remaining. " alt="" coords="132,56,253,83"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="movingEntity::setLives" name="movingEntity::setLives">
+<area shape="rect" id="node2" href="$class_enemy_bullet.html#aaecced4f65a27fadf088d34ff0482f74" title="Inherited from movingEntity. Increments the EnemyBullet radius and calculates the position of the Ene..." alt="" coords="175,5,333,32"/>
+<area shape="rect" id="node4" href="$class_player_bullet.html#a8beb2a22d02964b12ecda995a328237c" title="Inherited from movingEntity. Decrements the PlayerBullet radius and calculates the position of the Pl..." alt="" coords="176,56,332,83"/>
+<area shape="rect" id="node6" href="$class_player.html#a1af5d39f7bac2aeaa1e30c7dda2332fa" title="Function to reset all the variables required for the player class. " alt="" coords="215,107,293,133"/>
+<area shape="rect" id="node7" href="$class_asteroid.html#a70ccbd2ea5d8bef1819ebb67fec29f72" title="Inherited from movingEntity. Updates the current position of the Asteroid. " alt="" coords="206,157,302,184"/>
+<area shape="rect" id="node8" href="$class_laser_arc.html#aef124375e9d7a8a3a4a9013929967809" title="Inherited from movingEntity. Updates the current position of the LaserArc. " alt="" coords="204,208,304,235"/>
+<area shape="rect" id="node9" href="$class_laser_generator.html#a8933a980501a8c08f8c8b70571449ec5" title="Inherited from movingEntity. Updates the current position of the LaserGenerator. " alt="" coords="189,259,319,285"/>
+<area shape="rect" id="node3" href="$class_enemy_bullet.html#a7dfa82ca818cfac0606f68bc90748807" title="Inherited from movingEntity. Updates the current position of the EnemyBullet. " alt="" coords="381,5,497,32"/>
+<area shape="rect" id="node5" href="$class_player_bullet.html#a300726cf3c5726fa06eaeb94beb3d3aa" title="Inherited from movingEntity. Updates the current position of the PlayerBullet. " alt="" coords="383,56,496,83"/>
+</map>

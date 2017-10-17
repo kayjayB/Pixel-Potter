@@ -1,0 +1,6 @@
+<map id="Satellite::getPosition" name="Satellite::getPosition">
+<area shape="rect" id="node2" href="$class_satellite.html#a1ec522dc97c07c86b69cc4202fb0b7f1" title="Inherited from MovingShootingEntity. Increments the Satellite angle and calculates the position of th..." alt="" coords="165,5,304,32"/>
+<area shape="rect" id="node4" href="$class_satellite.html#a4cc42e3ec5516fe4ef1b2980f1c32114" title="Inherited from MovingShootingEntity. Generates EnemyBullet entities. " alt="" coords="174,56,295,83"/>
+<area shape="rect" id="node5" href="$_pixel_potter_tests_8cpp.html#a277fd8395941886b925cc0c789e3c22c" title="TEST_SUITE" alt="" coords="359,93,441,120"/>
+<area shape="rect" id="node3" href="$class_satellite.html#a6bd9f933d4e170b2d03c027e4958cd92" title="Inherited from MovingShootingEntity. Updates the current position of the Satellite. " alt="" coords="352,31,448,57"/>
+</map>

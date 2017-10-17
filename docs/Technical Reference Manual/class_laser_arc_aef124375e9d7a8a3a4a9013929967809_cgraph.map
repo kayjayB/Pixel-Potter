@@ -1,0 +1,5 @@
+<map id="LaserArc::Update" name="LaserArc::Update">
+<area shape="rect" id="node2" href="$class_laser_arc.html#ac024059e90a475e4777642bf5466b94e" title="Inherited from movingEntity. Increments the LaserArc radius and calculates the position of the LaserA..." alt="" coords="153,5,296,32"/>
+<area shape="rect" id="node4" href="$classmoving_entity.html#a5ee8ebb56466ae1cb4debdd09bb7222a" title="Function to set the number of lives remaining. " alt="" coords="164,56,285,83"/>
+<area shape="rect" id="node3" href="$class_laser_arc.html#a2157a719161c3e73e0ab6c56e2900c9c" title="Inherited from movingEntity. " alt="" coords="344,5,461,32"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="EnemyBullet::Update" name="EnemyBullet::Update">
+<area shape="rect" id="node2" href="$class_enemy_bullet.html#aaecced4f65a27fadf088d34ff0482f74" title="Inherited from movingEntity. Increments the EnemyBullet radius and calculates the position of the Ene..." alt="" coords="169,31,328,57"/>
+<area shape="rect" id="node3" href="$class_enemy_bullet.html#ae84d56aabf2feea633127b2a815a9866" title="Inherited from movingEntity. " alt="" coords="376,5,509,32"/>
+<area shape="rect" id="node4" href="$classmoving_entity.html#a5ee8ebb56466ae1cb4debdd09bb7222a" title="Function to set the number of lives remaining. " alt="" coords="382,56,503,83"/>
+</map>

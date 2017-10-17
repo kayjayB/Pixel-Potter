@@ -1,0 +1,5 @@
+<map id="LaserGenerator::Update" name="LaserGenerator::Update">
+<area shape="rect" id="node2" href="$class_laser_generator.html#ad74721b74f9c827cf09a4090da97adc3" title="Inherited from movingEntity. Increments the LaserArc radius and calculates the position of the LaserA..." alt="" coords="183,5,320,47"/>
+<area shape="rect" id="node4" href="$classmoving_entity.html#a5ee8ebb56466ae1cb4debdd09bb7222a" title="Function to set the number of lives remaining. " alt="" coords="191,71,312,98"/>
+<area shape="rect" id="node3" href="$class_laser_generator.html#a438e41aec460103b191463232052f5a1" title="Inherited from movingEntity. " alt="" coords="368,13,515,39"/>
+</map>

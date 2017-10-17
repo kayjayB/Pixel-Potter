@@ -1,0 +1,7 @@
+<map id="Player" name="Player">
+<area shape="rect" id="node2" href="$class_moving_shooting_entity.html" title="MovingShootingEntity class &#45; represents any entities that can both move and shoot. Inherits from the movingEntity class. " alt="" coords="115,951,249,1131"/>
+<area shape="rect" id="node3" href="$classmoving_entity.html" title="movingEntity class &#45; manages properties of all game entities. These entities can be categorised as an..." alt="" coords="119,532,231,888"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="23,322,88,399"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,145,105,237"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="185,153,277,230"/>
+</map>

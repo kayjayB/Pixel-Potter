@@ -1,0 +1,7 @@
+<map id="Enemy::getNumberofEnemiesKilled" name="Enemy::getNumberofEnemiesKilled">
+<area shape="rect" id="node2" href="$class_window.html#aa4d7f910a810957efa00c854fad5bdc2" title="Function that draws the reqired text to the screen. " alt="" coords="209,13,313,39"/>
+<area shape="rect" id="node3" href="$class_window.html#a2baaa0af83bbf036ae7d268cba434633" title="Function to draw the entities to the screen and set the background. The function clears the SFML wind..." alt="" coords="361,13,448,39"/>
+<area shape="rect" id="node4" href="$class_game.html#a0897730fc9fed789f6c0f11d21a0c14a" title="Function that renders the movingEntity objects to the screen. The function loops through the vector o..." alt="" coords="496,13,584,39"/>
+<area shape="rect" id="node5" href="$class_game.html#aaa0ff18388b32b4e6198835a35e000d3" title="Function ot control the game loop. The function calls the Update, Render, RestartClock functions..." alt="" coords="632,13,736,39"/>
+<area shape="rect" id="node6" href="$class_game.html#ad59df6562a58a614fda24622d3715b65" title="Default Constructor. Creates a Game object. " alt="" coords="784,13,867,39"/>
+</map>

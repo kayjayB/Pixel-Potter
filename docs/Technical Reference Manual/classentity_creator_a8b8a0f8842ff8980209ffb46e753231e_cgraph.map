@@ -1,0 +1,4 @@
+<map id="entityCreator::CreateLaser" name="entityCreator::CreateLaser">
+<area shape="rect" id="node2" href="$class_laser_arc.html#a853aaf71c6d37af87cd9bd573c121369" title="Inherited from movingEntity. " alt="" coords="218,5,325,32"/>
+<area shape="rect" id="node3" href="$class_laser_generator.html#ae3a5e1601718646df4c55d076adfca99" title="Static function. " alt="" coords="193,57,349,98"/>
+</map>

@@ -1,0 +1,38 @@
+<map id="Game::GameLoop" name="Game::GameLoop">
+<area shape="rect" id="node2" href="$class_window.html#aba7b260fabe834793c8801a572e0a3ab" title="Function that checks the status of the SFML window (open or closed) " alt="" coords="166,215,261,241"/>
+<area shape="rect" id="node3" href="$class_game.html#a0897730fc9fed789f6c0f11d21a0c14a" title="Function that renders the movingEntity objects to the screen. The function loops through the vector o..." alt="" coords="169,265,257,292"/>
+<area shape="rect" id="node10" href="$class_game.html#ad4815ee928339191d9a317685f0320f9" title="Function that calls the Clock RestartClock function. " alt="" coords="157,316,269,343"/>
+<area shape="rect" id="node11" href="$class_game.html#a1c5373c68261c54aff03e6abe40fee52" title="Function that updates all of the entities involved in the game. This includes calling the functions t..." alt="" coords="170,480,257,507"/>
+<area shape="rect" id="node4" href="$class_window.html#a2baaa0af83bbf036ae7d268cba434633" title="Function to draw the entities to the screen and set the background. The function clears the SFML wind..." alt="" coords="359,125,445,152"/>
+<area shape="rect" id="node5" href="$class_window.html#aa4d7f910a810957efa00c854fad5bdc2" title="Function that draws the reqired text to the screen. " alt="" coords="559,49,663,76"/>
+<area shape="rect" id="node8" href="$class_window.html#a8d6a866d6aba7c1a06755b1146d82bba" title="Function that draws the entity to the screen. " alt="" coords="567,100,654,127"/>
+<area shape="rect" id="node9" href="$class_window.html#a8d4bf9571a74b652b001dcf6001704ec" title="Function to display the SFML window. " alt="" coords="559,151,663,177"/>
+<area shape="rect" id="node6" href="$class_enemy.html#a78bbf9ff8ee84d7174a9b0a024af7143" title="Static function. " alt="" coords="745,57,901,98"/>
+<area shape="rect" id="node7" href="$class_window.html#a2cb6dd827276ca262de949447a06ef76" title="Function that sets up the text to be drawn on the screen. " alt="" coords="771,5,876,32"/>
+<area shape="rect" id="node12" href="$class_window.html#a51e3f53251f6eb5c3b2e2d0ca32b4681" title="Function that converts the keyboard input to a userInput type The function is used to seperate the lo..." alt="" coords="354,303,450,329"/>
+<area shape="rect" id="node13" href="$classentity_creator.html#a59633ff8eb0268d5dddbdf967eefc0ec" title="Function to create all of the various enemy entities. " alt="" coords="346,353,458,380"/>
+<area shape="rect" id="node16" href="$class_enemy.html#a152fdbc9618d657fe87da3dfe7b55ea2" title="Static function. " alt="" coords="745,367,901,409"/>
+<area shape="rect" id="node17" href="$class_enemy.html#afd576d2fbf3d0f8065db633cb84be4cb" title="Static function. " alt="" coords="735,444,912,471"/>
+<area shape="rect" id="node23" href="$class_game.html#ae1349a38ec01f7c8d892bf088c94a9a1" title="Function that calls the Clock GetTime function. " alt="" coords="355,505,449,532"/>
+<area shape="rect" id="node24" href="$class_collision_manager.html#a50d3f8c6cebdb8f3c83b3857fa08ce5c" title="Function to check all the collisions of the required entities. " alt="" coords="317,556,487,583"/>
+<area shape="rect" id="node26" href="$class_collision_manager.html#a816c0bffd69273a158a0f269bc764b1e" title="Function to delete entities that have collided, or are no longer valid. " alt="" coords="337,607,467,649"/>
+<area shape="rect" id="node27" href="$class_window.html#ae40eafa3c653381dd48c4f5beb686440" title="Function that gets the current state of the game and calls the win/lose screen. " alt="" coords="547,724,674,751"/>
+<area shape="rect" id="node28" href="$class_window.html#a561f15161f009cf80444cd5743a4df10" title="Function that gets the current state of the game. " alt="" coords="338,673,466,700"/>
+<area shape="rect" id="node33" href="$class_game.html#abb3fb4b64092158706e7723cf8268e6a" title="Function that resets all the necessary variables upon restarting a new game. " alt="" coords="361,775,443,801"/>
+<area shape="rect" id="node37" href="$class_window.html#a21d019abc2770a2fbe97b965da0122a7" title="Function that sets the number of Player lives remaining. " alt="" coords="328,252,476,279"/>
+<area shape="rect" id="node14" href="$classentity_creator.html#a5a01a8afd2acdbc641f5b267a2f335b2" title="Function to create Asteroid entities. " alt="" coords="535,303,687,329"/>
+<area shape="rect" id="node15" href="$classentity_creator.html#a846b724d510c32eb1cd2e412f953343d" title="Function to create Enemy entities. " alt="" coords="538,353,683,380"/>
+<area shape="rect" id="node18" href="$classentity_creator.html#a8b8a0f8842ff8980209ffb46e753231e" title="Function to create LaserGenerator and LaserArc entities. " alt="" coords="541,201,681,228"/>
+<area shape="rect" id="node21" href="$classentity_creator.html#a3e22b13730763bd85a79f882cd2898f2" title="Function to create Satellite entities. " alt="" coords="535,252,686,279"/>
+<area shape="rect" id="node19" href="$class_laser_arc.html#a853aaf71c6d37af87cd9bd573c121369" title="Inherited from movingEntity. " alt="" coords="770,201,877,228"/>
+<area shape="rect" id="node20" href="$class_laser_generator.html#ae3a5e1601718646df4c55d076adfca99" title="Static function. " alt="" coords="745,135,901,177"/>
+<area shape="rect" id="node22" href="$class_satellite.html#ab4012c85eb5fa077a40ae3b2c6aacd98" title="Static function. " alt="" coords="743,253,904,294"/>
+<area shape="rect" id="node25" href="$class_collision_manager.html#a71a0b0ab7ceac9407310be6c5ec141f4" title="Function to check if two entities have collided. " alt="" coords="539,556,682,583"/>
+<area shape="rect" id="node29" href="$class_window.html#aa75c071f352ce773f6ccfc8d873c99f0" title="Function that displays the win or lose screen. " alt="" coords="537,673,684,700"/>
+<area shape="rect" id="node30" href="$class_window.html#a6c50108176dbb2ca3bac34d445a6aa12" title="Function to clear the SFML window prior to drawing. " alt="" coords="767,699,879,725"/>
+<area shape="rect" id="node31" href="$class_window.html#a192a3d8c46160f574811645ef24caa4c" title="Function that ends the splashscreen by either starting the game or closing the window. " alt="" coords="783,648,864,675"/>
+<area shape="rect" id="node32" href="$class_window.html#add70a8a06ab990b02e9e77a4fe5ba5ac" title="Function to close the SFML window. " alt="" coords="960,648,1083,675"/>
+<area shape="rect" id="node34" href="$class_enemy.html#a83527a4b5ae6aa4a4883005d7e21c700" title="Static function Resets the number of enemies alive and killed, and the total number of enemies..." alt="" coords="549,775,673,801"/>
+<area shape="rect" id="node35" href="$class_satellite.html#a3ff70c4ec4cf9a7313bd3a9d4cff84f5" title="Static function Resets the number of Satellite entities alive and killed, and the total number of Sat..." alt="" coords="546,825,675,852"/>
+<area shape="rect" id="node36" href="$classentity_creator.html#a8743e87edeebe6d8a8ca3b71429fdb56" title="Function to reset the required variables upon restarting the game. " alt="" coords="557,876,664,903"/>
+</map>

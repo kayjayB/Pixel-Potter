@@ -1,0 +1,6 @@
+<map id="MovingShootingEntity" name="MovingShootingEntity">
+<area shape="rect" id="node3" href="$class_enemy.html" title="Enemy class &#45; represents the voldemort enemies Inherits from the MovingShootingEntity class..." alt="" coords="5,696,164,1140"/>
+<area shape="rect" id="node4" href="$class_player.html" title="Player class &#45; represents the harry potter player Inherits from the MovingShootingEntity class..." alt="" coords="188,755,312,1081"/>
+<area shape="rect" id="node5" href="$class_satellite.html" title="Satellite class &#45; represents the dementor Satellites. Inherits from MovingShootingEntity class..." alt="" coords="337,667,497,1169"/>
+<area shape="rect" id="node2" href="$classmoving_entity.html" title="movingEntity class &#45; manages properties of all game entities. These entities can be categorised as an..." alt="" coords="194,5,306,391"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Enemy::getPosition" name="Enemy::getPosition">
+<area shape="rect" id="node2" href="$class_enemy.html#abb74311f97f53d7f4a837cea767c7b40" title="Inherited from MovingShootingEntity. Increments the enemy radius and calculates the position of the E..." alt="" coords="161,5,295,32"/>
+<area shape="rect" id="node4" href="$_pixel_potter_tests_8cpp.html#aff55238f0b42a8d4109f03a59ac14f7e" title="TEST_SUITE" alt="" coords="481,31,564,57"/>
+<area shape="rect" id="node3" href="$class_enemy.html#aa1df222c857f5c6afbade0060a6c55b2" title="Inherited from MovingShootingEntity. Updates the current position of the Enemy. " alt="" coords="343,5,433,32"/>
+</map>

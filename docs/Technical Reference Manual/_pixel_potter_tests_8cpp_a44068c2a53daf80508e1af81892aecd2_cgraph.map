@@ -1,0 +1,10 @@
+<map id="TEST_SUITE" name="TEST_SUITE">
+<area shape="rect" id="node2" href="$class_player.html#aa14ae742c784c67003a548de27c94950" title="Inherited from MovingShootingEntity. " alt="" coords="159,5,255,32"/>
+<area shape="rect" id="node3" href="$class_player.html#a8d08d22ded12d1a116ed4d821e7a5916" title="Function returning an integer based on the required movement of the player. " alt="" coords="136,56,279,83"/>
+<area shape="rect" id="node4" href="$class_player.html#a6cac5d9bff572c1430235fe7928ecd57" title="Inherited from MovingShootingEntity. Updates the current position of the Player. " alt="" coords="163,107,251,133"/>
+<area shape="rect" id="node5" href="$class_player.html#ad0df136b95cea359cb7e9170a17a03ec" title="Inherited from MovingShootingEntity. " alt="" coords="533,67,639,93"/>
+<area shape="rect" id="node6" href="$class_player.html#a1624e0acdcea611c488744f922fe132a" title="Inherited from MovingShootingEntity. Generates PlayerBullet entities. " alt="" coords="335,157,449,184"/>
+<area shape="rect" id="node9" href="$class_player.html#ada045cd5e1d86ab886a3856c6ce73951" title="Inherited from MovingShootingEntity. Increments or decrements the Player angle and calculates the pos..." alt="" coords="327,107,457,133"/>
+<area shape="rect" id="node7" href="$class_satellite.html#a889192b9d2af688ebe3358561b9edb16" title="Static function. " alt="" coords="505,139,667,181"/>
+<area shape="rect" id="node8" href="$class_satellite.html#acb2d69b2fbab59755f95378f2283b364" title="Static function. " alt="" coords="515,205,657,246"/>
+</map>

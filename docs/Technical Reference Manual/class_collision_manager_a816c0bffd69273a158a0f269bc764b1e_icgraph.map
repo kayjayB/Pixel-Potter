@@ -1,0 +1,6 @@
+<map id="CollisionManager::entityCleanUp" name="CollisionManager::entityCleanUp">
+<area shape="rect" id="node2" href="$_pixel_potter_tests_8cpp.html#ad8a94f7295cd14b9686e1d9c7cc36760" title="TEST_SUITE" alt="" coords="185,5,267,32"/>
+<area shape="rect" id="node3" href="$class_game.html#a1c5373c68261c54aff03e6abe40fee52" title="Function that updates all of the entities involved in the game. This includes calling the functions t..." alt="" coords="183,56,269,83"/>
+<area shape="rect" id="node4" href="$class_game.html#aaa0ff18388b32b4e6198835a35e000d3" title="Function ot control the game loop. The function calls the Update, Render, RestartClock functions..." alt="" coords="317,56,421,83"/>
+<area shape="rect" id="node5" href="$class_game.html#ad59df6562a58a614fda24622d3715b65" title="Default Constructor. Creates a Game object. " alt="" coords="469,56,552,83"/>
+</map>

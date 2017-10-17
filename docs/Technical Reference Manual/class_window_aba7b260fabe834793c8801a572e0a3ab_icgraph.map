@@ -1,0 +1,4 @@
+<map id="Window::IsDone" name="Window::IsDone">
+<area shape="rect" id="node2" href="$class_game.html#aaa0ff18388b32b4e6198835a35e000d3" title="Function ot control the game loop. The function calls the Update, Render, RestartClock functions..." alt="" coords="148,5,252,32"/>
+<area shape="rect" id="node3" href="$class_game.html#ad59df6562a58a614fda24622d3715b65" title="Default Constructor. Creates a Game object. " alt="" coords="300,5,383,32"/>
+</map>

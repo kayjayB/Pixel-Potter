@@ -1,0 +1,3 @@
+<map id="EnemyBullet::calculatePosition" name="EnemyBullet::calculatePosition">
+<area shape="rect" id="node2" href="$class_enemy_bullet.html#a7dfa82ca818cfac0606f68bc90748807" title="Inherited from movingEntity. Updates the current position of the EnemyBullet. " alt="" coords="212,5,328,32"/>
+</map>

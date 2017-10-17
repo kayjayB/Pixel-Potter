@@ -1,0 +1,5 @@
+<map id="Asteroid::Update" name="Asteroid::Update">
+<area shape="rect" id="node2" href="$class_asteroid.html#a1392b894a3a388def7afd2aa5de26faf" title="Inherited from movingEntity. Increments the asteroid radius and calculates the position of the astero..." alt="" coords="149,5,288,32"/>
+<area shape="rect" id="node4" href="$classmoving_entity.html#a5ee8ebb56466ae1cb4debdd09bb7222a" title="Function to set the number of lives remaining. " alt="" coords="158,56,279,83"/>
+<area shape="rect" id="node3" href="$class_asteroid.html#a8c4f3a8e5dfa6b7fda947ac8d343f034" title="Inherited from movingEntity. " alt="" coords="336,5,449,32"/>
+</map>
